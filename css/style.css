@@ -12,7 +12,9 @@ body{
 }
 
 @media screen and (max-width: 720px){
-    .hint{display: none;}
+    .hint{
+        display: none;
+    }
     .header{
         display:flex;
         flex-direction: column;
@@ -36,7 +38,9 @@ body{
         justify-content: center;
         margin-top: 40px;
     }
-    .weather img{width:200px;}
+    .weather img{
+        width:200px;
+    }
     .temper{
         display: flex;
         flex-direction: column;
