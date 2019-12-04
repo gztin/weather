@@ -42,7 +42,9 @@ body{
         flex-direction: column;
         color:#fff;
         margin-left: 20px;
-    } 
+    }
+    .dataC,.dataW{font-size: 2em;}
+    .dataW{border-top:solid 1px #fff;margin-top:20px;padding-top:20px;}
 }
 @media screen and (min-width: 721px){
     .hint{display: block;margin:20% auto;text-align: center;color:#fff;font-size: 1.5em;}
