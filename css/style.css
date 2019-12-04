@@ -1,0 +1,42 @@
+@charset "utf-8";
+/* CSS Document */
+body{
+    background: #c60;
+    font-family:微軟正黑體,Arial,Helvetica,sans-serif;
+}
+
+@media screen and (max-width: 720px){
+    .hint{display: none;}
+    .header{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .place{
+        font-size: 4.5em;
+        color:#fff;
+        margin-top:40px;
+    }
+    #time{
+        font-size: 1em;
+        color:#fff;
+    }
+    .weather{
+        display: flex;
+        flex-direction: row;
+    }
+    .weather img{width:200px;}
+    .temper{
+        display: flex;
+        flex-direction: column;
+        color:#fff;
+        margin-left: 20px;
+    } 
+}
+@media screen and (min-width: 721px){
+    .hint{display: block;margin:20% auto;text-align: center;color:#fff;font-size: 1.5em;}
+    .header,.content{
+        display:none;
+    }
+}
