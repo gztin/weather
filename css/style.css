@@ -25,6 +25,8 @@ body{
     .weather{
         display: flex;
         flex-direction: row;
+        justify-content: center;
+        margin-top: 40px;
     }
     .weather img{width:200px;}
     .temper{
