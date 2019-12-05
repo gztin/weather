@@ -52,6 +52,8 @@
                     :src="src" alt="">
                     <h1>{{title}}</h1>
                     <div class="description">
+                    <!-- 如果不是第一天就秀出來-->
+                    <!-- index != 0 -->
                         <a 
                           href="#"
                           class="left"
@@ -63,6 +65,8 @@
                             <span class="type">{{menu[index].type}}</span>
                             <a class="infContent">{{menu[index].title}}</a>
                         </div>
+                        <!-- 如果不是最後一天就秀出來-->
+                        <!-- index != this.menu.length -1 -->
                         <a 
                           href="#"
                           class="right"
@@ -91,10 +95,14 @@
         let vm = new Vue({
             el:'#app',
             data:data,
-            compute:{
-                nowData(){return this.menu[this.index]}
-                total(){return this.menu.length}
-            }
+            computed:{
+                firstDay(){
+                    return this.menu[this.index]
+                },
+                total(){
+                    return this.menu.length
+                }
+            },
             methods:{
                 changeIndex(change){
                     this.index = (this.index + change + this.total) % this.total
