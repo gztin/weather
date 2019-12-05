@@ -26,13 +26,16 @@
 </body>
 <script src="./js/time.js"></script>
 <script>
-    fetch('https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-063?Authorization=CWB-157944DE-8E78-4585-8F55-6BFD77881E42&format=JSON&locationName=')
+    const name = 'oxxo';
+    const age = 18;
+     // 有興趣的可以使用下方的網址測試
+    const uri = `https://script.google.com/macros/s/AKfycbw5PnzwybI_VoZaHz65TpA5DYuLkxIF-HUGjJ6jRTOje0E6bVo/exec?name=${name}&age=${age}`;
+
+    fetch(uri, {method:'GET'})
     .then(res => {
-        return res.json();
+        return res.text();   // 使用 text() 可以得到純文字 String
     }).then(result => {
-        let city = result.cwbopendata.location[14].parameter[0].parameterValue;
-        let temp = result.cwbopendata.location[14].weatherElement[3].elementValue.value;
-        console.log(`${city}的氣溫為 ${temp} 度 C`); // 得到 高雄市的氣溫為 29.30 度 C
+        console.log(result); // 得到「你的名字是：oxxo，年紀：18 歲。」
     });
 </script>
 </html>
