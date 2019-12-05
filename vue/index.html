@@ -55,23 +55,25 @@
                     <!-- 如果不是第一天就秀出來-->
                     <!-- index != 0 -->
                         <a 
+                          v-if="index > 0"
+                          v-on:click='changeIndex(-1)'   
                           href="#"
                           class="left"
-                          :href="menu[index].link"
-                          v-on:click='changeIndex(-1)'
+                          :href="today.link"
                         ></a>
                         <div class="menuItem">
                             <span class="number">{{index+1}}</span>
-                            <span class="type">{{menu[index].type}}</span>
-                            <a class="infContent">{{menu[index].title}}</a>
+                            <span class="type">{{today.type}}</span>
+                            <a class="infContent">{{today.title}}</a>
                         </div>
                         <!-- 如果不是最後一天就秀出來-->
-                        <!-- index != this.menu.length -1 -->
+                        <!-- index != total -->
                         <a 
+                          v-if="index < total-1"
+                          v-on:click='changeIndex(1)'   
                           href="#"
                           class="right"
-                          :href="menu[index].link"
-                          v-on:click='changeIndex(1)'
+                          :href="today.link"
                         ></a>
                     </div>
                 </div>
@@ -96,7 +98,7 @@
             el:'#app',
             data:data,
             computed:{
-                firstDay(){
+                today(){
                     return this.menu[this.index]
                 },
                 total(){
