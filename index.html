@@ -30,9 +30,7 @@
     .then(res => {
         return res.json();
     }).then(result => {
-        let city = result.cwbopendata.location[14].parameter[0].parameterValue;
-        let temp = result.cwbopendata.location[14].weatherElement[3].elementValue.value;
-        console.log(`${city}的氣溫為 ${temp} 度 C`); // 得到 高雄市的氣溫為 29.30 度 C
+        console.log(`${locationsName}的氣溫為`); // 得到 高雄市的氣溫為 29.30 度 C
     });
 </script>
 </html>
