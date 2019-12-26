@@ -420,7 +420,7 @@
         height:320px;
     }
     .content:nth-child(7){
-        height:260px;
+        height:60px;
     }
     .content > .container > .title-rent{
         background: url("../img/title-1.png")no-repeat;
