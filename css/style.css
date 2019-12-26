@@ -420,6 +420,9 @@
         height:320px;
     }
     .content:nth-child(7){
+        height:460px;
+    }
+    .content:nth-child(7){
         height:60px;
     }
     .content > .container > .title-rent{
