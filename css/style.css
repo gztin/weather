@@ -1337,7 +1337,7 @@
         height: 80px;
     }
     .hintTitle{
-        padding-top: 50px;
+        
         display:flex;
         flex-direction: row;
         justify-content: center;
