@@ -24,7 +24,7 @@
                     <div class="people animated bounceInDown"></div>
                 </div>
                 <div class="cnt">
-                    <div class="slogan" animated bounceIn ></div>
+                    <div class="slogan animated bounceIn " ></div>
                     <div class="link">
                         <a class="agent" href="#"></a>
                         <a class="gotoBank" href="#"></a>
@@ -48,7 +48,7 @@
                     </div>
                     <div class="cnt">
                         <div class="cnt-b">
-                            <div class="cnt-b-number animated bounceInUp">
+                            <div class="cnt-b-number animated bounceInUp ">
                                 <div class="cnt-b-number1  "></div>
                                 <div class="cnt-b-number2 "></div>
                                 <div class="cnt-b-number3 "></div>
@@ -61,7 +61,7 @@
                         <div class="cnt-text">有了「Y世代蛋黃貸」，Y先生現在就可以購買總價2,500萬元的蛋黃區優質房產，前期還款負擔也大為減輕，提早實現精華區置產夢想！</div>
                         <div class="aarow-right"></div>
                         <div class="cnt-c">
-                            <div class="cnt-c-tower animated zoomIn"></div>
+                            <div class="cnt-c-tower animated zoomIn "></div>
                         </div>
                     </div>
                 </div>
@@ -121,10 +121,10 @@
         <div class="content" style="background: #dbdcdc;">
             <div class="container">
                 <div class="hintTitle">
-                    <div>注意事項</div><div class="tra"></div>
+                    <div>注意事項</div><div class="shap tra"></div>
                 </div>
                 
-                <div class="hintContent">
+                <div class="hintContent" style="display: none;">
                     <ul>
                         <li style="color:#bb0000">本產品為遞增還本，於剩餘一半貸款期間時仍有大額之剩餘貸款本金，應即早規劃還款資金。</li>
                         <li>本活動限於109年3月31日前進件，方可享有本優惠。</li>
@@ -146,5 +146,12 @@
             </div>
         </div> 
     </div>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $('.hintTitle').click(function(){
+             $('.shap').toggleClass('rotated');
+             $('.hintContent').slideToggle();
+        });
+    </script>
 </body>
 </html>
