@@ -26,16 +26,16 @@
 </body>
 <script src="./js/time.js"></script>
 <script>
-    const name = 'oxxo';
-    const age = 18;
-     // 有興趣的可以使用下方的網址測試
-    const uri = `https://script.google.com/macros/s/AKfycbw5PnzwybI_VoZaHz65TpA5DYuLkxIF-HUGjJ6jRTOje0E6bVo/exec?name=${name}&age=${age}`;
-
-    fetch(uri, {method:'GET'})
-    .then(res => {
-        return res.text();   // 使用 text() 可以得到純文字 String
-    }).then(result => {
-        console.log(result); // 得到「你的名字是：oxxo，年紀：18 歲。」
-    });
+    //每一秒跑一張圖 大於目前城鎮數量從0開始算
+    function ShowWaeather() {
+        if (i>=cityLenght) {
+            i = 0;
+        }
+        $("#todayWeather").empty();
+        $("#otherdayWeather").empty();
+        SetWeeaTher(word[0].City[i].ID);
+        setTimeout("ShowWaeather()", 5000);
+    };
+    ShowWaeather();
 </script>
 </html>

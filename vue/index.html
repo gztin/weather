@@ -91,13 +91,13 @@
         let vm = new Vue({
             el:'#app',
             data:data,
-            compute:{
-                nowData(){return this.menu[this.index]}
-                total(){return this.menu.length}
-            }
+            // compute:{
+            //     nowData(){return this.menu[this.index]}
+            //     total(){return this.menu.length}
+            // }
             methods:{
                 changeIndex(change){
-                    this.index = (this.index + change + this.total) % this.total
+                    this.index = (this.index + change + this.total) % this.total;
                 }
             }
         })
