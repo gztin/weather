@@ -1,0 +1,36 @@
+#app{
+    width:100%;
+    height: auto;
+}
+.container{
+    width:500px;
+    margin:100px auto;
+    text-align: center;
+}
+.left{
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 17.3px 10px 0;
+    margin-right: 40px;
+    border-color: transparent #007bff transparent transparent;
+}
+.right{
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 0 10px 17.3px;
+    margin-left: 40px;
+    border-color: transparent transparent transparent #007bff;
+}
+.description{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.menuItem{
+    display: flex;
+    flex-direction: row;
+}
+.number{margin-right: 20px;}
+.type{margin-right: 20px;}

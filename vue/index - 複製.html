@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>vue</title>
+</head>
+<style>
+    #app{
+        width:100%;
+        height: auto;
+    }
+    .container{
+        width:500px;
+        margin:100px auto;
+        text-align: center;
+    }
+    .left{
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 10px 17.3px 10px 0;
+        margin-right: 40px;
+        border-color: transparent #007bff transparent transparent;
+    }
+    .right{
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 10px 0 10px 17.3px;
+        margin-left: 40px;
+        border-color: transparent transparent transparent #007bff;
+    }
+    .description{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .menuItem{
+        display: flex;
+        flex-direction: row;
+    }
+    .number{margin-right: 20px;}
+    .type{margin-right: 20px;}
+</style>
+<body>
+    <div id="app">
+    	<section>
+            <div class="container">
+                <div class="title">
+                    <img 
+                    class="logo"
+                    :src="src" alt="">
+                    <h1>{{title}}</h1>
+                    <div class="description">
+                        <a 
+                          href="#"
+                          class="left"
+                          :href="menu[index].link"
+                          v-on:click='changeIndex(-1)'
+                        ></a>
+                        <div class="menuItem">
+                            <span class="number">{{index+1}}</span>
+                            <span class="type">{{menu[index].type}}</span>
+                            <a class="infContent">{{menu[index].title}}</a>
+                        </div>
+                        <a 
+                          href="#"
+                          class="right"
+                          :href="menu[index].link"
+                          v-on:click='changeIndex(1)'
+                        ></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script  src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js'></script>
+    <script>
+        let data = {
+            title:'學會怎麼串接API',
+            src:'./img/images.jpg',
+            index:0,
+            menu:[
+                {type:'測試內容A',title:'測試內容AAA',link:'javascript:;'},
+                {type:'測試內容B',title:'測試內容BBB',link:'javascript:;'},
+                {type:'測試內容C',title:'測試內容CCC',link:'javascript:;'},
+                {type:'測試內容D',title:'測試內容DDD',link:'javascript:;'},
+                {type:'測試內容E',title:'測試內容EEE',link:'javascript:;'}
+            ]
+        }
+        let vm = new Vue({
+            el:'#app',
+            data:data,
+            // compute:{
+            //     nowData(){return this.menu[this.index]}
+            //     total(){return this.menu.length}
+            // }
+            methods:{
+                changeIndex(change){
+                    this.index = (this.index + change + this.total) % this.total;
+                }
+            }
+        })
+    </script>
+</body>
+</html>
