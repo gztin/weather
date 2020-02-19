@@ -170,7 +170,7 @@ day3:下雨
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        height: auto;
+        height: 30%;
     }
     .placeInf{
         display: flex;
@@ -391,7 +391,7 @@ day3:下雨
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        height: auto;
+        height: 30%;
     }
     .placeInf{
         display: flex;

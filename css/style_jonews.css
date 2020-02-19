@@ -60,12 +60,13 @@
             color:#fff;
         }
         .indexLink1{
-            margin-bottom: 10%;
-            margin-top: 10%;
+            margin-bottom: 5%;
             background: #ff9a17;
+            height: 60px;
         }
         .indexLink2{
             background: #16222c;
+            height: 60px;
         }
         /* 搭乘日期 */
         .bg{
@@ -428,12 +429,13 @@
             color:#fff;
         }
         .indexLink1{
-            margin-bottom: 10%;
-            margin-top: 10%;
+            margin-bottom: 5%;
             background: #ff9a17;
+            height: 60px;
         }
         .indexLink2{
             background: #16222c;
+            height: 60px;
         }
         /* end */
     }
@@ -468,12 +470,13 @@
             color:#fff;
         }
         .indexLink1{
-            margin-bottom: 10%;
-            margin-top: 10%;
+            margin-bottom: 5%;
             background: #ff9a17;
+            height: 60px;
         }
         .indexLink2{
             background: #16222c;
+            height: 60px;
         }
         
     }
@@ -506,9 +509,8 @@
             background: #ce3337;
         }
         .indexLink2{
-            margin-bottom: 10%;
-            margin-top: 10%;
             background: #16222c;
+            height: 60px;
         }
         .rotated { 
             transform:rotate(180deg); 
