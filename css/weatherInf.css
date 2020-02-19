@@ -103,6 +103,7 @@ html, body {
 .status{
     font-size: 15px;
     color:#0f0909;
+    flex:1;
 }
 .weatherIcon{
     border-right: 1px solid #afafaf;
@@ -173,6 +174,8 @@ day3:下雨
     .placeInf{
         display: flex;
         justify-content: center;
+        flex: 1;
+        align-items: center;
     }
     .dayBlock{
         flex:1;
@@ -276,6 +279,7 @@ day3:下雨
     .status{
         display: flex;
         justify-content: center;
+        flex:1;
     }
     .weatherIcon{
         border-right: 1px solid #afafaf;
@@ -325,9 +329,9 @@ day3:下雨
     .index-day2,
     .index-day3,
     .index-day4{
-        width: 120px;
-        height: 120px;
-        margin: 5%;
+        width: 35%;
+        height: auto;
+        margin-top: 10px;
         display: block;
         background-size: contain;
     }
@@ -391,6 +395,8 @@ day3:下雨
     .placeInf{
         display: flex;
         justify-content: center;
+        flex: 1;
+        align-items: center;
     }
     .dayBlock{
         flex:1;
@@ -487,6 +493,7 @@ day3:下雨
     .status{
         font-size: 15px;
         color:#0f0909;
+        flex:1;
     }
     .weatherIcon{
         border-right: 1px solid #afafaf;
@@ -519,9 +526,9 @@ day3:下雨
     .index-day2,
     .index-day3,
     .index-day4{
-        width: 120px;
-        height: 120px;
-        margin: 5%;
+        width: 35%;
+        height: auto;
+        margin-top: 10px;
         display: block;
         background-size: contain;
     }
