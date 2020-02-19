@@ -110,18 +110,7 @@ $('#newsGroup').on('click','li',function(){
   var geturl = $('#newsGroup > li').eq(y).find('a').attr("href");
   console.log(geturl);
   document.getElementById("popView").src = geturl;
-  $('.popView').css('display','flex');
-  
-});
+  setTimeout(function(){$('.popView').css('display','flex');},1000);
 
-// 複製連結
-$('#newsGroup').on('click','span.newslink',function(){
-  //  alert("aaa");
-  function copyUrl2(){
-    var urlaaa = $('.newsContent > a').attr('href');
-    urlaaa.select(); 
-    document.execCommand("Copy");
-    alert("OK。");
-  }
-  copyUrl2();
+
 });

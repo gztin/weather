@@ -66,9 +66,11 @@
                 <span :class="item.className" v-for="item in newsCategory">{{item.title}}</span>
             </div>
         </div>
-        <iframe id="popView" class="popView" src="link" name="mainframe" id="mainframe"
-            width="100%" marginwidth="0" marginheight="0" scrolling="No" frameborder="0">
-        </iframe>
+        <div class="popView">
+            <iframe id="popView" src="link" name="mainframe" id="mainframe"
+                width="100%" height="auto" marginwidth="0" marginheight="0" scrolling="No" frameborder="0">
+            </iframe>
+        </div>
         <div class="newsList">
             <ul id="newsGroup"></ul>
         </div>
