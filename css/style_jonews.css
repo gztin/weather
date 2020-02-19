@@ -152,7 +152,9 @@
         75% {margin-top:-40px;}
         100% {margin-top:-80px;}
     }
-    
+    @media screen and (min-width:501px){
+        #news,#weather,.sideMenu,.loading{display: none;}
+    }
     @media screen and (max-width:500px) { 
         select{
             appearance:none;
