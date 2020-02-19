@@ -5,7 +5,9 @@
         height:100vh;
         font-family: Microsoft JhengHei,Noto Sans TC,sans-serif;
     }
-    
+    @media all and (orientation : landscape) {
+        #news,#weather,.sideMenu,.loading{display: none;}
+    }
     /* pc view */
     @media screen and (min-width:1024px){
         .hint{
