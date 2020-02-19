@@ -8,7 +8,6 @@
     <link rel="bookmark" href="/favicon.ico"/>
     <link rel="stylesheet" href="./css/style_jonews.css?v=3">
     <link rel="stylesheet" href="./css/weatherInf.css?v=4">
-    <script data-ad-client="ca-pub-8237624738906861" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 
 <body>
@@ -56,6 +55,7 @@
     </div>
     <div class="sideMenuBg"></div>
     <div id="news" class="news">
+
         <div class="area-title">
             <span><i class="fas fa-bars"></i></span>
             <p class="title">{{title}}</p>
@@ -66,6 +66,9 @@
                 <span :class="item.className" v-for="item in newsCategory">{{item.title}}</span>
             </div>
         </div>
+        <iframe id="popView" class="popView" src="link" name="mainframe" id="mainframe"
+            width="100%" marginwidth="0" marginheight="0" scrolling="No" frameborder="0">
+        </iframe>
         <div class="newsList">
             <ul id="newsGroup"></ul>
         </div>

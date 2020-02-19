@@ -288,6 +288,18 @@
             background: #000;
             color: #fff;
         }
+        /*pop view*/
+        .popView{
+            position: absolute;
+            margin-top: -110px;
+            width: 100%;
+            height: 86%;
+            margin-top: 27%;
+            overflow-y: auto;
+            display: none;
+        }
+        /* end */
+
         .title{
             font-size:30px;
             font-weight:bold;
