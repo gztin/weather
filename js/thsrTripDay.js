@@ -69,6 +69,7 @@ $('.bg').click(function() {
 // 設定出發日期
 // 如果選擇其他日期，則可以選擇所有班次時間
 $('ul.list > li').click(function() {
+    var x =$(this).index();
     if(x==0){
         console.log(x);
         var dateObj = new Date();

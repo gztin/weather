@@ -1,9 +1,6 @@
 // // JSON
 $('.sendMsg').click(function() {
-    
-    // var startStation = $('.start').val();
     var startStation = $('.start option:selected').text();
-    // var endStation = $('.end ').val();
     var endStation = $('.end option:selected').text();
     console.log(startStation);
     console.log(endStation);
@@ -17,7 +14,6 @@ $('.sendMsg').click(function() {
     else{
         $('.waiting').css('display','flex');
         const uri = "https://taiwan-train-api.herokuapp.com/train_api_t/" + startStation + "/" + endStation + "/" + rideDate + "/" + startTime + "/" + endTime;
-        // const uri = "https://ptx.transportdata.tw/MOTC/v2/Bus/RealTimeByFrequency/Streaming/City/Hsinchu?$top=30&$format=JSON"
         fetch(uri, {
             method: 'GET'
         })

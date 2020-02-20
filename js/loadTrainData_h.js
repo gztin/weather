@@ -31,10 +31,10 @@ $('.sendMsg').click(function() {
             var endStation = $('.end').find('option:selected').text();
             var tripDate = $('#selectDay').find("p").eq(0).text();
             var tripTime = $('#startTime').find('option:selected').text();
-            $('.tripStart').html(startStation);
-            $('.tripEnd').html(endStation);
+            $('.tripStart').html(startStation); // 起點站
+            $('.tripEnd').html(endStation); // 終點站
             $('.tripDate').html(tripDate); // 2020-02-07
-            $('.tripDay').html(tripDay);
+            $('.tripDay').html(tripDay); // 星期N
             $('.tripTime').html(tripTime + '出發');
     
             var dataList = result.length;

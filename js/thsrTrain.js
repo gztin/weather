@@ -28,4 +28,3 @@ $('.close').click(function(){
     $('.listView').slideToggle();
     $('.listView ul').html("");
 });
-

@@ -175,7 +175,7 @@ day3:下雨
     .placeInf{
         display: flex;
         justify-content: center;
-        flex: 1;
+        flex: 0.5;
         align-items: center;
     }
     .dayBlock{
@@ -196,7 +196,6 @@ day3:下雨
         border-top-left-radius: 15px;
         border-top-right-radius: 15px;
         box-shadow: 1px 10px 30px #8ab5dc;
-        z-index:999;
     }
 
     .container{
@@ -330,7 +329,7 @@ day3:下雨
     .index-day2,
     .index-day3,
     .index-day4{
-        width: 35%;
+        width: 45%;
         height: auto;
         margin-top: 10px;
         display: block;
@@ -396,7 +395,7 @@ day3:下雨
     .placeInf{
         display: flex;
         justify-content: center;
-        flex: 1;
+        flex: 0.5;
         align-items: center;
     }
     .dayBlock{
@@ -527,7 +526,7 @@ day3:下雨
     .index-day2,
     .index-day3,
     .index-day4{
-        width: 35%;
+        width: 45%;
         height: auto;
         margin-top: 10px;
         display: block;

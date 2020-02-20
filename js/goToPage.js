@@ -11,7 +11,7 @@ let data = {
       {className:'society',title:'社會'},
       {className:'sport',title:'體育'}
   ],
-  title:'POKENEWS'
+  title:'POKEJO'
 }
 let vm = new Vue({
   el:'#news',
@@ -111,6 +111,4 @@ $('#newsGroup').on('click','li',function(){
   console.log(geturl);
   document.getElementById("popView").src = geturl;
   setTimeout(function(){$('.popView').css('display','flex');},1000);
-
-
 });
