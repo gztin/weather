@@ -22,7 +22,7 @@ fetch(uri, {
     // newsPolitics 政治新聞
     // newsLive 政治新聞
     // newsEntertainment 娛樂新聞
-    // newsFinance 金融新聞
+    // newsHouse 金融新聞
     // newsSociety 社會新聞
     // newsGlobal 國際新聞
     // newsSport 體育新聞
@@ -91,10 +91,10 @@ fetch(uri, {
                 '</li>'
             );
         }
-        else if(news.category=='金融'){
+        else if(news.category=='房產'){
             $('.newsList > ul').append(
-                '<li class="newsContent newsFinance" style="display:none;">'+
-                '<p><span class="classTitle">金融</span></p>'+
+                '<li class="newsContent newsHouse" style="display:none;">'+
+                '<p><span class="classTitle">房產</span></p>'+
                 '<h2>'+news.title+'</h2>'+
                 '<p class="onTime"><span>'+
                 news.date+
@@ -178,6 +178,7 @@ fetch(uri, {
             );
         }
         
+        
     }
 
     // 切換新聞類別
@@ -254,7 +255,7 @@ fetch(uri, {
     $('.popView').hide();
     $('.popView').html("");
     $('.newsList ul > li').hide();
-    $('.newsList ul > li.newsFinance').css('display','flex');
+    $('.newsList ul > li.newsHouse').css('display','flex');
   });
   
   $('.society').click(function(){
