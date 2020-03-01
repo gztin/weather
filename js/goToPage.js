@@ -7,7 +7,7 @@ let data = {
       {className:'politics',title:'政治'},
       {className:'gossiping',title:'地方'},
       {className:'entertainment',title:'娛樂'},
-      {className:'finance',title:'金融'},
+      {className:'finance',title:'房產'},
       {className:'society',title:'社會'},
       {className:'sport',title:'體育'}
   ],
