@@ -66,27 +66,9 @@
                 <span :class="item.className" v-for="item in newsCategory">{{item.title}}</span>
             </div>
         </div>
-        <div class="popView">
-            <h1 class="newsTitle">{{newsContent[1].contentTitle}}</h1>
-            <div class="newsPic">
-                <img
-                :src="newsContent[1].src" 
-                alt="">
-            </div>
-            <div class="newsText" v-html="newsContent[1].content"></div>
-            <div class="textFooter"><p>copyright by @JOJO</p></div>
-            <!-- <div class="mayBe" v-for="list in newsContent">
-                <div class="sub">
-                    <img
-                    class="img-responsive"
-                    :src="newsContent[index].src" 
-                    alt="">
-                    <h1>{{newsContent[index].contentTitle}}</h1>
-                </div>
-            </div> -->
-        </div>
+        <div class="popView"></div>
         <div class="newsList">
-            <ul></ul>
+            <ul id="newsGroup"></ul>
         </div>
     </div>
 </body>

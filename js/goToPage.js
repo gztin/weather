@@ -2,11 +2,11 @@
 let data = {
   newsCategory:[
       // {className:'all',title:'綜合'},
-      {className:'focus',title:'焦點'},
-      {className:'politics',title:'政治'},
-      {className:'gossiping',title:'八卦'},
-      {className:'entertainment',title:'娛樂'},
       {className:'global',title:'國際'},
+      {className:'live',title:'生活'},
+      {className:'politics',title:'政治'},
+      {className:'gossiping',title:'地方'},
+      {className:'entertainment',title:'娛樂'},
       {className:'finance',title:'金融'},
       {className:'society',title:'社會'},
       {className:'sport',title:'體育'}
@@ -41,18 +41,31 @@ let vm = new Vue({
 });
 
 
+
+
 // 跳頁
 $('#newsGroup').on('click','li',function(){
   // 點選第幾則新聞
   var y =$(this).index();
+  alert('這是第'+y+'則新聞');
+  var getTitle = $('#newsGroup > li').eq(y).find('h2').text();
+  var getPic = $('#newsGroup > li').eq(y).find('img').attr("src");
+  var getTime = $('#newsGroup > li').eq(y).find('p[class="onTime"]').html();
+  var getContent = $('#newsGroup > li').eq(y).find('div[class="newsContent"]').html();
+
+  console.log(getTitle);
+  console.log(getTime);
 
   $('.popView').append(
-    '<h1 class="newsTitle">{{newsContent[y].contentTitle}}</h1>'+
-    '<img class="newsPic" :src="newsContent[y].src" alt="">'+
-    '<div class="newsText" v-html="newsContent[y].content"></div>'+
+    '<h1 class="newsTitle">'+getTitle+'</h1>'+
+    '<div class="newsPic">'+
+    '<img src='+getPic+'>'+
+    '</div>'+
+    '<div class="newsText">'+getContent+'</div>'+
     '<div class="textFooter"><p>copyright by @JOJO</p></div>'
-  )
-
+  );
+  $('.popView').css('display','block');
+  $('.newsList ul > li').hide();
   // 置換iframe 連結的網址
   // var geturl = $('#newsGroup > li').eq(y).find('a').attr("href");
   // console.log(geturl);

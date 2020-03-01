@@ -372,7 +372,7 @@
         .newsContent > p:nth-child(1){
             margin-top:6px;
         }
-        .newsContent div{
+        .newsContent h2{
             text-decoration: none;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -392,6 +392,8 @@
         .newsContent > p{
             display: flex;
             align-items: center;
+            font-size: 12px;
+            margin-left: 3%;
             justify-content: space-between;
         }
         .newsList{
@@ -413,7 +415,6 @@
             padding: 1%;
             padding-left: 3%;
             padding-right: 3%;
-            margin-left: 3%;
             font-size: 14px;
             border-radius: 5px;
         }
@@ -426,11 +427,6 @@
         .newsSociety > p > span.classTitle{background:#4e9440;}
         .newsFocus > p > span.classTitle{background:#c34b4b;}
 
-        span.onTime {
-            font-size: 12px;
-            margin-left: 3%;
-            color:#000;
-        }
         span.newslink {
             width: 25px;
             height: 25px;
