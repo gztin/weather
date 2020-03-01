@@ -47,7 +47,7 @@ let vm = new Vue({
 $('#newsGroup').on('click','li',function(){
   // 點選第幾則新聞
   var y =$(this).index();
-  alert('這是第'+y+'則新聞');
+  // alert('這是第'+y+'則新聞');
   var getTitle = $('#newsGroup > li').eq(y).find('h2').text();
   var getPic = $('#newsGroup > li').eq(y).find('img').attr("src");
   var getTime = $('#newsGroup > li').eq(y).find('p[class="onTime"]').html();
