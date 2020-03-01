@@ -56,7 +56,6 @@
     </div>
     <div class="sideMenuBg"></div>
     <div id="news" class="news">
-
         <div class="area-title">
             <span><i class="fas fa-bars"></i></span>
             <p class="title">POKEJO</p>
@@ -68,12 +67,26 @@
             </div>
         </div>
         <div class="popView">
-            <iframe id="popView" src="link" name="mainframe" id="mainframe"
-                width="100%" height="auto" marginwidth="0" marginheight="0" frameborder="0">
-            </iframe>
+            <h1 class="newsTitle">{{newsContent[1].contentTitle}}</h1>
+            <div class="newsPic">
+                <img
+                :src="newsContent[1].src" 
+                alt="">
+            </div>
+            <div class="newsText" v-html="newsContent[1].content"></div>
+            <div class="textFooter"><p>copyright by @JOJO</p></div>
+            <!-- <div class="mayBe" v-for="list in newsContent">
+                <div class="sub">
+                    <img
+                    class="img-responsive"
+                    :src="newsContent[index].src" 
+                    alt="">
+                    <h1>{{newsContent[index].contentTitle}}</h1>
+                </div>
+            </div> -->
         </div>
         <div class="newsList">
-            <ul id="newsGroup"></ul>
+            <ul></ul>
         </div>
     </div>
 </body>

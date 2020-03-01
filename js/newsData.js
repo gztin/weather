@@ -26,7 +26,18 @@ fetch(uri, {
     // newsSport 體育新聞
     // newsGossiping 八卦版
 
-    for (count = 0; count < dataList; count++) {
+    var countColumn = 0;
+    var countPolitics = 0;
+    var countEntertainment = 0;
+    var countPolitics = 0;
+    var countFinance = 0;
+    var countSociety = 0;
+    var countGlobal = 0;
+    var countSport = 0;
+    var countGossiping = 0;
+
+    // 列印所有新聞
+    for (var count = 0; count < dataList; count++) {
         var news = result[count];
         if(news.lable=='column'){
             $('.newsList > ul').append(
@@ -44,9 +55,10 @@ fetch(uri, {
                 '</li>'
             );
         }
+       
         else if(news.lable=='politics'){
             $('.newsList > ul').append(
-                '<li class="newsContent newsPolitics">'+
+                '<li class="newsContent newsPolitics" style="display:none;">'+
                 '<p><span class="classTitle">政治</span></p>'+
                 '<div>'+news.title+'</div>'+
                 '<a id="linkURL" target="_parent" href="'+
@@ -62,7 +74,7 @@ fetch(uri, {
         }
         else if(news.lable=='entertainment'){
             $('.newsList > ul').append(
-                '<li class="newsContent newsEntertainment">'+
+                '<li class="newsContent newsEntertainment" style="display:none;">'+
                 '<p><span class="classTitle">娛樂</span></p>'+
                 '<div>'+news.title+'</div>'+
                 '<a id="linkURL" target="_parent" href="'+
@@ -78,7 +90,7 @@ fetch(uri, {
         }
         else if(news.lable=='politics'){
             $('.newsList > ul').append(
-                '<li class="newsContent newsPolitics>'+
+                '<li class="newsContent newsPolitics" style="display:none;">'+
                 '<p><span class="classTitle">政治</span></p>'+
                 '<div>'+news.title+'</div>'+
                 '<a id="linkURL" target="_parent" href="'+
@@ -94,7 +106,7 @@ fetch(uri, {
         }
         else if(news.lable=='finance'){
             $('.newsList > ul').append(
-                '<li class="newsContent newsFinance">'+
+                '<li class="newsContent newsFinance" style="display:none;">'+
                 '<p><span class="classTitle">金融</span></p>'+
                 '<div>'+news.title+'</div>'+
                 '<a id="linkURL" target="_parent" href="'+
@@ -110,7 +122,7 @@ fetch(uri, {
         }
         else if(news.lable=='society'){
             $('.newsList > ul').append(
-                '<li class="newsContent newsSociety">'+
+                '<li class="newsContent newsSociety" style="display:none;">'+
                 '<p><span class="classTitle">社會</span></p>'+
                 '<div>'+news.title+'</div>'+
                 '<a id="linkURL" target="_parent" href="'+
@@ -126,7 +138,7 @@ fetch(uri, {
         }
         else if(news.lable=='global'){
             $('.newsList > ul').append(
-                '<li class="newsContent newsGlobal">'+
+                '<li class="newsContent newsGlobal" style="display:none;">'+
                 '<p><span class="classTitle">國際</span></p>'+
                 '<div>'+news.title+'</div>'+
                 '<a id="linkURL" target="_parent" href="'+
@@ -142,7 +154,7 @@ fetch(uri, {
         }
         else if(news.lable=='sport'){
             $('.newsList > ul').append(
-                '<li class="newsContent newsSport">'+
+                '<li class="newsContent newsSport" style="display:none;">'+
                 '<p><span class="classTitle">體育</span></p>'+
                 '<div>'+news.title+'</div>'+
                 '<a id="linkURL" target="_parent" href="'+
@@ -158,7 +170,7 @@ fetch(uri, {
         }
         else if(news.lable=='gossiping'){
             $('.newsList > ul').append(
-                '<li class="newsContent newsGossiping">'+
+                '<li class="newsContent newsGossiping" style="display:none;">'+
                 '<p><span class="classTitle">八卦</span></p>'+
                 '<div>'+news.title+'</div>'+
                 '<a id="linkURL" target="_parent" href="'+
@@ -172,7 +184,104 @@ fetch(uri, {
                 '</li>'
             );
         }
+        
     }
+
+    // 切換新聞類別
+    $('.menu span').eq(0).addClass('cur');
+    // 叫出側邊欄位
+    $('.area-title > span').click(function(){
+    $('.sideMenuBg').show();
+    $('.sideMenu').css('left','0%');
+    });
+    // 隱藏側邊欄位
+    $('.sideMenuBg').click(function(){
+    $('.sideMenu').css('left','-70%');
+    $('.sideMenuBg').hide();
+    });
+
+    // 切換類別
+    $('.menu span').click(function(){
+    var x =$(this).index();
+    $('.menu span').eq(x).addClass('cur').siblings().removeClass('cur');
+    $('.popView').hide();
+    $('.newsList ul > li').css('display','flex');
+
+    });
+
+    // $('.all').click(function(){
+    // $('.popView').hide();
+    // $('.newsList ul > li').css('display','flex');
+    // });
+
+    $('.focus').click(function(){
+    $('.popView').hide();
+    $('.newsList ul > li').hide();
+    $('.newsList ul > li.newsFocus').css('display','flex');
+    });
+
+    $('.politics').click(function(){
+    $('.popView').hide();
+    $('.newsList ul > li').hide();
+    $('.newsList ul > li.newsPolitics').css('display','flex');
+    });
+
+    $('.gossiping').click(function(){
+    $('.popView').hide();
+    $('.newsList ul > li').hide();
+    $('.newsList ul > li.newsGossiping').css('display','flex');
+    });
+
+    $('.entertainment').click(function(){
+    $('.popView').hide();
+    $('.newsList ul > li').hide();
+    $('.newsList ul > li.newsEntertainment').css('display','flex');
+    });
+
+    $('.gossiping').click(function(){
+    $('.popView').hide();
+    $('.newsList ul > li').hide();
+    $('.newsList ul > li.newsGossiping').css('display','flex');
+    });
+
+    $('.global').click(function(){
+    $('.popView').hide();
+    $('.newsList ul > li').hide();
+    $('.newsList ul > li.newsGlobal').css('display','flex');
+    });
+
+    $('.finance').click(function(){
+    $('.popView').hide();
+    $('.newsList ul > li').hide();
+    $('.newsList ul > li.newsFinance').css('display','flex');
+    });
+
+    $('.society').click(function(){
+    $('.popView').hide();
+    $('.newsList ul > li').hide();
+    $('.newsList ul > li.newsSociety').css('display','flex');
+    });
+
+    $('.sport').click(function(){
+    $('.popView').hide();
+    $('.newsList ul > li').hide();
+    $('.newsList ul > li.newsSport').css('display','flex');
+    });
+
+    $('.sport').click(function(){
+    $('.popView').hide();
+    $('.newsList ul > li').hide();
+    $('.newsList ul > li.newsSport').css('display','flex');
+    });
+
+    // console.log('countColumn總共有'+countColumn+'個');
+    // console.log('countPolitics總共有'+countPolitics+'個');
+    // console.log('countSport總共有'+countSport+'個');
+    // console.log('countSociety總共有'+countSociety+'個');
+    // console.log('countGlobal總共有'+countGlobal+'個');
+    // console.log('countGossiping總共有'+countGossiping+'個');
+    // console.log('countEntertainment總共有'+countEntertainment+'個');
+    // console.log('countFinance總共有'+countFinance+'個');
 }).catch((err) => {
     console.log('訊息:請重新嘗試連線', err);
 });

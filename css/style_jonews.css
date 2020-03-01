@@ -315,6 +315,18 @@
             height: 100%;
             display:none;
         }
+        .textFooter{
+            background: #000;
+            width: 100%;
+            height:50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .textFooter p{
+            color:#fff;
+            font-size: 14px;
+        }
         /* end */
 
         .title{
@@ -425,6 +437,26 @@
             margin-right: 2%;
             background: url("../img/share1.png")no-repeat center center;
             background-size: contain;
+        }
+        /* end */
+
+        /* 新聞內容 */
+        .newsTitle{
+            font-size: 25px;
+            font-weight: bold;
+            text-align: justify;
+            padding: 20px;
+        }
+        .newsPic{
+            display:flex;
+            justify-content: center;
+        }
+        .newsPic img{
+            width:95%;
+        }
+        .newsText p{
+            padding: 15px;
+            text-align: justify;
         }
         /* end */
         
