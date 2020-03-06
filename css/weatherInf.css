@@ -295,7 +295,7 @@ day3:下雨
     day2:多雲
     day3:下雨
     */
-    .day1{background: url(../img/day1.png)no-repeat;}
+    /* .day1{background: url(../img/day1.png)no-repeat;}
     .day2{background: url(../img/day2.png)no-repeat;}
     .day3{background: url(../img/day3.png)no-repeat;}
     
@@ -305,7 +305,7 @@ day3:下雨
         margin: 2px;
         display: block;
         background-size: contain;
-    }
+    } */
     
     /*
     day1:多雲時晴
@@ -405,7 +405,7 @@ day3:下雨
         justify-content: space-around;
         align-items: center;
     }
-    
+    .chance{font-size: 15px;}
     /* end */
     
     #weather{

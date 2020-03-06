@@ -46,7 +46,7 @@
         #news,#weather,.sideMenu,.loading{display:none;}
         
         /*  高鐵班次查詢*/
-        .indexLink1,.indexLink2{
+        .indexLink0,.indexLink1,.indexLink2{
             width:93%;
             height: 70px;
             border-radius: 10px;
@@ -57,9 +57,13 @@
             font-size:24px;
             text-decoration: none;
         }
-        
-        .indexLink2 span{
+        .indexLink0 span,.indexLink1 span,.indexLink2 span{
             color:#fff;
+        }
+        .indexLink0{
+            margin-bottom: 5%;
+            background: #b63939;
+            height: 60px;
         }
         .indexLink1{
             margin-bottom: 5%;
@@ -255,7 +259,7 @@
         /* 新聞橫向區塊 */
         .news{
             margin: 0 auto;
-            height: 100%;
+            height: auto;
             display: flex;
             flex-direction: column;
         }
@@ -318,15 +322,21 @@
         .textFooter{
             background: #000;
             width: 100%;
-            height:50px;
+            height:65px;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
+            position: fixed;
+            bottom: 0;
         }
-        .textFooter p{
+        .textFooter p,.textFooter a{
             color:#fff;
             font-size: 14px;
+            padding-top: 2%;
+            padding-bottom: 2%;
         }
+        .textFooter a{font-size: 12px;padding-top:1%;text-decoration: none;}
         /* end */
 
         .title{
@@ -338,7 +348,7 @@
         .sideMenu{
             width: 70%;
             height: 100vh;
-            position: absolute;
+            position: fixed;
             left: -70%;
             background: #f5f9f8;
             z-index: 1001;
@@ -351,7 +361,7 @@
             width:100%;
             height:100vh;
             z-index:1000;
-            position: absolute;
+            position: fixed;
             background: rgba(0,0,0, 0.8);
             display: none;
             transition: 1s;
@@ -407,6 +417,7 @@
             flex-direction: column;
             justify-content: space-around;
             align-items: center;
+            padding-bottom: 70px;
         }
 
         .classTitle  {
@@ -457,10 +468,8 @@
         /* end */
         
         /*高鐵班次查詢*/
-        .indexLink1 span{
-            color:#fff;
-        }
-        .indexLink1,.indexLink2{
+        
+        .indexLink0,.indexLink1,.indexLink2{
             width: 93%;
             height: 70px;
             border-radius: 10px;
@@ -471,8 +480,13 @@
             font-size:24px;
             text-decoration: none;
         }
-        .indexLink2 span{
+        .indexLink0 span,.indexLink1 span,.indexLink2 span{
             color:#fff;
+        }
+        .indexLink0{
+            margin-bottom: 5%;
+            background: #b63939;
+            height: 60px;
         }
         .indexLink1{
             margin-bottom: 5%;
@@ -498,10 +512,7 @@
         }
         
         /*  高鐵班次查詢*/
-        .indexLink1 span{
-            color:#fff;
-        }
-        .indexLink1,.indexLink2{
+        .indexLink0,.indexLink1,.indexLink2{
             width:93%;
             height: 70px;
             border-radius: 10px;
@@ -512,8 +523,13 @@
             font-size:24px;
             text-decoration: none;
         }
-        .indexLink2 span{
+        .indexLink0 span,.indexLink1 span,.indexLink2 span{
             color:#fff;
+        }
+        .indexLink0{
+            margin-bottom: 5%;
+            background: #b63939;
+            height: 60px;
         }
         .indexLink1{
             margin-bottom: 5%;
@@ -537,7 +553,7 @@
         .hint{display: none;}
         
         /*  高鐵班次查詢*/
-        .indexLink1,.indexLink2{
+        .indexLink0,.indexLink1,.indexLink2{
             width:93%;
             height: 70px;
             border-radius: 10px;
@@ -548,8 +564,13 @@
             font-size:24px;
             text-decoration: none;
         }
-        .indexLink2 span{
+        .indexLink0 span,.indexLink1 span,.indexLink2 span{
             color:#fff;
+        }
+        .indexLink0{
+            margin-bottom: 5%;
+            background: #b63939;
+            height: 60px;
         }
         .indexLink1{
             margin-bottom: 5%;

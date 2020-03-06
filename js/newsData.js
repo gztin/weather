@@ -5,7 +5,7 @@
 
 // 讀取新聞資料
 // const uri = "https://taiwan-train-api.herokuapp.com/news/";
-const uri = "https://taiwan-train-api.herokuapp.com/search/article/2020-03-01";
+const uri = "https://taiwan-train-api.herokuapp.com/search/article/2020-03-06";
 fetch(uri, {
     method: 'GET'
 })

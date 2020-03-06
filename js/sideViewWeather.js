@@ -14,17 +14,13 @@ function loadData(){
             $('.indexPlace').append('<option value="'+dataCount+'">'+data.location[dataCount].locationName+'</option>');
             dataCount++;
         }
-        
         // day1 晴天
         // day2 陰天
         // day3 雨天
         // day4 雷雨
         // day5 雪
         // 起始天氣是台北市 location[5]
-
-
         $('#indexPlace option[value=5]').attr('selected', 'selected');
-        
         // 當天的天氣
         if(data.location[5].weatherElement[0].time[0].parameter.parameterValue < 4){
             $('.status').append('<span class="index-day1"></span> ');
@@ -86,7 +82,6 @@ function loadData(){
     });
 }
 function changeLocation(){
-    
     // 確認選擇的縣市
     var choice = $('#indexPlace').val();
     fetch('https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-157944DE-8E78-4585-8F55-6BFD77881E42&format=JSON', {})
@@ -126,19 +121,15 @@ function changeLocation(){
 
         // 第二天的天氣
         if(data.location[choice].weatherElement[0].time[0].parameter.parameterValue < 4){
-            
             $('.weather2').append('<span class="detailDay1"></span>');
         }
-        else if((data.location[choice].weatherElement[0].time[0].parameter.parameterValue >= 4)||(data.location[5].weatherElement[0].time[0].parameter.parameterValue <= 8)){
-           
+        else if((data.location[choice].weatherElement[0].time[0].parameter.parameterValue >= 4)||(data.location[5].weatherElement[0].time[0].parameter.parameterValue <= 8)){ 
             $('.weather2').append('<span class="detailDay2"></span>');
         }
         else if((data.location[choice].weatherElement[0].time[0].parameter.parameterValue > 8)||(data.location[5].weatherElement[0].time[0].parameter.parameterValue <= 14)){
-            
             $('.weather2').append('<span class="detailDay3"></span>');
         }
         else if((data.location[choice].weatherElement[0].time[0].parameter.parameterValue > 15)||(data.location[5].weatherElement[0].time[0].parameter.parameterValue < 23)){
-            
             $('.weather2').append('<span class="detailDay4"></span>');
         }
         
