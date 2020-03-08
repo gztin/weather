@@ -431,8 +431,10 @@
             justify-content: center;
         }
         .newsPic img{
-            width:100%;
-            height: auto;
+            width: auto;  
+            height: auto;  
+            max-width: 100%;  
+            max-height: 100%;
         }
         .newsText p{
             padding-top: 15px;

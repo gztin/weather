@@ -217,11 +217,6 @@ fetch(uri, {
 
     });
 
-    // 切換類別
-    $('.menu span').click(function(){
-        var x =$(this).index();
-        $('.menu span').eq(x).addClass('cur').siblings().removeClass('cur');
-    });
   
   $('.focus').click(function(){
     $('.popView').hide();
