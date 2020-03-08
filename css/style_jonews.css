@@ -307,6 +307,15 @@
             border-radius: 10px;
             overflow: hidden;
         }
+        .postTitle{
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-top: 2px;
+            padding-bottom: 2px;
+            border-radius: 15px;
+            margin-left: 20px;
+            border: 1px solid #969090;
+        }
         .listTitle{
             color: #fff;
             font-weight: bold;
@@ -453,12 +462,43 @@
         }
 
         .newsText p{
-            padding-top: 15px;
+            padding-top: 10px;
             padding-left: 2%;
             padding-right: 2%;
             text-align: justify;
             line-height: 20px;
         }
+        .postTime{
+            margin-top: 20px;
+            margin-bottom: 10px;
+            padding-left: 3%;
+        }
+        .changeSize{
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-top: 2px;
+            padding-bottom: 2px;
+            border-radius: 15px;
+            border: 1px solid #a0a0a0;
+            margin-left: 30px;
+        }
+        .textSize{
+            display:none;
+            width: 97%;
+            height: 60px;
+            font-weight:bold;
+            background: #c6c6c6;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+        .textSize > span:nth-child(1){font-size: 12px;}
+        .textSize > span:nth-child(2){font-size: 15px;}
+        .textSize > span:nth-child(3){font-size: 20px;}
+        .textSize > span:nth-child(4){font-size: 25px;}
+
+
         /* end */
         
         /*高鐵班次查詢*/

@@ -49,9 +49,7 @@ let vm = new Vue({
 });
 
 // 跳頁
-setTimeout(function(){$('.loadingPage').slideToggle();},2500)
-
-
+setTimeout(function(){$('.loadingPage').slideToggle();},2500);
 $('#newsGroup').on('click','li',function(){
   $('.textFooter').css('display','flex');
   
