@@ -65,15 +65,15 @@ $('#newsGroup').on('click','li',function(){
 
   console.log(getTitle);
   console.log(getTime);
-
+  console.log('圖片路徑為'+getPic);
   $('.popView').append(
     '<h1 class="newsTitle">'+getTitle+'</h1>'+
-    '<div class="newsPic">'+
-    '<img src='+getPic+'>'+
-    '</div>'+
+    '<div class="newsPic"></div>'+
+    // '<img src='+getPic+'>'+
     '<div class="newsText">'+getContent+'</div>'+
     '<div class="textFooter"><p>copyright by @JOJO</p></div>'
   );
+  $('.newsPic').css('background','url('+getPic+')');
   $('.popView').css('display','block');
   $('.newsList ul > li').hide();
   
