@@ -120,13 +120,26 @@ day1:多雲時晴
 day2:多雲
 day3:下雨
 */
-.day1{background: url(../img/day1.png)no-repeat;}
-.day2{background: url(../img/day2.png)no-repeat;}
-.day3{background: url(../img/day3.png)no-repeat;}
-.day1,.day2,.day3{
+.day1,.detailDay1,.index-day1{background: url(../img/day1a.png)no-repeat;}
+.day2,.detailDay2,.index-day2{background: url(../img/day2a.png)no-repeat;}
+.day3,.detailDay3,.index-day3{background: url(../img/day3a.png)no-repeat;}
+.day4,.detailDay4,.index-day4{background: url(../img/day4a.png)no-repeat;}
+
+.day1,.day2,.day3,.day4{
     width: 55px;
     height: 55px;
     margin: 2px;
+    display: block;
+    background-size: contain;
+}
+
+.index-day1,
+.index-day2,
+.index-day3,
+.index-day4{
+    width: 45%;
+    height: auto;
+    margin-top: 10px;
     display: block;
     background-size: contain;
 }
@@ -290,34 +303,18 @@ day3:下雨
     .weatherIcon > p{
         width:10px;
     }
+   
     /*
     day1:多雲時晴
     day2:多雲
     day3:下雨
     */
-    /* .day1{background: url(../img/day1.png)no-repeat;}
-    .day2{background: url(../img/day2.png)no-repeat;}
-    .day3{background: url(../img/day3.png)no-repeat;}
+    .day1,.detailDay1,.index-day1{background: url(../img/day1a.png)no-repeat;}
+    .day2,.detailDay2,.index-day2{background: url(../img/day2a.png)no-repeat;}
+    .day3,.detailDay3,.index-day3{background: url(../img/day3a.png)no-repeat;}
+    .day4,.detailDay4,.index-day4{background: url(../img/day4a.png)no-repeat;}
     
-    .day1,.day2,.day3{
-        width: 55px;
-        height: 55px;
-        margin: 2px;
-        display: block;
-        background-size: contain;
-    } */
-    
-    /*
-    day1:多雲時晴
-    day2:多雲
-    day3:下雨
-    */
-    .day1,.detailDay1,.index-day1{background: url(../img/day1.png)no-repeat;}
-    .day2,.detailDay2,.index-day2{background: url(../img/day2.png)no-repeat;}
-    .day3,.detailDay3,.index-day3{background: url(../img/day3.png)no-repeat;}
-    .day4,.detailDay4,.index-day4{background: url(../img/day4.png)no-repeat;}
-    
-    .day1,.day2,.day3{
+    .day1,.day2,.day3,.day4{
         width: 55px;
         height: 55px;
         margin: 2px;
@@ -509,12 +506,12 @@ day3:下雨
     day2:多雲
     day3:下雨
     */
-    .day1,.detailDay1,.index-day1{background: url(../img/day1.png)no-repeat;}
-    .day2,.detailDay2,.index-day2{background: url(../img/day2.png)no-repeat;}
-    .day3,.detailDay3,.index-day3{background: url(../img/day3.png)no-repeat;}
-    .day4,.detailDay4,.index-day4{background: url(../img/day4.png)no-repeat;}
+    .day1,.detailDay1,.index-day1{background: url(../img/day1a.png)no-repeat;}
+    .day2,.detailDay2,.index-day2{background: url(../img/day2a.png)no-repeat;}
+    .day3,.detailDay3,.index-day3{background: url(../img/day3a.png)no-repeat;}
+    .day4,.detailDay4,.index-day4{background: url(../img/day4a.png)no-repeat;}
     
-    .day1,.day2,.day3{
+    .day1,.day2,.day3,.day4{
         width: 55px;
         height: 55px;
         margin: 2px;

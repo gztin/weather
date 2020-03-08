@@ -297,14 +297,21 @@
             -o-transition:1s;
         }
         .newsContent{
-            width:95%;
-            height:90px;
+            width: 95%;
+            height: 170px;
             margin-top: 2%;
             background: rgba(255, 255, 255, 0.4);
             box-shadow: 1px 1px 9px #dadada;
             display: flex;
             flex-direction: column;
-            justify-content: space-around;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .listTitle{
+            color: #fff;
+            font-weight: bold;
+            font-size: 18px;
+            text-shadow: 1px 3px 10px #000;
         }
         .newsContent > p:nth-child(1){
             margin-top:6px;
@@ -314,8 +321,11 @@
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
-            width: 320px;
-            margin-left: 3%;
+            height: 15px;
+            margin-top: -55px;
+            padding: 10px;
+            font-size: 18px;
+            background: rgba(0,0,0,0.3);
         }
         .newsContent a{
             text-decoration: none;
@@ -325,6 +335,12 @@
             width: 320px;
             margin-left: 3%;
             color: #7d7d7d;
+        }
+        .onTime{
+            font-size: 12px;
+            background: rgba(0,0,0,0.3);
+            padding-left: 3%;
+            padding-bottom: 2%;
         }
         .newsContent > p{
             display: flex;
@@ -353,16 +369,19 @@
             width: 95%;
             height: 90px;
             margin:0 auto;
-            background: rgba(185, 186, 163, 0.3);
+            border-radius: 10px;
+            color: #fff;
+            background: #16222c;
             box-shadow: 1px 1px 9px #dadada;
         }
         select.fieldInf{
-            background: #3e3e3e;
+            background: #3E505B;
             border-radius: 10px;
-            color: #dadada;
-            padding-left: 10px;
-            padding-right: 10px;
-            height: 30px;
+            color: #8AB0AB;
+            padding-left: 15px;
+            padding-right: 15px;
+            height: 25px;
+            border: 1px solid #4f6471;
         }
         .chanceNow span{
             font-size: 25px;
@@ -375,6 +394,9 @@
         }
         .temperRange span {
             font-size: 17px;
+        }
+        .temperRange span i{
+            margin-left:10px;
         }
         .newsList{
             height: 100%;
@@ -399,15 +421,6 @@
             font-size: 14px;
             border-radius: 5px;
         }
-        .newsPolitics > p > span.classTitle{background:#363636;}
-        .newsSport > p > span.classTitle {background: #808f90;}
-        .newsGossiping > p > span.classTitle{background:#d6751a;}
-        .newsEntertainment > p > span.classTitle{background:#5909a3;}
-        .newsGlobal > p > span.classTitle {background:#3f669e;}
-        .newsHouse > p > span.classTitle{background:#dcaa54;}
-        .newsSociety > p > span.classTitle{background:#4e9440;}
-        .newsFocus > p > span.classTitle{background:#c34b4b;}
-
         span.newslink {
             width: 25px;
             height: 25px;
@@ -431,7 +444,14 @@
             background-size: cover!important;
             background-repeat: no-repeat!important;
         }
-        
+        .listPic{
+            height: 170px;
+            overflow: hidden;
+        }
+        .listPic img{         
+            width:100%;
+        }
+
         .newsText p{
             padding-top: 15px;
             padding-left: 2%;

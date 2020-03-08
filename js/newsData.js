@@ -57,7 +57,8 @@ fetch(uri, {
         if(news.category=='政治'){
             $('.newsList > ul').append(
                 '<li class="newsContent newsPolitics" style="display:none;">'+
-                '<p><span class="classTitle">政治</span></p>'+
+                '<div class="listPic">'+'<img src='+news.img+'>'+'</div>'+
+                '<div class="listTitle">'+
                 '<h2>'+news.title+'</h2>'+
                 '<p class="onTime"><span>'+
                 news.date+
@@ -67,6 +68,7 @@ fetch(uri, {
                 '<div class="newsContent">'+
                 '<p>'+news.date+'</p>'+
                 news.content+'</div>'+
+                '</div>'+
                 '</div>'+
                 '</li>'
             );
@@ -74,7 +76,8 @@ fetch(uri, {
         else if(news.category=='娛樂'){
             $('.newsList > ul').append(
                 '<li class="newsContent newsEntertainment" style="display:none;">'+
-                '<p><span class="classTitle">娛樂</span></p>'+
+                '<div class="listPic">'+'<img src='+news.img+'>'+'</div>'+
+                '<div class="listTitle">'+
                 '<h2>'+news.title+'</h2>'+
                 '<p class="onTime"><span>'+
                 news.date+
@@ -84,6 +87,8 @@ fetch(uri, {
                 '<div class="newsContent">'+
                 '<p>'+news.date+'</p>'+
                 news.content+'</div>'+
+                '</div>'+
+                '</div>'+
                 '</div>'+
                 '</li>'
             );
@@ -91,7 +96,8 @@ fetch(uri, {
         else if(news.category=='生活'){
             $('.newsList > ul').append(
                 '<li class="newsContent newsLive" style="display:none;">'+
-                '<p><span class="classTitle">生活</span></p>'+
+                '<div class="listPic">'+'<img src='+news.img+'>'+'</div>'+
+                '<div class="listTitle">'+
                 '<h2>'+news.title+'</h2>'+
                 '<p class="onTime"><span>'+
                 news.date+
@@ -101,6 +107,7 @@ fetch(uri, {
                 '<div class="newsContent">'+
                 '<p>'+news.date+'</p>'+
                 news.content+'</div>'+
+                '</div>'+
                 '</div>'+
                 '</li>'
             );
@@ -108,7 +115,8 @@ fetch(uri, {
         else if(news.category=='房產'){
             $('.newsList > ul').append(
                 '<li class="newsContent newsHouse" style="display:none;">'+
-                '<p><span class="classTitle">房產</span></p>'+
+                '<div class="listPic">'+'<img src='+news.img+'>'+'</div>'+
+                '<div class="listTitle">'+
                 '<h2>'+news.title+'</h2>'+
                 '<p class="onTime"><span>'+
                 news.date+
@@ -118,6 +126,7 @@ fetch(uri, {
                 '<div class="newsContent">'+
                 '<p>'+news.date+'</p>'+
                 news.content+'</div>'+
+                '</div>'+
                 '</div>'+
                 '</li>'
             );
@@ -125,41 +134,8 @@ fetch(uri, {
         else if(news.category=='社會'){
             $('.newsList > ul').append(
                 '<li class="newsContent newsSociety" style="display:none;">'+
-                '<p><span class="classTitle">社會</span></p>'+
-                '<h2>'+news.title+'</h2>'+
-                '<p class="onTime"><span>'+
-                news.date+
-                '</span></p>'+
-                '<div style="display:none;">'+
-                '<img src='+news.img+'>'+
-                news.content+
-                '<div class="newsContent">'+
-                '<p>'+news.date+'</p>'+
-                news.content+'</div>'+
-                '</li>'
-            );
-        }
-        else if(news.category=='國際'){
-            $('.newsList > ul').append(
-                '<li class="newsContent newsGlobal">'+
-                '<p><span class="classTitle">國際</span></p>'+
-                '<h2>'+news.title+'</h2>'+
-                '<p class="onTime"><span>'+
-                news.date+
-                '</span></p>'+
-                '<div style="display:none;">'+
-                '<img src='+news.img+'>'+
-                news.content+
-                '<div class="newsContent">'+
-                '<p>'+news.date+'</p>'+
-                news.content+'</div>'+
-                '</li>'
-            );
-        }
-        else if(news.category=='運動'){
-            $('.newsList > ul').append(
-                '<li class="newsContent newsSport" style="display:none;">'+
-                '<p><span class="classTitle">體育</span></p>'+
+                '<div class="listPic">'+'<img src='+news.img+'>'+'</div>'+
+                '<div class="listTitle">'+
                 '<h2>'+news.title+'</h2>'+
                 '<p class="onTime"><span>'+
                 news.date+
@@ -170,15 +146,16 @@ fetch(uri, {
                 '<p>'+news.date+'</p>'+
                 news.content+'</div>'+
                 '</div>'+
+                '</div>'+
                 '</li>'
             );
         }
-        else if(news.category=='地方'){
+        else if(news.category=='國際'){
             $('.newsList > ul').append(
-                '<li class="newsContent newsGossiping" style="display:none;">'+
-                '<p><span class="classTitle">地方</span></p>'+
+                '<li class="newsContent newsGlobal">'+
+                '<div class="listPic">'+'<img src='+news.img+'>'+'</div>'+
+                '<div class="listTitle">'+
                 '<h2>'+news.title+'</h2>'+
-                '</a>'+
                 '<p class="onTime"><span>'+
                 news.date+
                 '</span></p>'+
@@ -187,6 +164,45 @@ fetch(uri, {
                 '<div class="newsContent">'+
                 '<p>'+news.date+'</p>'+
                 news.content+'</div>'+
+                '</div>'+
+                '</div>'+
+                '</li>'
+            );
+        }
+        else if(news.category=='運動'){
+            $('.newsList > ul').append(
+                '<li class="newsContent newsSport" style="display:none;">'+
+                '<div class="listPic">'+'<img src='+news.img+'>'+'</div>'+
+                '<div class="listTitle">'+
+                '<h2>'+news.title+'</h2>'+
+                '<p class="onTime"><span>'+
+                news.date+
+                '</span></p>'+
+                '<div style="display:none;">'+
+                '<img src='+news.img+'>'+
+                '<div class="newsContent">'+
+                '<p>'+news.date+'</p>'+
+                news.content+'</div>'+
+                '</div>'+
+                '</div>'+
+                '</li>'
+            );
+        }
+        else if(news.category=='地方'){
+            $('.newsList > ul').append(
+                '<li class="newsContent newsGossiping" style="display:none;">'+
+                '<div class="listPic">'+'<img src='+news.img+'>'+'</div>'+
+                '<div class="listTitle">'+
+                '<h2>'+news.title+'</h2>'+
+                '<p class="onTime"><span>'+
+                news.date+
+                '</span></p>'+
+                '<div style="display:none;">'+
+                '<img src='+news.img+'>'+
+                '<div class="newsContent">'+
+                '<p>'+news.date+'</p>'+
+                news.content+'</div>'+
+                '</div>'+
                 '</div>'+
                 '</li>'
             );
