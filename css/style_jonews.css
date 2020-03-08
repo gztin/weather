@@ -431,6 +431,7 @@
             justify-content: center;
         }
         .newsPic img{
+            border: none;
             width: auto;  
             height: auto;  
             max-width: 100%;  
