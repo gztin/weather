@@ -5,7 +5,7 @@
 
 // 讀取新聞資料
 // const uri = "https://taiwan-train-api.herokuapp.com/news/";
-const uri = "https://taiwan-train-api.herokuapp.com/search/article/2020-03-06";
+const uri = "https://taiwan-train-api.herokuapp.com/search/article";
 fetch(uri, {
     method: 'GET'
 })
@@ -13,6 +13,20 @@ fetch(uri, {
     return res.json(); // 使用 text() 可以得到純文字 String
 })
 .then(result => {
+    // 抓取用戶目前位置，以後用得到
+    // getLocation();
+    // function getLocation() {//取得 經緯度
+    //     if (navigator.geolocation) {//
+    //         navigator.geolocation.getCurrentPosition(showPosition);//有拿到位置就呼叫 showPosition 函式
+    //     } else {
+    //         alert("您的瀏覽器不支援 顯示地理位置 API ，請使用其它瀏覽器開啟 這個網址")
+    //     }
+    // }
+
+    // function showPosition(position) {
+    //       console.log("  緯度 (Latitude): " + position.coords.latitude +"經度 (Longitude):"+position.coords.longitude);
+    // }  
+
     $('.loading').css('display', 'none');
     $('.navbar').css('display', 'block');
     console.log(result);
@@ -278,15 +292,6 @@ fetch(uri, {
     $('.newsList ul > li').hide();
     $('.newsList ul > li.newsSport').css('display','flex');
   });
-
-    // console.log('countColumn總共有'+countColumn+'個');
-    // console.log('countPolitics總共有'+countPolitics+'個');
-    // console.log('countSport總共有'+countSport+'個');
-    // console.log('countSociety總共有'+countSociety+'個');
-    // console.log('countGlobal總共有'+countGlobal+'個');
-    // console.log('countGossiping總共有'+countGossiping+'個');
-    // console.log('countEntertainment總共有'+countEntertainment+'個');
-    // console.log('countFinance總共有'+countFinance+'個');
 }).catch((err) => {
     console.log('訊息:請重新嘗試連線', err);
 });

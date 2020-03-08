@@ -12,30 +12,35 @@ function loadData(){
         // 顯示縣市資料
         while(dataCount<dataTotal){
             $('.indexPlace').append('<option value="'+dataCount+'">'+data.location[dataCount].locationName+'</option>');
+            $('.fieldInf').append('<option value="'+dataCount+'">'+data.location[dataCount].locationName+'</option>');
             dataCount++;
         }
-        // day1 晴天
-        // day2 陰天
-        // day3 雨天
-        // day4 雷雨
-        // day5 雪
+        // day1 晴天 sunny
+        // day2 陰天 cloudy
+        // day3 雨天 rainy
+        // day4 雷雨 stormy
+        // day5 雪   snowy
         // 起始天氣是台北市 location[5]
         $('#indexPlace option[value=5]').attr('selected', 'selected');
-        // 當天的天氣
+        
         if(data.location[5].weatherElement[0].time[0].parameter.parameterValue < 4){
             $('.status').append('<span class="index-day1"></span> ');
+            $('.weatherNow').append('<span class="detailDay1"></span> ');
             $('.weather1').append('<span class="detailDay1"></span>');
         }
         else if((data.location[5].weatherElement[0].time[0].parameter.parameterValue >= 4)||(data.location[5].weatherElement[0].time[0].parameter.parameterValue <= 8)){
             $('.status').append('<span class="index-day2"></span> ');
+            $('.weatherNow').append('<span class="detailDay2"></span> ');
             $('.weather1').append('<span class="detailDay2"></span>');
         }
         else if((data.location[5].weatherElement[0].time[0].parameter.parameterValue > 8)||(data.location[5].weatherElement[0].time[0].parameter.parameterValue <= 14)){
             $('.status').append('<span class="index-day3"></span> ');
+            $('.weatherNow').append('<span class="detailDay3"></span> ');
             $('.weather1').append('<span class="detailDay3"></span>');
         }
         else if((data.location[5].weatherElement[0].time[0].parameter.parameterValue > 15)||(data.location[5].weatherElement[0].time[0].parameter.parameterValue < 23)){
             $('.status').append('<span class="index-day4"></span> ');
+            $('.weatherNow').append('<span class="detailDay4"></span>');
             $('.weather1').append('<span class="detailDay4"></span>');
         }
 
@@ -68,11 +73,15 @@ function loadData(){
         }
 
         // 顯示三天的溫度
+        $('.temperRange').append(
+            '<span>'+data.location[5].weatherElement[4].time[0].parameter.parameterName+'°C'+'<i class="fas fa-long-arrow-alt-up"></i>'+'</span>'+
+            '<span>'+data.location[5].weatherElement[2].time[0].parameter.parameterName+'°C'+'<i class="fas fa-long-arrow-alt-down"></i>'+'</span>');
         $('.temp1').append('<span>'+data.location[5].weatherElement[2].time[0].parameter.parameterName+'°C'+'</span>');
         $('.temp2').append('<span>'+data.location[5].weatherElement[2].time[1].parameter.parameterName+'°C'+'</span>');
         $('.temp3').append('<span>'+data.location[5].weatherElement[2].time[2].parameter.parameterName+'°C'+'</span>');
         
         // 顯示未來三天的降雨機率
+        $('.chanceNow').append('<span>'+data.location[5].weatherElement[1].time[0].parameter.parameterName+'%'+'</span>');
         $('.chance1').append('<span>'+ data.location[5].weatherElement[1].time[0].parameter.parameterName +'%'+'</span>');
         $('.chance2').append('<span>'+ data.location[5].weatherElement[1].time[1].parameter.parameterName +'%'+'</span>');
         $('.chance3').append('<span>'+ data.location[5].weatherElement[1].time[2].parameter.parameterName +'%'+'</span>');
@@ -146,12 +155,8 @@ function changeLocation(){
         else if((data.location[choice].weatherElement[0].time[0].parameter.parameterValue > 15)||(data.location[5].weatherElement[0].time[0].parameter.parameterValue < 23)){
             $('.weather3').append('<span class="detailDay4"></span>');
         }
-        
-        // 第二天的天氣
 
-        // 第三天的天氣
-
-        // 顯示三天的溫度
+        // 顯示未來三天的溫度
         $('.temp1').append('<span>'+data.location[choice].weatherElement[2].time[0].parameter.parameterName+'°C'+'</span>');
         $('.temp2').append('<span>'+data.location[choice].weatherElement[2].time[1].parameter.parameterName+'°C'+'</span>');
         $('.temp3').append('<span>'+data.location[choice].weatherElement[2].time[2].parameter.parameterName+'°C'+'</span>');
@@ -161,6 +166,45 @@ function changeLocation(){
         $('.chance2').append('<span>'+ data.location[choice].weatherElement[1].time[1].parameter.parameterName +'%'+'</span>');
         $('.chance3').append('<span>'+ data.location[choice].weatherElement[1].time[2].parameter.parameterName +'%'+'</span>');
         // $('.status').append('<p>'+data.location[choice].weatherElement[3].time[0].parameter.parameterName+'</p>');
+    }).catch((err) => {
+        console.log('錯誤:', err);
+    });
+}
+
+function changePlace(){
+    var choice = $('.fieldInf').val();
+    fetch('https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-157944DE-8E78-4585-8F55-6BFD77881E42&format=JSON', {})
+    .then((response) => {
+        // 可以透過 blob(), json(), text() 轉成可用的資訊
+        return response.json(); 
+    }).then((jsonData) => {
+        var data = jsonData.records;
+        // 把原本的資料清空
+        $('.weatherNow').html('');
+        $('.temperRange').html('');
+        $('.chanceNow').html('');
+        
+        // 當天天氣
+        if(data.location[choice].weatherElement[0].time[0].parameter.parameterValue < 4){
+            $('.weatherNow').append('<span class="detailDay1"></span> ');
+        }
+        else if((data.location[choice].weatherElement[0].time[0].parameter.parameterValue >= 4)||(data.location[5].weatherElement[0].time[0].parameter.parameterValue <= 8)){
+            $('.weatherNow').append('<span class="detailDay1"></span> ');
+        }
+        else if((data.location[choice].weatherElement[0].time[0].parameter.parameterValue > 8)||(data.location[5].weatherElement[0].time[0].parameter.parameterValue <= 14)){
+            $('.weatherNow').append('<span class="detailDay1"></span> ');
+        }
+        else if((data.location[choice].weatherElement[0].time[0].parameter.parameterValue > 15)||(data.location[5].weatherElement[0].time[0].parameter.parameterValue < 23)){
+            $('.weatherNow').append('<span class="detailDay1"></span> ');
+        }
+
+        // 顯示當天的高低溫
+        $('.temperRange').append(
+            '<span>'+data.location[choice].weatherElement[4].time[0].parameter.parameterName+'°C'+'<i class="fas fa-long-arrow-alt-up"></i>'+'</span>'+
+            '<span>'+data.location[choice].weatherElement[2].time[0].parameter.parameterName+'°C'+'<i class="fas fa-long-arrow-alt-down"></i>'+'</span>');
+        
+        // 顯示降雨機率
+        $('.chanceNow').append('<span>'+data.location[choice].weatherElement[1].time[0].parameter.parameterName+'%'+'</span>');
     }).catch((err) => {
         console.log('錯誤:', err);
     });

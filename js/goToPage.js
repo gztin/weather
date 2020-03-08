@@ -1,7 +1,8 @@
 // 切換項目
 let data = {
   index:0,
-  title:'<h1>POKEJO</h1>',
+  title:'<h1>P<i class="far fa-dot-circle"></i>KEJ<i class="far fa-dot-circle"></i></h1>',
+  slogan:'<h1 class="animated bounceIn">P<i class="far fa-dot-circle"></i>KEJ<i class="far fa-dot-circle"></i></h1><h1 class="animated bounceIn">帶您時事脈動一把抓</h1>',
   privacy:'/privacy.html',
   copyright:'copyright by POKEJO',
   newsCategory:[
@@ -37,18 +38,23 @@ let data = {
   
 }
 
-
+let loading = new Vue({
+  el:'#loading',
+  data:data
+});
 
 let vm = new Vue({
   el:'#news',
   data:data
 });
 
-
-
-
 // 跳頁
+setTimeout(function(){$('.loadingPage').slideToggle();},1500)
+
+
 $('#newsGroup').on('click','li',function(){
+  $('.textFooter').css('display','flex');
+  
   // 點選第幾則新聞
   var y =$(this).index();
   // alert('這是第'+y+'則新聞');
@@ -70,6 +76,7 @@ $('#newsGroup').on('click','li',function(){
   );
   $('.popView').css('display','block');
   $('.newsList ul > li').hide();
+  
   // 置換iframe 連結的網址
   // var geturl = $('#newsGroup > li').eq(y).find('a').attr("href");
   // console.log(geturl);

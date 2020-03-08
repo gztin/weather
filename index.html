@@ -8,10 +8,14 @@
     <link rel="bookmark" href="/favicon.ico"/>
     <link rel="stylesheet" href="./css/style_jonews.css?v=3">
     <link rel="stylesheet" href="./css/weatherInf.css?v=5">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
     <script data-ad-client="ca-pub-8237624738906861" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 
 <body>
+    <div id="loading" class="loadingPage">
+        <div class="slogan" v-html="slogan"></div>
+    </div> 
     <div class="loading">
         <p>讀取資料中</p>
         <p>
@@ -61,12 +65,22 @@
     <div id="news" class="news">
         <div class="area-title">
             <span><i class="fas fa-bars"></i></span>
-            <p class="title">POKEJO</p>
+            <p class="title" v-html="title"></p>
             <span></span>
         </div>
         <div class="navbar">
             <div class="menu">
                 <span :class="item.className" v-for="item in newsCategory">{{item.title}}</span>
+            </div>
+        </div>
+        <div class="headerBlock">
+            <div class="header-hint">
+                <div class="selectPlace">
+                    <select class="fieldInf" onchange="changePlace()"></select>
+                </div>
+                <div class="weatherNow"></div>
+                <div class="chanceNow"></div>
+                <div class="temperRange"></div>
             </div>
         </div>
         <div class="popView"></div>

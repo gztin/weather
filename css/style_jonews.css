@@ -6,7 +6,7 @@
         font-family: Microsoft JhengHei,Noto Sans TC,sans-serif;
     }
     @media all and (orientation : landscape) {
-        #news,#weather,.sideMenu,.loading{display: none;}
+        #news,#weather,.sideMenu,.loading,.loadingPage{display: none;}
     }
     /* pc view */
     @media screen and (min-width:1024px){
@@ -24,7 +24,7 @@
             font-size: 2em;
             font-weight: bold;
         }
-        #news,#weather,.sideMenu,.loading{display: none;}
+        #news,#weather,.sideMenu,.loading,.loadingPage{display: none;}
     }
 
     /* 預留 ipad 版型*/
@@ -43,118 +43,8 @@
             font-size: 2em;
             font-weight: bold;
         }
-        #news,#weather,.sideMenu,.loading{display:none;}
+        #news,#weather,.sideMenu,.loading,.loadingPage{display:none;}
         
-        /*  高鐵班次查詢*/
-        .indexLink0,.indexLink1,.indexLink2{
-            width:93%;
-            height: 70px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color:#fff;
-            font-size:24px;
-            text-decoration: none;
-        }
-        .indexLink0 span,.indexLink1 span,.indexLink2 span{
-            color:#fff;
-        }
-        .indexLink0{
-            margin-bottom: 5%;
-            background: #b63939;
-            height: 60px;
-        }
-        .indexLink1{
-            margin-bottom: 5%;
-            background: #ff9a17;
-            height: 60px;
-        }
-        .indexLink2{
-            background: #16222c;
-            height: 60px;
-        }
-        /* 搭乘日期 */
-        .bg{
-            width:100%;
-            height:100vh;
-            background:rgba(0,0,0,0.7);
-            position: absolute;
-            z-index: 9;
-        }
-        
-    }
-    .checkView{
-        width:300px;
-        height:300px;
-        color:#000;
-        background: #c60;
-        display: flex;
-        align-items: center;
-        position: absolute;
-    }
-    
-    .waiting{
-        background:rgba(0,0,0,0.7);
-        display:flex;
-        align-items: center;
-        justify-content: center;
-        width:100%;
-        height:100vh;
-        display: none;
-        position: absolute;
-        z-index:999;
-    }
-    .waiting p{
-        width:70%;
-        height:130px;
-        display:flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 50%;
-        border-radius: 10px;
-        color:#fff;
-        font-size: 25px;
-        background: #46c4ff;
-        animation:waiting 3s infinite linear;
-        -moz-animation:waiting 3s infinite linear; /* Firefox */
-        -webkit-animation:waiting 3s infinite linear; /* Safari and Chrome */
-        -o-animation:waiting 3s infinite linear; /* Opera */
-    }
-    @keyframes waiting
-    {
-        0% {margin-top:-80px;}
-        25% {margin-top:-40px;}
-        50% {margin-top:0px;}
-        75% {margin-top:-40px;}
-        100% {margin-top:-80px;}
-    }
-
-    @-moz-keyframes waiting /* Firefox */
-    {
-        0% {margin-top:-80px;}
-        25% {margin-top:-40px;}
-        50% {margin-top:0px;}
-        75% {margin-top:-40px;}
-        100% {margin-top:-80px;}
-    }
-
-    @-webkit-keyframes waiting /* Safari and Chrome */
-    {
-        0% {margin-top:-80px;}
-        25% {margin-top:-40px;}
-        50% {margin-top:0px;}
-        75% {margin-top:-40px;}
-        100% {margin-top:-80px;}
-    }
-
-    @-o-keyframes waiting /* Opera */
-    {
-        0% {margin-top:-80px;}
-        25% {margin-top:-40px;}
-        50% {margin-top:0px;}
-        75% {margin-top:-40px;}
-        100% {margin-top:-80px;}
     }
     @media screen and (min-width:501px){
         #news,#weather,.sideMenu,.loading{display: none;}
@@ -178,6 +68,31 @@
             appearance:none;
             -moz-appearance:none;
             -webkit-appearance:none;
+        }
+        /* 讀取頁面 */
+        .loadingPage{
+            width: 100%;
+            height: 100vh;
+            background: #000;
+            position: fixed;
+            z-index: 99999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .slogan{
+            height: 200px;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+        }
+        .slogan h1:nth-child(1){
+            font-size: 50px;
+        }
+        .slogan h1:nth-child(2){
+            font-size: 23px;
+            margin-top: 5%;
         }
         .msg{
             color:#fff;
@@ -265,12 +180,12 @@
         }
         .area-title{
             width:100%;
-            height:120px;
+            height:60px;
             display:flex;
             justify-content: space-between;
             align-items: center;
-            background: #171615;
-            color: #fff;
+            background: #212121;
+            color: #e8e8e8;
             z-index:999;
             position: fixed;
         }
@@ -283,6 +198,7 @@
         .area-title > span > i{
             font-size:25px;
         }
+        
         .navbar{
             height:50px;
             width:100%;
@@ -290,7 +206,7 @@
             background: #fff;
             box-shadow: 0px 1px 1px #dedede;
             z-index: 999;
-            margin-top: 120px;
+            margin-top: 60px;
             position: fixed;
             display:none;
         }
@@ -300,29 +216,32 @@
             justify-content: space-around;
             width: 720px;
             height: 50px;
+            background: #A22C29;
         }
         .menu span{
             padding: 10px;
             padding-left: 15px;
             padding-right: 15px;
             border-radius: 5px;
+            color:#fff;
         }
         .cur{
-            background: #000;
+            background: #353531;
             color: #fff;
         }
         /*pop view*/
         .popView{
             position: absolute;
-            margin-top: 173px;
+            margin-top: 200px;
             width: 100%;
-            height: 100%;
+            height: auto;
             display:none;
+            padding-bottom: 50px;
         }
         .textFooter{
             background: #000;
             width: 100%;
-            height:65px;
+            height:50px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -332,17 +251,25 @@
         }
         .textFooter p,.textFooter a{
             color:#fff;
-            font-size: 14px;
+            font-size: 10px;
             padding-top: 2%;
             padding-bottom: 2%;
         }
-        .textFooter a{font-size: 12px;padding-top:1%;text-decoration: none;}
+        .textFooter a{padding-top:1%;text-decoration: none;}
         /* end */
 
         .title{
             font-size:30px;
             font-weight:bold;
             flex:1;
+        }
+        .title > h1{
+            display: flex;
+            align-items: center;
+        }
+        .title >h1 > i{
+            font-size: 25px;
+            padding-left: 2px;
         }
         /* 新聞列表 */
         .sideMenu{
@@ -406,10 +333,52 @@
             margin-left: 3%;
             justify-content: space-between;
         }
+
+        /* 天氣資訊 */
+        .headerBlock{
+            margin: 0 auto;
+            margin-top: 110px;
+            width: 100%;
+            height: 105px;
+            display: flex;
+            align-items: center;
+            background:#f2f2f2;
+            position: fixed;
+            z-index: 999;
+        }
+        .header-hint{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 95%;
+            height: 90px;
+            margin:0 auto;
+            background: rgba(185, 186, 163, 0.3);
+            box-shadow: 1px 1px 9px #dadada;
+        }
+        select.fieldInf{
+            background: #3e3e3e;
+            border-radius: 10px;
+            color: #dadada;
+            padding-left: 10px;
+            padding-right: 10px;
+            height: 30px;
+        }
+        .chanceNow span{
+            font-size: 25px;
+        }
+        .temperRange{
+            display:flex;
+            flex-direction: column;
+            justify-content: space-around;
+            height: 70px;
+        }
+        .temperRange span {
+            font-size: 17px;
+        }
         .newsList{
             height: 100%;
             overflow-y: auto;
-            margin-top:170px;
         }
         .newsList > ul{
             overflow-y: auto;
@@ -417,7 +386,8 @@
             flex-direction: column;
             justify-content: space-around;
             align-items: center;
-            padding-bottom: 70px;
+            margin-top: 210px;
+            padding-bottom: 60px;
         }
 
         .classTitle  {
