@@ -22,7 +22,7 @@ function loadData(){
         // day5 雪   snowy
         // 起始天氣是台北市 location[5]
         $('#indexPlace option[value=5]').attr('selected', 'selected');
-        
+        $('.fieldInf option[value=5]').attr('selected', 'selected');
         if(data.location[5].weatherElement[0].time[0].parameter.parameterValue < 4){
             $('.status').append('<span class="index-day1"></span> ');
             $('.weatherNow').append('<span class="detailDay1"></span> ');
