@@ -74,5 +74,126 @@ $('#newsGroup').on('click','li',function(){
   $('.popView').css('display','block');
   $('.newsList ul > li').hide();
   setTimeout(function(){$('.popView').css('display','block');},500);
-  
+});
+
+// 切換字體大小
+
+// 叫出選單
+$('.popView').on('click','.changeSize',function(){
+  $('.textSize').slideToggle();
+  $('.textSize').css('display','flex');
+});    
+// 字體16
+$('.popView').on('click','.font16',function(){
+  $('.newsText p').css({'font-size':'16px','line-height':'18px','padding-top':'10px'});
+});
+// 字體20
+$('.popView').on('click','.font20',function(){
+  $('.newsText p').css({'font-size':'20px','line-height':'22px','padding-top':'15px'});
+});
+
+// 字體25
+$('.popView').on('click','.font25',function(){
+  $('.newsText p').css({'font-size':'25px','line-height':'26px','padding-top':'20px'});
+});
+
+
+// 切換新聞類別
+$('.menu span').eq(0).addClass('cur');
+// 叫出側邊欄位
+$('.area-title > span').click(function(){
+  $('.sideMenuBg').show();
+  $('.sideMenu').css('left','0%');
+});
+// 隱藏側邊欄位
+$('.sideMenuBg').click(function(){
+  $('.sideMenu').css('left','-70%');
+  $('.sideMenuBg').hide();
+});
+
+// 切換類別
+$('.menu span').click(function(){
+  var x =$(this).index();
+  $('.menu span').eq(x).addClass('cur').siblings().removeClass('cur');
+  $('.popView').hide();
+  $('.newsList ul > li').css('display','flex');
+});
+$('.focus').click(function(){
+  $("html, body").animate({ scrollTop: 0 }, 600);  
+  $('.popView').hide();
+  $('.popView').html("");
+  $('.newsList ul > li').hide();
+  $('.newsList ul > li.newsFocus').css('display','flex');
+});
+
+$('.politics').click(function(){
+  $("html, body").animate({ scrollTop: 0 }, 600);
+  $('.popView').hide();
+  $('.popView').html("");
+  $('.newsList ul > li').hide();
+  $('.newsList ul > li.newsPolitics').css('display','flex');
+});
+
+$('.gossiping').click(function(){
+  $("html, body").animate({ scrollTop: 0 }, 600);
+  $('.popView').hide();
+  $('.popView').html("");
+  $('.newsList ul > li').hide();
+  $('.newsList ul > li.newsGossiping').css('display','flex');
+});
+
+$('.entertainment').click(function(){
+  $("html, body").animate({ scrollTop: 0 }, 600);
+  $('.popView').hide();
+  $('.popView').html("");
+  $('.newsList ul > li').hide();
+  $('.newsList ul > li.newsEntertainment').css('display','flex');
+});
+
+$('.gossiping').click(function(){
+  $("html, body").animate({ scrollTop: 0 }, 600);
+  $('.popView').hide();
+  $('.popView').html("");
+  $('.newsList ul > li').hide();
+  $('.newsList ul > li.newsGossiping').css('display','flex');
+});
+
+$('.global').click(function(){
+  $("html, body").animate({ scrollTop: 0 }, 600);
+  $('.popView').hide();
+  $('.popView').html("");
+  $('.newsList ul > li').hide();
+  $('.newsList ul > li.newsGlobal').css('display','flex');
+});
+
+$('.finance').click(function(){
+  $("html, body").animate({ scrollTop: 0 }, 600);
+  $('.popView').hide();
+  $('.popView').html("");
+  $('.newsList ul > li').hide();
+  $('.newsList ul > li.newsHouse').css('display','flex');
+});
+
+$('.society').click(function(){
+  $("html, body").animate({ scrollTop: 0 }, 600);
+  $('.popView').hide();
+  $('.popView').html("");
+  $('.newsList ul > li').hide();
+  $('.newsList ul > li.newsSociety').css('display','flex');
+});
+
+$('.live').click(function(){
+  $("html, body").animate({ scrollTop: 0 }, 600);
+  $('.popView').hide();
+  $('.popView').html("");
+  $('.newsList ul > li').hide();
+  $('.newsList ul > li.newsLive').css('display','flex');
+});
+
+$('.sport').click(function(){
+  $("html, body").animate({ scrollTop: 0 }, 600);
+  $('.popView').hide();
+  $('.popView').html("");
+  $('.newsList ul > li').hide();
+  $('.newsList ul > li.newsSport').css('display','flex');
 });
