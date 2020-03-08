@@ -40,97 +40,57 @@ fetch(uri, {
 
     // 列印所有新聞
     for (var count = 0; count < dataList; count++) {
+        
         var news = result[count];
+        if(news.img==''){
+          news.img = imgSample;
+        }
+        else{
+          news.img = news.img;
+        }
         var htmlContent = '<div class="listPic">'+'<img src='+news.img+'>'+'</div>'+'<div class="listTitle">'+
-        '<h2>'+news.title+'</h2>'+'<p class="onTime"><span>'+news.date+'</span></p>'+
-        '<div style="display:none;">'+'<img src='+news.img+'>'+'<div class="newsContent">'+'<div class="postTime">'+
-        news.date+'<span class="changeSize">aA</span>'+'<div class="textSize">'+
-        '<span class="font16">A</span>'+'<span class="font20">A</span>'+'<span class="font25">A</span>'+
-        '</div>'+'</div>'+news.content+'</div>'+'</div>'+'</div>';
+          '<h2>'+news.title+'</h2>'+'<p class="onTime"><span>'+news.date+'</span></p>'+
+          '<div style="display:none;">'+'<img src='+news.img+'>'+'<div class="newsContent">'+'<div class="postTime">'+
+          news.date+'<span class="changeSize">aA</span>'+'<div class="textSize">'+
+          '<span class="font16">A</span>'+'<span class="font20">A</span>'+'<span class="font25">A</span>'+
+          '</div>'+'</div>'+news.content+'</div>'+'</div>'+'</div>';
+        
         if(news.category=='政治'){
-            if(news.img==''){
-              news.img = imgSample;
-            }
-            else{
-              news.img = news.img;
-            }
             $('.newsList > ul').append(
               '<li class="newsContent newsPolitics" style="display:none;">'+htmlContent+'</li>'
             );
         }
         else if(news.category=='娛樂'){
-            if(news.img==''){
-              news.img = imgSample;
-            }
-            else{
-              news.img = news.img;
-            }
             $('.newsList > ul').append(
                 '<li class="newsContent newsEntertainment" style="display:none;">'+htmlContent+'</li>'
             );
         }
         else if(news.category=='生活'){
-            if(news.img==''){
-              news.img = imgSample;
-            }
-            else{
-              news.img = news.img;
-            }
             $('.newsList > ul').append(
                 '<li class="newsContent newsLive" style="display:none;">'+htmlContent+'</li>'
             );
         }
         else if(news.category=='房產'){
-            if(news.img==''){
-              news.img = imgSample;
-            }
-            else{
-              news.img = news.img;
-            }
             $('.newsList > ul').append(
                 '<li class="newsContent newsHouse" style="display:none;">'+htmlContent+'</li>'
             );
         }
         else if(news.category=='社會'){
-            if(news.img==''){
-              news.img = imgSample;
-            }
-            else{
-              news.img = news.img;
-            }
             $('.newsList > ul').append(
                 '<li class="newsContent newsSociety" style="display:none;">'+htmlContent+'</li>'
             );
         }
         else if(news.category=='國際'){
-            if(news.img==''){
-              news.img = imgSample;
-            }
-            else{
-              news.img = news.img;
-            }
             $('.newsList > ul').append(
               '<li class="newsContent newsGlobal">'+htmlContent+'</li>'
             );
         }
         else if(news.category=='運動'){
-            if(news.img==''){
-              news.img = imgSample;
-            }
-            else{
-              news.img = news.img;
-            }
             $('.newsList > ul').append(
                 '<li class="newsContent newsSport" style="display:none;">'+htmlContent+'</li>'
             );
         }
         else if(news.category=='地方'){
-            if(news.img==''){
-              news.img = imgSample;
-            }
-            else{
-              news.img = news.img;
-            }
             $('.newsList > ul').append(
                 '<li class="newsContent newsGossiping" style="display:none;">'+htmlContent+'</li>'
             );
