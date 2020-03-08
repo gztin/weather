@@ -142,13 +142,15 @@ fetch(uri, {
       $('.newsList ul > li').css('display','flex');
     });
   $('.focus').click(function(){
-      $('.popView').hide();
-      $('.popView').html("");
-      $('.newsList ul > li').hide();
-      $('.newsList ul > li.newsFocus').css('display','flex');
+    $("html, body").animate({ scrollTop: 0 }, 600);  
+    $('.popView').hide();
+    $('.popView').html("");
+    $('.newsList ul > li').hide();
+    $('.newsList ul > li.newsFocus').css('display','flex');
   });
   
   $('.politics').click(function(){
+    $("html, body").animate({ scrollTop: 0 }, 600);
     $('.popView').hide();
     $('.popView').html("");
     $('.newsList ul > li').hide();
@@ -156,6 +158,7 @@ fetch(uri, {
   });
   
   $('.gossiping').click(function(){
+    $("html, body").animate({ scrollTop: 0 }, 600);
     $('.popView').hide();
     $('.popView').html("");
     $('.newsList ul > li').hide();
@@ -163,6 +166,7 @@ fetch(uri, {
   });
   
   $('.entertainment').click(function(){
+    $("html, body").animate({ scrollTop: 0 }, 600);
     $('.popView').hide();
     $('.popView').html("");
     $('.newsList ul > li').hide();
@@ -170,6 +174,7 @@ fetch(uri, {
   });
   
   $('.gossiping').click(function(){
+    $("html, body").animate({ scrollTop: 0 }, 600);
     $('.popView').hide();
     $('.popView').html("");
     $('.newsList ul > li').hide();
@@ -177,6 +182,7 @@ fetch(uri, {
   });
   
   $('.global').click(function(){
+    $("html, body").animate({ scrollTop: 0 }, 600);
     $('.popView').hide();
     $('.popView').html("");
     $('.newsList ul > li').hide();
@@ -184,6 +190,7 @@ fetch(uri, {
   });
   
   $('.finance').click(function(){
+    $("html, body").animate({ scrollTop: 0 }, 600);
     $('.popView').hide();
     $('.popView').html("");
     $('.newsList ul > li').hide();
@@ -191,6 +198,7 @@ fetch(uri, {
   });
   
   $('.society').click(function(){
+    $("html, body").animate({ scrollTop: 0 }, 600);
     $('.popView').hide();
     $('.popView').html("");
     $('.newsList ul > li').hide();
@@ -198,6 +206,7 @@ fetch(uri, {
   });
   
   $('.live').click(function(){
+    $("html, body").animate({ scrollTop: 0 }, 600);
     $('.popView').hide();
     $('.popView').html("");
     $('.newsList ul > li').hide();
@@ -205,6 +214,7 @@ fetch(uri, {
   });
   
   $('.sport').click(function(){
+    $("html, body").animate({ scrollTop: 0 }, 600);
     $('.popView').hide();
     $('.popView').html("");
     $('.newsList ul > li').hide();

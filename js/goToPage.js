@@ -52,7 +52,6 @@ let vm = new Vue({
 setTimeout(function(){$('.loadingPage').slideToggle();},2500);
 $('#newsGroup').on('click','li',function(){
   $('.textFooter').css('display','flex');
-  
   // 點選第幾則新聞
   var y =$(this).index();
   // alert('這是第'+y+'則新聞');
@@ -74,10 +73,6 @@ $('#newsGroup').on('click','li',function(){
   $('.newsPic').css('background','url('+getPic+')');
   $('.popView').css('display','block');
   $('.newsList ul > li').hide();
-  
-  // 置換iframe 連結的網址
-  // var geturl = $('#newsGroup > li').eq(y).find('a').attr("href");
-  // console.log(geturl);
-  // document.getElementById("popView").src = geturl;
   setTimeout(function(){$('.popView').css('display','block');},500);
+  
 });
