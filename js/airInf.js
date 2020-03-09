@@ -37,6 +37,8 @@ function changeField(){
             $('.airInf').append('<span>空氣品質:'+infData[5].Status+'</span>');
         }else if((infData[39].County == place)&&(infData[39].SiteName=='朴子')){
             $('.airInf').append('<span>空氣品質:'+infData[39].Status+'</span>');
+        }else if((infData[41].County == place)&&(infData[41].SiteName=='嘉義')){
+            $('.airInf').append('<span>空氣品質:'+infData[41].Status+'</span>');
         }else if((infData[21].County == place)&&(infData[21].SiteName=='湖口')){
             $('.airInf').append('<span>空氣品質:'+infData[21].Status+'</span>');
         }else if((infData[23].County == place)&&(infData[23].SiteName=='新竹')){
