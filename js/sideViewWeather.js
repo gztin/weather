@@ -23,22 +23,27 @@ function loadData(){
         // 起始天氣是台北市 location[5]
         $('#indexPlace option[value=5]').attr('selected', 'selected');
         $('.fieldInf option[value=5]').attr('selected', 'selected');
+       
         if(data.location[5].weatherElement[0].time[0].parameter.parameterValue < 4){
+            console.log('目前應該是晴天');
             $('.status').append('<span class="index-day1"></span> ');
             $('.weatherNow').append('<span class="detailDay1"></span> ');
             $('.weather1').append('<span class="detailDay1"></span>');
         }
-        else if((data.location[5].weatherElement[0].time[0].parameter.parameterValue >= 4)||(data.location[5].weatherElement[0].time[0].parameter.parameterValue <= 8)){
+        else if((data.location[5].weatherElement[0].time[0].parameter.parameterValue >= 4)&&(data.location[5].weatherElement[0].time[0].parameter.parameterValue <= 8)){
+            console.log('目前應該是陰天');
             $('.status').append('<span class="index-day2"></span> ');
             $('.weatherNow').append('<span class="detailDay2"></span> ');
             $('.weather1').append('<span class="detailDay2"></span>');
         }
-        else if((data.location[5].weatherElement[0].time[0].parameter.parameterValue > 8)||(data.location[5].weatherElement[0].time[0].parameter.parameterValue <= 14)){
+        else if((data.location[5].weatherElement[0].time[0].parameter.parameterValue > 8)&&(data.location[5].weatherElement[0].time[0].parameter.parameterValue <= 14)){
+            console.log('目前應該是雨天');
             $('.status').append('<span class="index-day3"></span> ');
             $('.weatherNow').append('<span class="detailDay3"></span> ');
             $('.weather1').append('<span class="detailDay3"></span>');
         }
-        else if((data.location[5].weatherElement[0].time[0].parameter.parameterValue > 15)||(data.location[5].weatherElement[0].time[0].parameter.parameterValue < 23)){
+        else if((data.location[5].weatherElement[0].time[0].parameter.parameterValue > 15)&&(data.location[5].weatherElement[0].time[0].parameter.parameterValue < 23)){
+            console.log('目前應該是雷雨天');
             $('.status').append('<span class="index-day4"></span> ');
             $('.weatherNow').append('<span class="detailDay4"></span>');
             $('.weather1').append('<span class="detailDay4"></span>');
@@ -111,21 +116,30 @@ function changeLocation(){
         $('.chance2').html('');
         $('.chance3').html('');
         // 第一天的天氣
+        console.log('天氣數字是'+data.location[choice].weatherElement[0].time[0].parameter.parameterValue);
         if(data.location[choice].weatherElement[0].time[0].parameter.parameterValue < 4){
+            console.log('目前應該是晴天');
             $('.status').append('<span class="index-day1"></span> ');
             $('.weather1').append('<span class="detailDay1"></span>');
+            $('.weatherNow').append('<span class="detailDay1"></span>');
         }
-        else if((data.location[choice].weatherElement[0].time[0].parameter.parameterValue >= 4)||(data.location[5].weatherElement[0].time[0].parameter.parameterValue <= 8)){
+        else if((data.location[choice].weatherElement[0].time[0].parameter.parameterValue >= 4)&&(data.location[choice].weatherElement[0].time[0].parameter.parameterValue <= 8)){
+            console.log('目前應該是陰天');
             $('.status').append('<span class="index-day2"></span> ');
             $('.weather1').append('<span class="detailDay2"></span>');
+            $('.weatherNow').append('<span class="detailDay2"></span>');
         }
-        else if((data.location[choice].weatherElement[0].time[0].parameter.parameterValue > 8)||(data.location[5].weatherElement[0].time[0].parameter.parameterValue <= 14)){
+        else if((data.location[choice].weatherElement[0].time[0].parameter.parameterValue > 8)&&(data.location[choice].weatherElement[0].time[0].parameter.parameterValue <= 14)){
+            console.log('目前應該是雨天');
             $('.status').append('<span class="index-day3"></span> ');
             $('.weather1').append('<span class="detailDay3"></span>');
+            $('.weatherNow').append('<span class="detailDay3"></span>');
         }
-        else if((data.location[choice].weatherElement[0].time[0].parameter.parameterValue > 15)||(data.location[5].weatherElement[0].time[0].parameter.parameterValue < 23)){
+        else if((data.location[choice].weatherElement[0].time[0].parameter.parameterValue > 14)&&(data.location[choice].weatherElement[0].time[0].parameter.parameterValue < 23)){
+            console.log('目前應該是雷雨天');
             $('.status').append('<span class="index-day4"></span> ');
             $('.weather1').append('<span class="detailDay4"></span>');
+            $('.weatherNow').append('<span class="detailDay4"></span>');
         }
 
         // 第二天的天氣
@@ -188,14 +202,14 @@ function changePlace(){
         if(data.location[choice].weatherElement[0].time[0].parameter.parameterValue < 4){
             $('.weatherNow').append('<span class="detailDay1"></span> ');
         }
-        else if((data.location[choice].weatherElement[0].time[0].parameter.parameterValue >= 4)||(data.location[5].weatherElement[0].time[0].parameter.parameterValue <= 8)){
-            $('.weatherNow').append('<span class="detailDay1"></span> ');
+        else if((data.location[choice].weatherElement[0].time[0].parameter.parameterValue >= 4)&&(data.location[5].weatherElement[0].time[0].parameter.parameterValue <= 8)){
+            $('.weatherNow').append('<span class="detailDay2"></span> ');
         }
-        else if((data.location[choice].weatherElement[0].time[0].parameter.parameterValue > 8)||(data.location[5].weatherElement[0].time[0].parameter.parameterValue <= 14)){
-            $('.weatherNow').append('<span class="detailDay1"></span> ');
+        else if((data.location[choice].weatherElement[0].time[0].parameter.parameterValue > 8)&&(data.location[5].weatherElement[0].time[0].parameter.parameterValue <= 14)){
+            $('.weatherNow').append('<span class="detailDay3"></span> ');
         }
-        else if((data.location[choice].weatherElement[0].time[0].parameter.parameterValue > 15)||(data.location[5].weatherElement[0].time[0].parameter.parameterValue < 23)){
-            $('.weatherNow').append('<span class="detailDay1"></span> ');
+        else if((data.location[choice].weatherElement[0].time[0].parameter.parameterValue > 15)&&(data.location[5].weatherElement[0].time[0].parameter.parameterValue < 23)){
+            $('.weatherNow').append('<span class="detailDay4"></span> ');
         }
 
         // 顯示當天的高低溫
