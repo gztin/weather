@@ -50,10 +50,10 @@ function loadData(){
         }
 
         // 第二天的天氣
-        if(data.location[5].weatherElement[0].time[1].parameter.parameterValue < 4){
+        if(data.location[5].weatherElement[0].time[1].parameter.parameterValue <= 4){
             $('.weather2').append('<span class="detailDay1"></span>');
         }
-        else if((data.location[5].weatherElement[0].time[1].parameter.parameterValue >= 4)&&(data.location[5].weatherElement[0].time[0].parameter.parameterValue <= 8)){
+        else if((data.location[5].weatherElement[0].time[1].parameter.parameterValue > 4)&&(data.location[5].weatherElement[0].time[0].parameter.parameterValue <= 8)){
             $('.weather2').append('<span class="detailDay2"></span>');
         }
         else if((data.location[5].weatherElement[0].time[1].parameter.parameterValue > 8)&&(data.location[5].weatherElement[0].time[0].parameter.parameterValue <= 14)){
@@ -64,10 +64,10 @@ function loadData(){
         }
         
         // 第三天的天氣
-        if(data.location[5].weatherElement[0].time[2].parameter.parameterValue < 4){
+        if(data.location[5].weatherElement[0].time[2].parameter.parameterValue <= 4){
             $('.weather3').append('<span class="detailDay1"></span>');
         }
-        else if((data.location[5].weatherElement[0].time[2].parameter.parameterValue >= 4)&&(data.location[5].weatherElement[0].time[0].parameter.parameterValue <= 8)){
+        else if((data.location[5].weatherElement[0].time[2].parameter.parameterValue > 4)&&(data.location[5].weatherElement[0].time[0].parameter.parameterValue <= 8)){
             $('.weather3').append('<span class="detailDay2"></span>');
         }
         else if((data.location[5].weatherElement[0].time[2].parameter.parameterValue > 8)&&(data.location[5].weatherElement[0].time[0].parameter.parameterValue <= 14)){
@@ -117,13 +117,13 @@ function changeLocation(){
         $('.chance3').html('');
         // 第一天的天氣
         console.log('天氣數字是'+data.location[choice].weatherElement[0].time[0].parameter.parameterValue);
-        if(data.location[choice].weatherElement[0].time[0].parameter.parameterValue < 4){
+        if(data.location[choice].weatherElement[0].time[0].parameter.parameterValue <= 4){
             console.log('目前應該是晴天');
             $('.status').append('<span class="index-day1"></span> ');
             $('.weather1').append('<span class="detailDay1"></span>');
             $('.weatherNow').append('<span class="detailDay1"></span>');
         }
-        else if((data.location[choice].weatherElement[0].time[0].parameter.parameterValue >= 4)&&(data.location[choice].weatherElement[0].time[0].parameter.parameterValue <= 8)){
+        else if((data.location[choice].weatherElement[0].time[0].parameter.parameterValue > 4)&&(data.location[choice].weatherElement[0].time[0].parameter.parameterValue <= 8)){
             console.log('目前應該是陰天');
             $('.status').append('<span class="index-day2"></span> ');
             $('.weather1').append('<span class="detailDay2"></span>');
@@ -143,10 +143,10 @@ function changeLocation(){
         }
 
         // 第二天的天氣
-        if(data.location[choice].weatherElement[0].time[0].parameter.parameterValue < 4){
+        if(data.location[choice].weatherElement[0].time[0].parameter.parameterValue <= 4){
             $('.weather2').append('<span class="detailDay1"></span>');
         }
-        else if((data.location[choice].weatherElement[0].time[0].parameter.parameterValue >= 4)&&(data.location[5].weatherElement[0].time[0].parameter.parameterValue <= 8)){ 
+        else if((data.location[choice].weatherElement[0].time[0].parameter.parameterValue > 4)&&(data.location[5].weatherElement[0].time[0].parameter.parameterValue <= 8)){ 
             $('.weather2').append('<span class="detailDay2"></span>');
         }
         else if((data.location[choice].weatherElement[0].time[0].parameter.parameterValue > 8)&&(data.location[5].weatherElement[0].time[0].parameter.parameterValue <= 14)){
@@ -157,10 +157,10 @@ function changeLocation(){
         }
         
         // 第三天的天氣
-        if(data.location[choice].weatherElement[0].time[0].parameter.parameterValue < 4){
+        if(data.location[choice].weatherElement[0].time[0].parameter.parameterValue <= 4){
             $('.weather3').append('<span class="detailDay1"></span>');
         }
-        else if((data.location[choice].weatherElement[0].time[0].parameter.parameterValue >= 4)&&(data.location[5].weatherElement[0].time[0].parameter.parameterValue <= 8)){
+        else if((data.location[choice].weatherElement[0].time[0].parameter.parameterValue > 4)&&(data.location[5].weatherElement[0].time[0].parameter.parameterValue <= 8)){
             $('.weather3').append('<span class="detailDay2"></span>');
         }
         else if((data.location[choice].weatherElement[0].time[0].parameter.parameterValue > 8)&&(data.location[5].weatherElement[0].time[0].parameter.parameterValue <= 14)){
