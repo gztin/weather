@@ -43,53 +43,47 @@ fetch(uri, {
           '<span class="font16">A</span>'+'<span class="font18">A</span>'+'<span class="font20">A</span>'+
           '</div>'+'</div>'+news.content+'</div>'+'</div>'+'</div>';
         
-        // newsPolitics 政治新聞
-        if(news.category=='政治'){
-            $('.newsList > ul').append(
-              '<li class="newsContent newsPolitics">'+newsContent+'</li>'
-            );
-        }
-        // newsEntertainment 娛樂新聞
-        else if(news.category=='娛樂'){
-            $('.newsList > ul').append(
-                '<li class="newsContent newsEntertainment">'+newsContent+'</li>'
-            );
-        }
-        // newsLive 生活新聞
-        else if(news.category=='生活'){
-            $('.newsList > ul').append(
-                '<li class="newsContent newsLive">'+newsContent+'</li>'
-            );
-        }
-        else if(news.category=='房產'){
-            $('.newsList > ul').append(
-                '<li class="newsContent newsHouse">'+newsContent+'</li>'
-            );
-        }
-        // newsSociety 社會新聞
-        else if(news.category=='社會'){
-            $('.newsList > ul').append(
-                '<li class="newsContent newsSociety">'+newsContent+'</li>'
-            );
-        }
-        // newsGlobal 國際新聞
-        else if(news.category=='國際'){
-            $('.newsList > ul').append(
+        if(news.category=='國際'){
+            $('.newsList > ul#newsGlobal').append(
               '<li class="newsContent newsGlobal">'+newsContent+'</li>'
             );
         }
-        // newsSport 體育新聞
+        else if(news.category=='生活'){
+            $('.newsList > ul#newsLive').append(
+                '<li class="newsContent newsLive">'+newsContent+'</li>'
+            );
+        }
+        else if(news.category=='政治'){
+            $('.newsList > ul#newsPolitics').append(
+              '<li class="newsContent newsPolitics">'+newsContent+'</li>'
+            );
+        }
+        else if(news.category=='地方'){
+            $('.newsList > ul#newsGossiping').append(
+                '<li class="newsContent newsGossiping">'+newsContent+'</li>'
+            );
+        }
+        else if(news.category=='娛樂'){
+            $('.newsList > ul#newsEntertainment').append(
+                '<li class="newsContent newsEntertainment">'+newsContent+'</li>'
+            );
+        }
+        else if(news.category=='房產'){
+            $('.newsList > ul#newsHouse').append(
+                '<li class="newsContent newsHouse">'+newsContent+'</li>'
+            );
+        }
+        else if(news.category=='社會'){
+            $('.newsList > ul#newsSociety').append(
+                '<li class="newsContent newsSociety">'+newsContent+'</li>'
+            );
+        }
         else if(news.category=='運動'){
-            $('.newsList > ul').append(
+            $('.newsList > ul#newsSport').append(
                 '<li class="newsContent newsSport" ">'+newsContent+'</li>'
             );
         }
-        // newsSport 地方新聞
-        else if(news.category=='地方'){
-            $('.newsList > ul').append(
-                '<li class="newsContent newsGossiping">'+newsContent+'</li>'
-            );
-        }      
+             
     }
 }).catch((err) => {
     console.log('訊息:請重新嘗試連線', err);
