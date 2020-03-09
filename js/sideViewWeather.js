@@ -59,7 +59,7 @@ function loadData(){
         else if((data.location[5].weatherElement[0].time[1].parameter.parameterValue > 8)&&(data.location[5].weatherElement[0].time[0].parameter.parameterValue <= 14)){
             $('.weather2').append('<span class="detailDay3"></span>');
         }
-        else if((data.location[5].weatherElement[0].time[1].parameter.parameterValue > 14)&&|(data.location[5].weatherElement[0].time[0].parameter.parameterValue < 23)){
+        else if((data.location[5].weatherElement[0].time[1].parameter.parameterValue > 14)&&(data.location[5].weatherElement[0].time[0].parameter.parameterValue < 23)){
             $('.weather2').append('<span class="detailDay4"></span>');
         }
         
