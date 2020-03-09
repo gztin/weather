@@ -1,5 +1,4 @@
 // 讀取新聞資料
-// const uri = "https://taiwan-train-api.herokuapp.com/news/";
 const uri = "https://taiwan-train-api.herokuapp.com/search/article";
 fetch(uri, {
     method: 'GET'
@@ -27,20 +26,9 @@ fetch(uri, {
     console.log(result);
     var dataList = result.length;
     var imgSample = './img/sample.png';
-    // 如果有撈到資料
-    // newsFocus 國際新聞
-    // newsPolitics 政治新聞
-    // newsLive 政治新聞
-    // newsEntertainment 娛樂新聞
-    // newsHouse 金融新聞
-    // newsSociety 社會新聞
-    // newsGlobal 國際新聞
-    // newsSport 體育新聞
-    // newsGossiping 八卦版
-
+    
     // 列印所有新聞
     for (var count = 0; count < dataList; count++) {
-        
         var news = result[count];
         if(news.img==''){
           news.img = imgSample;
@@ -48,55 +36,61 @@ fetch(uri, {
         else{
           news.img = news.img;
         }
-        var htmlContent = '<div class="listPic">'+'<img src='+news.img+'>'+'</div>'+'<div class="listTitle">'+
+        var newsContent = '<div class="listPic">'+'<img src='+news.img+'>'+'</div>'+'<div class="listTitle">'+
           '<h2>'+news.title+'</h2>'+'<p class="onTime"><span>'+news.date+'</span></p>'+
           '<div style="display:none;">'+'<img src='+news.img+'>'+'<div class="newsContent">'+'<div class="postTime">'+
           news.date+'<span class="changeSize">aA</span>'+'<div class="textSize">'+
-          '<span class="font16">A</span>'+'<span class="font20">A</span>'+'<span class="font25">A</span>'+
+          '<span class="font16">A</span>'+'<span class="font18">A</span>'+'<span class="font20">A</span>'+
           '</div>'+'</div>'+news.content+'</div>'+'</div>'+'</div>';
         
+        // newsPolitics 政治新聞
         if(news.category=='政治'){
             $('.newsList > ul').append(
-              '<li class="newsContent newsPolitics" style="display:none;">'+htmlContent+'</li>'
+              '<li class="newsContent newsPolitics">'+newsContent+'</li>'
             );
         }
+        // newsEntertainment 娛樂新聞
         else if(news.category=='娛樂'){
             $('.newsList > ul').append(
-                '<li class="newsContent newsEntertainment" style="display:none;">'+htmlContent+'</li>'
+                '<li class="newsContent newsEntertainment">'+newsContent+'</li>'
             );
         }
+        // newsLive 生活新聞
         else if(news.category=='生活'){
             $('.newsList > ul').append(
-                '<li class="newsContent newsLive" style="display:none;">'+htmlContent+'</li>'
+                '<li class="newsContent newsLive">'+newsContent+'</li>'
             );
         }
         else if(news.category=='房產'){
             $('.newsList > ul').append(
-                '<li class="newsContent newsHouse" style="display:none;">'+htmlContent+'</li>'
+                '<li class="newsContent newsHouse">'+newsContent+'</li>'
             );
         }
+        // newsSociety 社會新聞
         else if(news.category=='社會'){
             $('.newsList > ul').append(
-                '<li class="newsContent newsSociety" style="display:none;">'+htmlContent+'</li>'
+                '<li class="newsContent newsSociety">'+newsContent+'</li>'
             );
         }
+        // newsGlobal 國際新聞
         else if(news.category=='國際'){
             $('.newsList > ul').append(
-              '<li class="newsContent newsGlobal">'+htmlContent+'</li>'
+              '<li class="newsContent newsGlobal">'+newsContent+'</li>'
             );
         }
+        // newsSport 體育新聞
         else if(news.category=='運動'){
             $('.newsList > ul').append(
-                '<li class="newsContent newsSport" style="display:none;">'+htmlContent+'</li>'
+                '<li class="newsContent newsSport" ">'+newsContent+'</li>'
             );
         }
+        // newsSport 地方新聞
         else if(news.category=='地方'){
             $('.newsList > ul').append(
-                '<li class="newsContent newsGossiping" style="display:none;">'+htmlContent+'</li>'
+                '<li class="newsContent newsGossiping">'+newsContent+'</li>'
             );
         }      
     }
-  
 }).catch((err) => {
     console.log('訊息:請重新嘗試連線', err);
 });
