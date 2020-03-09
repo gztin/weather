@@ -45,7 +45,7 @@ function changeField(){
             $('.airInf').append('<span>空氣品質:'+infData[23].Status+'</span>');
         }else if((infData[10].County == place)&&(infData[10].SiteName=='士林')){
             $('.airInf').append('<span>空氣品質:'+infData[10].Status+'</span>');
-        }else if((infData[45].County == place)&&(infData[45].SiteName=='台南')){
+        }else if((infData[45].County == place)&&(infData[45].SiteName=='臺南')){
             $('.airInf').append('<span>空氣品質:'+infData[45].Status+'</span>');
         }else if((infData[63].County == place)&&(infData[63].SiteName=='宜蘭')){
             $('.airInf').append('<span>空氣品質:'+infData[63].Status+'</span>');
