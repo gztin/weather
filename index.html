@@ -76,16 +76,19 @@
         <div class="headerBlock">
             <div class="header-hint">
                 <div class="selectPlace">
-                    <select class="fieldInf" onchange="changePlace()"></select>
+                    <select class="fieldInf" onchange="changePlace();changeField()"></select>
+                    <div class="airInf"></div>
                 </div>
                 <div class="weatherNow"></div>
-                <div class="chanceNow"></div>
+                <div class="chanceNow">
+                    <span class="hintTitle">降雨機率</span>
+                </div>
                 <div class="temperRange"></div>
             </div>
         </div>
         <div class="popView"></div>
         <div class="newsList">
-            <ul id="newsGroup"></ul>
+            <ul id></ul>
         </div>
         <div class="textFooter"><p>{{copyright}}</p><a class="privacy" v-bind:href="privacy">使用者隱私權條款</a></div>
     </div>

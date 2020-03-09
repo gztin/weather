@@ -204,7 +204,7 @@ function changePlace(){
             '<span>'+data.location[choice].weatherElement[2].time[0].parameter.parameterName+'°C'+'<i class="fas fa-long-arrow-alt-down"></i>'+'</span>');
         
         // 顯示降雨機率
-        $('.chanceNow').append('<span>'+data.location[choice].weatherElement[1].time[0].parameter.parameterName+'%'+'</span>');
+        $('.chanceNow').append('<span class="hintTitle">降雨機率</span><span>'+data.location[choice].weatherElement[1].time[0].parameter.parameterName+'%'+'</span>');
     }).catch((err) => {
         console.log('錯誤:', err);
     });

@@ -389,11 +389,24 @@
             color: #8AB0AB;
             padding-left: 15px;
             padding-right: 15px;
-            height: 25px;
+            height: 20px;
             border: 1px solid #4f6471;
+        }
+        .airInf{
+            display:flex;
+            font-size: 12px;
+            margin-top:10px;
+        }
+        .chanceNow{
+            display:flex;
+            flex-direction: column;
         }
         .chanceNow span{
             font-size: 25px;
+        }
+        .hintTitle{
+            font-size: 12px!important;
+            padding-bottom: 10px;
         }
         .temperRange{
             display:flex;

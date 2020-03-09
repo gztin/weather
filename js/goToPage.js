@@ -14,7 +14,7 @@ let data = {
       {className:'entertainment',title:'娛樂'},
       {className:'finance',title:'房產'},
       {className:'society',title:'社會'},
-      {className:'sport',title:'體育'}
+      {className:'sport',title:'運動'}
   ], 
 }
 
@@ -30,16 +30,17 @@ let vm = new Vue({
 
 // 跳頁
 setTimeout(function(){$('.loadingPage').slideToggle();},2500);
-$('#newsGroup').on('click','li',function(){
+
+$('.newsList').on('click','li',function(){
   $("html, body").animate({ scrollTop: 0 }, 100);
   $('.textFooter').css('display','flex');
   // 點選第幾則新聞
   var y =$(this).index();
   // alert('這是第'+y+'則新聞');
-  var getTitle = $('#newsGroup > li').eq(y).find('h2').text();
-  var getPic = $('#newsGroup > li').eq(y).find('img').attr("src");
-  var getTime = $('#newsGroup > li').eq(y).find('p[class="onTime"]').html();
-  var getContent = $('#newsGroup > li').eq(y).find('div[class="newsContent"]').html();
+  var getTitle = $('ul.show > li').eq(y).find('h2').text();
+  var getPic = $('ul.show > li').eq(y).find('img').attr("src");
+  var getTime = $('ul.show > li').eq(y).find('p[class="onTime"]').html();
+  var getContent = $('ul.show > li').eq(y).find('div[class="newsContent"]').html();
 
   console.log(getTitle);
   console.log(getTime);
@@ -53,7 +54,7 @@ $('#newsGroup').on('click','li',function(){
   );
   $('.newsPic').css('background','url('+getPic+')');
   $('.popView').css('display','block');
-  $('.newsList ul > li').hide();
+  $('.newsList ul').hide();
   setTimeout(function(){$('.popView').css('display','block');},500);
 });
 
@@ -98,80 +99,8 @@ $('.menu span').click(function(){
   $('.textSize').css('display','none');
   var x =$(this).index();
   $('.menu span').eq(x).addClass('cur').siblings().removeClass('cur');
-  $('.popView').hide();
-  $('.newsList ul > li').css('display','flex');
-    
-});
-
-
-$('.politics').click(function(){
-  $("html, body").animate({ scrollTop: 0 }, 100);
+  $('.newsList ul').eq(x).addClass('show').siblings().removeClass('show');
   $('.popView').hide();
   $('.popView').html("");
-  $('.newsList ul > li').hide();
-  $('.newsList ul > li.newsPolitics').css('display','flex');
-});
-
-$('.gossiping').click(function(){
-  $("html, body").animate({ scrollTop: 0 }, 100);
-  $('.popView').hide();
-  $('.popView').html("");
-  $('.newsList ul > li').hide();
-  $('.newsList ul > li.newsGossiping').css('display','flex');
-});
-
-$('.entertainment').click(function(){
-  $("html, body").animate({ scrollTop: 0 }, 100);
-  $('.popView').hide();
-  $('.popView').html("");
-  $('.newsList ul > li').hide();
-  $('.newsList ul > li.newsEntertainment').css('display','flex');
-});
-
-$('.gossiping').click(function(){
-  $("html, body").animate({ scrollTop: 0 }, 100);
-  $('.popView').hide();
-  $('.popView').html("");
-  $('.newsList ul > li').hide();
-  $('.newsList ul > li.newsGossiping').css('display','flex');
-});
-
-$('.global').click(function(){
-  $("html, body").animate({ scrollTop: 0 }, 100);
-  $('.popView').hide();
-  $('.popView').html("");
-  $('.newsList ul > li').hide();
-  $('.newsList ul > li.newsGlobal').css('display','flex');
-});
-
-$('.finance').click(function(){
-  $("html, body").animate({ scrollTop: 0 }, 100);
-  $('.popView').hide();
-  $('.popView').html("");
-  $('.newsList ul > li').hide();
-  $('.newsList ul > li.newsHouse').css('display','flex');
-});
-
-$('.society').click(function(){
-  $("html, body").animate({ scrollTop: 0 }, 100);
-  $('.popView').hide();
-  $('.popView').html("");
-  $('.newsList ul > li').hide();
-  $('.newsList ul > li.newsSociety').css('display','flex');
-});
-
-$('.live').click(function(){
-  $("html, body").animate({ scrollTop: 0 }, 100);
-  $('.popView').hide();
-  $('.popView').html("");
-  $('.newsList ul > li').hide();
-  $('.newsList ul > li.newsLive').css('display','flex');
-});
-
-$('.sport').click(function(){
-  $("html, body").animate({ scrollTop: 0 }, 100);
-  $('.popView').hide();
-  $('.popView').html("");
-  $('.newsList ul > li').hide();
-  $('.newsList ul > li.newsSport').css('display','flex');
+  $('.newsList ul').eq(x).css('display','flex').siblings().css('display','none');
 });
