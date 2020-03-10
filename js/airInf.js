@@ -18,7 +18,7 @@ function changeField(){
     // 切換縣市
     var place = $('.fieldInf').find("option:selected").text();
     console.log(place);
-    fetch('//opendata2.epa.gov.tw/AQI.json', {})
+    fetch('https://opendata.epa.gov.tw/webapi/api/rest/datastore/355000000I-990271?sort=SiteId&offset=0&limit=100', {})
     .then((response) => {
         // 可以透過 blob(), json(), text() 轉成可用的資訊
         return response.json(); 
