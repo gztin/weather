@@ -1,4 +1,4 @@
-const uri1 = "https://opendata.epa.gov.tw/webapi/api/rest/datastore/355000000I-990271?sort=SiteId&offset=0&limit=1000";
+const uri1 = "https://opendata.epa.gov.tw/api/v1/AQI?%24skip=0&%24top=1000&%24format=json";
 fetch(uri1, {
     method: 'GET'
 })
@@ -18,7 +18,7 @@ function changeField(){
     // 切換縣市
     var place = $('.fieldInf').find("option:selected").text();
     console.log(place);
-    fetch('https://opendata.epa.gov.tw/webapi/api/rest/datastore/355000000I-990271?sort=SiteId&offset=0&limit=1000', {})
+    fetch('https://opendata.epa.gov.tw/api/v1/AQI?%24skip=0&%24top=1000&%24format=json', {})
     .then((response) => {
         // 可以透過 blob(), json(), text() 轉成可用的資訊
         return response.json(); 
