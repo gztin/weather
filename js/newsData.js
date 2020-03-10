@@ -58,9 +58,9 @@ fetch(uri, {
               '<li class="newsContent newsPolitics">'+newsContent+'</li>'
             );
         }
-        else if(news.category=='地方'){
-            $('.newsList > ul#newsGossiping').append(
-                '<li class="newsContent newsGossiping">'+newsContent+'</li>'
+        else if(news.category=='3C家電'){
+            $('.newsList > ul#news3C').append(
+                '<li class="newsContent news3C">'+newsContent+'</li>'
             );
         }
         else if(news.category=='娛樂'){
@@ -81,6 +81,11 @@ fetch(uri, {
         else if(news.category=='運動'){
             $('.newsList > ul#newsSport').append(
                 '<li class="newsContent newsSport" ">'+newsContent+'</li>'
+            );
+        }
+        else if(news.category=='財經'){
+            $('.newsList > ul#newsFinance').append(
+                '<li class="newsContent newsFinance" ">'+newsContent+'</li>'
             );
         }
              
