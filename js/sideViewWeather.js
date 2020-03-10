@@ -57,7 +57,8 @@ function loadData(){
         if(data.location[5].weatherElement[0].time[1].parameter.parameterValue <= 4){
             $('.weather2').append('<span class="detailDay1"></span>');
         }
-        else if((data.location[5].weatherElement[0].time[1].parameter.parameterValue > 4)&&(data.location[5].weatherElement[0].time[0].parameter.parameterValue <= 8)){
+        else if((data.location[5].weatherElement[0].time[1].parameter.parameterValue > 4)&&(data.location[5].weatherElement[0].time[1].parameter.parameterValue <= 8)){
+            console.log('第2天應該是陰天，因為數字是'+data.location[5].weatherElement[0].time[1].parameter.parameterValue);
             $('.weather2').append('<span class="detailDay2"></span>');
         }
         else if((data.location[5].weatherElement[0].time[1].parameter.parameterValue > 8)&&(data.location[5].weatherElement[0].time[1].parameter.parameterValue <= 14)){
@@ -74,7 +75,6 @@ function loadData(){
         }
         else if((data.location[5].weatherElement[0].time[2].parameter.parameterValue > 4)&&(data.location[5].weatherElement[0].time[2].parameter.parameterValue <= 8)){
             console.log('第三天應該是陰天，因為數字是'+data.location[5].weatherElement[0].time[2].parameter.parameterValue);
-            console.log();
             $('.weather3').append('<span class="detailDay2"></span>');
         }
         else if((data.location[5].weatherElement[0].time[2].parameter.parameterValue > 8)&&(data.location[5].weatherElement[0].time[2].parameter.parameterValue <= 14)){
