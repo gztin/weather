@@ -1,4 +1,4 @@
-const uri1 = "http://opendata2.epa.gov.tw/AQI.json";
+const uri1 = "https://opendata.epa.gov.tw/webapi/api/rest/datastore/355000000I-990271?sort=SiteId&offset=0&limit=100";
 fetch(uri1, {
     method: 'GET'
 })
