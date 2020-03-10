@@ -148,16 +148,16 @@ function changeLocation(){
         }
 
         // 第二天的天氣
-        if(data.location[choice].weatherElement[0].time[0].parameter.parameterValue <= 4){
+        if(data.location[choice].weatherElement[0].time[1].parameter.parameterValue <= 4){
             $('.weather2').append('<span class="detailDay1"></span>');
         }
-        else if((data.location[choice].weatherElement[0].time[1].parameter.parameterValue > 4)&&(data.location[5].weatherElement[0].time[1].parameter.parameterValue <= 8)){ 
+        else if((data.location[choice].weatherElement[0].time[1].parameter.parameterValue > 4)&&(data.location[choice].weatherElement[0].time[1].parameter.parameterValue <= 8)){ 
             $('.weather2').append('<span class="detailDay2"></span>');
         }
-        else if((data.location[choice].weatherElement[0].time[1].parameter.parameterValue > 8)&&(data.location[5].weatherElement[0].time[1].parameter.parameterValue <= 14)){
+        else if((data.location[choice].weatherElement[0].time[1].parameter.parameterValue > 8)&&(data.location[choice].weatherElement[0].time[1].parameter.parameterValue <= 14)){
             $('.weather2').append('<span class="detailDay3"></span>');
         }
-        else if((data.location[choice].weatherElement[0].time[1].parameter.parameterValue > 14)&&(data.location[5].weatherElement[0].time[1].parameter.parameterValue < 23)){
+        else if((data.location[choice].weatherElement[0].time[1].parameter.parameterValue > 14)&&(data.location[choice].weatherElement[0].time[1].parameter.parameterValue < 23)){
             $('.weather2').append('<span class="detailDay4"></span>');
         }
         
@@ -166,15 +166,15 @@ function changeLocation(){
             console.log('第三天應該是晴天');
             $('.weather3').append('<span class="detailDay1"></span>');
         }
-        else if((data.location[choice].weatherElement[0].time[2].parameter.parameterValue > 4)&&(data.location[5].weatherElement[0].time[2].parameter.parameterValue <= 8)){
+        else if((data.location[choice].weatherElement[0].time[2].parameter.parameterValue > 4)&&(data.location[choice].weatherElement[0].time[2].parameter.parameterValue <= 8)){
             console.log('第三天應該是陰天');
             $('.weather3').append('<span class="detailDay2"></span>');
         }
-        else if((data.location[choice].weatherElement[0].time[2].parameter.parameterValue > 8)&&(data.location[5].weatherElement[0].time[2].parameter.parameterValue <= 14)){
+        else if((data.location[choice].weatherElement[0].time[2].parameter.parameterValue > 8)&&(data.location[choice].weatherElement[0].time[2].parameter.parameterValue <= 14)){
             console.log('第三天應該是雨天');
             $('.weather3').append('<span class="detailDay3"></span>');
         }
-        else if((data.location[choice].weatherElement[0].time[2].parameter.parameterValue > 14)&&(data.location[5].weatherElement[0].time[2].parameter.parameterValue < 23)){
+        else if((data.location[choice].weatherElement[0].time[2].parameter.parameterValue > 14)&&(data.location[choice].weatherElement[0].time[2].parameter.parameterValue < 23)){
             console.log('第三天應該是雷雨天');
             $('.weather3').append('<span class="detailDay4"></span>');
         }
