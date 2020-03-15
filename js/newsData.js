@@ -51,7 +51,7 @@ fetch(uri, {
                                 '<span class="font20">A</span>'+
                             '</div>'+
                         '</div>'+
-                        news.content+'<a target="_blank" class="oirlink" href="'+news.url+'"><原始連結></a>'+
+                        news.content+'<a target="_blank" class="oirlink" href="'+news.url+'">查看原始文章 ></a>'+
                     '</div>'+
                 '</div>'+
             '</div>';
