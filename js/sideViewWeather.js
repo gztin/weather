@@ -1,3 +1,9 @@
+// var timerID = setInterval("dispTime()",1000);
+dispTime();
+// function change
+loadData();
+
+
 function loadData(){
     fetch('https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-157944DE-8E78-4585-8F55-6BFD77881E42&format=JSON', {})
     .then((response) => {
@@ -15,6 +21,9 @@ function loadData(){
             $('.fieldInf').append('<option value="'+dataCount+'">'+data.location[dataCount].locationName+'</option>');
             dataCount++;
         }
+        
+        
+        
         // day1 晴天 sunny
         // day2 陰天 cloudy
         // day3 雨天 rainy
@@ -104,7 +113,7 @@ function loadData(){
         console.log('錯誤:', err);
     });
 }
-function changeLocation(){
+function changeSidepage(){
     // 確認選擇的縣市
     var choice = $('#indexPlace').val();
     fetch('https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-157944DE-8E78-4585-8F55-6BFD77881E42&format=JSON', {})
@@ -194,7 +203,7 @@ function changeLocation(){
     });
 }
 
-function changePlace(){
+function changePlaceweather(){
     var choice = $('.fieldInf').val();
     fetch('https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-157944DE-8E78-4585-8F55-6BFD77881E42&format=JSON', {})
     .then((response) => {
@@ -268,7 +277,3 @@ function dispTime() {
         $('.time'+i).append('<span>星期' + GetDayStr(i-1) + '</span>');
     }
 }
-// var timerID = setInterval("dispTime()",1000);
-dispTime();
-// function change
-loadData();
