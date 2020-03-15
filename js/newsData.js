@@ -36,12 +36,25 @@ fetch(uri, {
         else{
           news.img = news.img;
         }
-        var newsContent = '<div class="listPic">'+'<img src='+news.img+'>'+'</div>'+'<div class="listTitle">'+
-          '<h2>'+news.title+'</h2>'+'<p class="onTime"><span>'+news.date+'</span></p>'+
-          '<div style="display:none;">'+'<img src='+news.img+'>'+'<div class="newsContent">'+'<div class="postTime">'+
-          news.date+'<span class="changeSize">aA</span>'+'<div class="textSize">'+
-          '<span class="font16">A</span>'+'<span class="font18">A</span>'+'<span class="font20">A</span>'+
-          '</div>'+'</div>'+news.content+'</div>'+'</div>'+'</div>';
+        var newsContent = '<div class="listPic">'+'<img src='+news.img+'>'+'</div>'+
+            '<div class="listTitle">'+
+                '<h2>'+news.title+'</h2>'+
+                '<p class="onTime"><span>'+news.date+'</span></p>'+
+                '<div style="display:none;">'+
+                    '<img src='+news.img+'>'+
+                    '<div class="newsContent">'+
+                        '<div class="postTime">'+
+                            news.date+'<span class="changeSize">aA</span>'+
+                            '<div class="textSize">'+
+                                '<span class="font16">A</span>'+
+                                '<span class="font18">A</span>'+
+                                '<span class="font20">A</span>'+
+                            '</div>'+
+                        '</div>'+
+                        news.content+'<a target="_blank" class="oirlink" href="'+news.url+'"><原始連結></a>'+
+                    '</div>'+
+                '</div>'+
+            '</div>';
         
         if(news.category=='國際'){
             $('.newsList > ul#newsGlobal').append(
@@ -58,8 +71,8 @@ fetch(uri, {
               '<li class="newsContent newsPolitics">'+newsContent+'</li>'
             );
         }
-        else if(news.category=='3C家電'){
-            $('.newsList > ul#news3C').append(
+        else if(news.category=='寵物'){
+            $('.newsList > ul#newsPet').append(
                 '<li class="newsContent news3C">'+newsContent+'</li>'
             );
         }

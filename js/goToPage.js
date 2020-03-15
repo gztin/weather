@@ -11,7 +11,7 @@ let data = {
       {className:'live',title:'生活'},
       {className:'politics',title:'政治'},
       {className:'finance',title:'財經'},
-      {className:'3C',title:'3C'},
+      {className:'pet',title:'寵物'},
       {className:'entertainment',title:'娛樂'},
       {className:'finance',title:'房產'},
       {className:'society',title:'社會'},
