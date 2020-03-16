@@ -7,7 +7,7 @@ fetch(uri1, {
 })
 .then(airData => {
     console.log(airData);
-    console.log(airData[14].Status);
+    console.log(airData[14].County+'空氣品質是:'+airData[14].Status);
     $('.airInf').append('<span>空氣品質:'+airData[14].Status+'</span>');
 }).catch((err) => {
     console.log('訊息:請重新嘗試連線', err);
