@@ -15,12 +15,27 @@ function loadData(){
         var loadPlace1 = 0;
         var data = jsonData.records;
         console.log(dataTotal);
+        
         // 顯示縣市資料
         while(loadPlace1<dataTotal){
             $('.indexPlace').append('<option value="'+loadPlace1+'">'+data.location[loadPlace1].locationName+'</option>');
             $('.fieldInf').append('<option value="'+loadPlace1+'">'+data.location[loadPlace1].locationName+'</option>');
             loadPlace1++;
         }
+
+         // 抓取用戶目前位置，以後用得到
+        // getLocation();
+        // function getLocation() {//取得 經緯度
+        //     if (navigator.geolocation) {//
+        //         navigator.geolocation.getCurrentPosition(showPosition);//有拿到位置就呼叫 showPosition 函式
+        //     } else {
+        //         alert("您的瀏覽器不支援 顯示地理位置 API ，請使用其它瀏覽器開啟 這個網址")
+        //     }
+        // }
+
+        // function showPosition(position) {
+        //     console.log("  緯度 (Latitude): " + position.coords.latitude +"經度 (Longitude):"+position.coords.longitude);
+        // }  
         
             // 取得IP
             fetch('https://api.ipify.org/?format=json', {})

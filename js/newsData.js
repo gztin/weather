@@ -7,20 +7,6 @@ fetch(uri, {
     return res.json(); // 使用 text() 可以得到純文字 String
 })
 .then(result => {
-    // 抓取用戶目前位置，以後用得到
-    // getLocation();
-    // function getLocation() {//取得 經緯度
-    //     if (navigator.geolocation) {//
-    //         navigator.geolocation.getCurrentPosition(showPosition);//有拿到位置就呼叫 showPosition 函式
-    //     } else {
-    //         alert("您的瀏覽器不支援 顯示地理位置 API ，請使用其它瀏覽器開啟 這個網址")
-    //     }
-    // }
-
-    // function showPosition(position) {
-    //       console.log("  緯度 (Latitude): " + position.coords.latitude +"經度 (Longitude):"+position.coords.longitude);
-    // }  
-
     $('.loading').css('display', 'none');
     $('.navbar').css('display', 'block');
     console.log(result);
