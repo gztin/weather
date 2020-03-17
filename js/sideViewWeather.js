@@ -45,6 +45,7 @@ function loadData(){
             }).then((placeData) => {
                 var dataPlace = placeData.district;
                 console.log('城市為:'+dataPlace);
+                alert('城市為:'+dataPlace);
                 if(dataPlace =='Chiayi County'){
                     var cityNumber = 0;   
                 }else if(dataPlace =='New TaipeiCity'){
@@ -108,6 +109,7 @@ function loadData(){
                     var loadPlace1 = $('.fieldInf').val();
                     var loadPlace2 = $('.indexPlace').val();
                     console.log('目前是要抓第'+loadPlace1+'地區的資料');
+                    alert('目前是要抓第'+loadPlace1+'地區的資料');
                     while(dataCount<dataTotal){
                         if(( loadPlace1 == 0)&&(airData[dataCount].SiteName=='朴子')){
                             $('.airInf').append('<span>空氣品質:'+airData[dataCount].Status+'</span>');
