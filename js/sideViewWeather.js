@@ -5,6 +5,21 @@ loadData();
 
 
 function loadData(){
+
+    // 抓取用戶目前位置，以後用得到
+    getLocation();
+    function getLocation() {//取得 經緯度
+        if (navigator.geolocation) {//
+            navigator.geolocation.getCurrentPosition(showPosition);//有拿到位置就呼叫 showPosition 函式
+        } else {
+            alert("您的瀏覽器不支援 顯示地理位置 API ，請使用其它瀏覽器開啟 這個網址")
+        }
+    }
+
+    function showPosition(position) {
+          console.log("緯度 (Latitude): " + position.coords.latitude +"經度 (Longitude):"+position.coords.longitude);
+    }  
+
     fetch('https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-157944DE-8E78-4585-8F55-6BFD77881E42&format=JSON', {})
     .then((response) => {
         // 可以透過 blob(), json(), text() 轉成可用的資訊
