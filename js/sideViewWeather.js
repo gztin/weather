@@ -15,13 +15,13 @@ function loadData(){
         var loadPlace1 = 0;
         var data = jsonData.records;
         console.log(dataTotal);
-        
         // 顯示縣市資料
         while(loadPlace1<dataTotal){
             $('.indexPlace').append('<option value="'+loadPlace1+'">'+data.location[loadPlace1].locationName+'</option>');
             $('.fieldInf').append('<option value="'+loadPlace1+'">'+data.location[loadPlace1].locationName+'</option>');
             loadPlace1++;
         }
+<<<<<<< HEAD
 
          // 抓取用戶目前位置，以後用得到
         // getLocation();
@@ -39,6 +39,11 @@ function loadData(){
               
         // 取得所在位置
         fetch('https://json.geoiplookup.io/', {})
+=======
+        
+            // 取得IP
+            fetch('https://api.ipify.org/?format=json', {})
+>>>>>>> parent of 1ea89c4... 更新
             .then((response) => {
                 // 可以透過 blob(), json(), text() 轉成可用的資訊
                 return response.json(); 
