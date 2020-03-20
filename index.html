@@ -6,8 +6,9 @@
     <title>POKEJO</title>
     <link rel="shortcut icon" href="/favicon.ico"/>
     <link rel="bookmark" href="/favicon.ico"/>
-    <link rel="stylesheet" href="./css/style_jonews.css?v=3">
+    <link rel="stylesheet" href="./css/style_jonews.css?v=10">
     <link rel="stylesheet" href="./css/weatherInf.css?v=5">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
     <script data-ad-client="ca-pub-8237624738906861" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 
@@ -22,11 +23,14 @@
     </div>
     <div class="hint"><p>請使用行動裝置瀏覽</p></div>
     <div class="bg" style="display:none;"></div>
+    <div id="loading" class="loadingPage">
+        <div class="slogan" v-html="slogan"></div>
+    </div> 
     <div class="sideMenu">
         <div class="sideBlock">
             <div class="status"></div>
             <div class="placeInf">
-                <select id="indexPlace" class="indexPlace" onchange="changeLocation()"></select>
+                <select id="indexPlace" class="indexPlace" onchange="changeSidepage()"></select>
             </div>
         </div>
         <div class="sideBlock">
@@ -34,18 +38,21 @@
                 <p class="time1"></p>
                 <p class="weather1"></p>
                 <p class="temp1"></p>
+                <p class="chance">降雨機率</p>
                 <p class="chance1"></p>
             </div>
             <div class="dayBlock">
                 <p class="time2"></p>
                 <p class="weather2"></p>
                 <p class="temp2"></p>
+                <p class="chance">降雨機率</p>
                 <p class="chance2"></p>
             </div>
             <div class="dayBlock">
                 <p class="time3"></p>
                 <p class="weather3"></p>
                 <p class="temp3"></p>
+                <p class="chance">降雨機率</p>
                 <p class="chance3"></p>
             </div>
         </div>
@@ -58,7 +65,7 @@
     <div id="news" class="news">
         <div class="area-title">
             <span><i class="fas fa-bars"></i></span>
-            <p class="title">POKEJO</p>
+            <p class="title" v-html="title"></p>
             <span></span>
         </div>
         <div class="navbar">
@@ -66,16 +73,39 @@
                 <span :class="item.className" v-for="item in newsCategory">{{item.title}}</span>
             </div>
         </div>
+        <div class="headerBlock">
+            <div class="header-hint">
+                <div class="selectPlace">
+                    <select class="fieldInf" onchange="changePlaceweather();changePlaceair()"></select>
+                    <div class="airInf"></div>
+                </div>
+                <div class="weatherNow"></div>
+                <div class="chanceNow">
+                    <span class="hintTitle">降雨機率</span>
+                </div>
+                <div class="temperRange"></div>
+            </div>
+        </div>
         <div class="popView"></div>
         <div class="newsList">
-            <ul id="newsGroup"></ul>
+            <ul id="newsGlobal" class="show"></ul>
+            <ul id="newsLive" style="display:none;"></ul>
+            <ul id="newsPolitics" style="display:none;"></ul>
+            <ul id="newsFinance" style="display:none;"></ul>
+            <ul id="newsPet" style="display:none;"></ul>
+            <ul id="newsEntertainment" style="display:none;"></ul>
+            <ul id="newsHouse" style="display:none;"></ul>
+            <ul id="newsSociety" style="display:none;"></ul>
+            <ul id="newsSport" style="display:none;"></ul>
         </div>
+        <div class="textFooter"><p>{{copyright}}</p><a class="privacy" v-bind:href="privacy">使用者隱私權條款</a></div>
     </div>
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://kit.fontawesome.com/85155ffcd6.js"></script>
 <script src="js/newsData.js"></script>
+<script src="js/airInf.js"></script>
 <script src="js/goToPage.js"></script>
 <script src="js/sideViewWeather.js"></script>
 </html>

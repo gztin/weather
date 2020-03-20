@@ -389,24 +389,11 @@
             color: #8AB0AB;
             padding-left: 15px;
             padding-right: 15px;
-            height: 20px;
+            height: 25px;
             border: 1px solid #4f6471;
-        }
-        .airInf{
-            display:flex;
-            font-size: 12px;
-            margin-top:10px;
-        }
-        .chanceNow{
-            display:flex;
-            flex-direction: column;
         }
         .chanceNow span{
             font-size: 25px;
-        }
-        .hintTitle{
-            font-size: 12px!important;
-            padding-bottom: 10px;
         }
         .temperRange{
             display:flex;
@@ -421,7 +408,7 @@
             margin-left:10px;
         }
         .newsList{
-            width: 100%;
+            weight: 100%;
             height: 100%;
             display: flex;
             overflow-y: auto;
@@ -509,27 +496,12 @@
             margin-top: 20px;
             border-radius: 5px;
         }
-        .textSize > span{
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            height: 100%;
-            align-items: center;
-        }
-        .textSize > span:nth-child(1){font-size: 16px;}
-        .textSize > span:nth-child(2){font-size: 18px;}
+        .textSize > span:nth-child(1){font-size: 12px;}
+        .textSize > span:nth-child(2){font-size: 15px;}
         .textSize > span:nth-child(3){font-size: 20px;}
-        .textSize > span:nth-child(4){font-size: 22px;}
+        .textSize > span:nth-child(4){font-size: 25px;}
 
-        .oirlink{
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding-top: 5%;
-            text-decoration: none;
-            color:#000;
-        }
+
         /* end */
         
         /*高鐵班次查詢*/
