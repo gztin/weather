@@ -38,7 +38,7 @@ function loadData(){
         // }  
               
         // 取得所在位置
-        fetch(' https://json.geoiplookup.io/', {})
+        fetch('https://json.geoiplookup.io/', {})
             .then((response) => {
                 // 可以透過 blob(), json(), text() 轉成可用的資訊
                 return response.json(); 
@@ -88,10 +88,18 @@ function loadData(){
                     var cityNumber = 19;   
                 }else if(dataPlace =='Changhua County'){
                     var cityNumber = 20;   
-                }else{
+                }else if(dataPlace =='Lianjiang County'){
                     var cityNumber = 21;   
                 }
-
+                console.log('cityNumber是:'+cityNumber);
+                if( cityNumber != 0 ){
+                    $('#indexPlace option[value='+cityNumber+']').attr('selected', 'selected');
+                    $('.fieldInf option[value='+cityNumber+']').attr('selected', 'selected');
+                }
+                else{
+                    $('#indexPlace option[value='+5+']').attr('selected', 'selected');
+                    $('.fieldInf option[value='+5+']').attr('selected', 'selected');
+                }
                 $('#indexPlace option[value='+cityNumber+']').attr('selected', 'selected');
                 $('.fieldInf option[value='+cityNumber+']').attr('selected', 'selected');
                 
