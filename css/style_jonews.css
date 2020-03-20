@@ -359,6 +359,16 @@
             justify-content: space-between;
         }
 
+        .oriURL{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        .oriURL a{
+            text-decoration: none;
+        }
         /* 天氣資訊 */
         .headerBlock{
             margin: 0 auto;
