@@ -59,6 +59,14 @@ $('.newsList').on('click','li',function(){
   setTimeout(function(){$('.popView').css('display','block');},500);
 });
 
+// 叫出原始新聞
+$('.oriURL a').on('click',function(){
+  var newsLink = $('.oriURL a').attr("href");
+  console.log('連結是'+newsLink);
+  $('.popView').html("");
+  $('.popView').append('<iframe src="'+newsLink+'frameborder="0" scrolling="auto"></iframe>');
+});
+
 // 切換字體大小
 
 // 叫出選單
