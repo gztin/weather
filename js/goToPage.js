@@ -33,6 +33,7 @@ let vm = new Vue({
 setTimeout(function(){$('.loadingPage').slideToggle();},2500);
 
 $('.newsList').on('click','li',function(){
+  $('.popView').html("");
   $("html, body").animate({ scrollTop: 0 }, 100);
   $('.textFooter').css('display','flex');
   // 點選第幾則新聞
@@ -42,32 +43,29 @@ $('.newsList').on('click','li',function(){
   var getPic = $('ul.show > li').eq(y).find('img').attr("src");
   var getTime = $('ul.show > li').eq(y).find('p[class="onTime"]').html();
   var getContent = $('ul.show > li').eq(y).find('div[class="newsContent"]').html();
+  var getLink = $('ul.show > li').eq(y).find('span[class="orilink"]').text();
 
-  console.log(getTitle);
-  console.log(getTime);
-  console.log('圖片路徑為'+getPic);
   $('.popView').append(
+    '<div class="created">'+
     '<h1 class="newsTitle">'+getTitle+'</h1>'+
     '<div class="newsPic"></div>'+
-    // '<img src='+getPic+'>'+
-    '<div class="newsText">'+getContent+'</div>'+
+    '<div class="newsText">'+
+    getContent+
+    '<div class="oriURL"><span class="orilink" style="display:none;">'+getLink+'</span><a>查看原始連結></a></div>'+
+    '<div class="ad"><a href="https://track.abzcoupon.com/track/clicks/4862/ce2bc2b89c0227d6efcda67f8835ce13286e4ece70fbb9b20a64ba0365?subid_1=&subid_2=&subid_3=&subid_4=&subid_5="></a></div>'+
+    '</div>'+
+    '</div>'+
     '<div class="textFooter"><p>copyright by @JOJO</p></div>'
   );
+  $('.oriURL').eq(0).remove();
+  $('.popView').append('<iframe class="resourcePage" style="display:none;" src="'+getLink+'" marginwidth="0" marginheight="0" frameborder="0"></iframe>');
   $('.newsPic').css('background','url('+getPic+')');
   $('.popView').css('display','block');
   $('.newsList ul').hide();
   setTimeout(function(){$('.popView').css('display','block');},500);
 });
 
-// 叫出原始新聞
-$('.oriURL a').on('click',function(){
-  var newsLink = $('.oriURL a').attr("href");
-  console.log('連結是'+newsLink);
-  $('.popView').html("");
-  $('.popView').append('<iframe src="'+newsLink+'frameborder="0" scrolling="auto"></iframe>');
-});
 
-// 切換字體大小
 
 // 叫出選單
 $('.popView').on('click','.changeSize',function(){
@@ -102,14 +100,32 @@ $('.sideMenuBg').click(function(){
   $('.sideMenuBg').hide();
 });
 
-// 切換類別
+
+// 叫出原始新聞頁面
+$('.popView').on('click','.oriURL',function(){
+  $('.popView').find('.textFooter').remove();
+  $('.popView').css('margin-top','90px');
+  $('.created').slideToggle();
+  $('.resourcePage').slideToggle();
+  // var newsLink = $('.oriURL span').text();
+  // $('ul.show > li').eq(y).find('span[class="bbb"]').html();
+  // console.log('連結是'+newsLink);
+  // $('.popView').html("");
+  // $('.popView').append('<iframe class="ddd" src="'+newsLink+'" marginwidth="0" marginheight="0" frameborder="0"></iframe>');
+  // var dk = $(".ddd").attr("src"); 
+  // alert('iframe 連結是:'+dk); 
+});
+
+
+// 隱藏iframe 並切換類別
 $('.menu span').click(function(){
+  $('.popView').hide();
+  $('.popView').html("");
+  $('.popView').css('margin-top','200px');
   $("html, body").animate({ scrollTop: 0 }, 100);
   $('.textSize').css('display','none');
   var x =$(this).index();
   $('.menu span').eq(x).addClass('cur').siblings().removeClass('cur');
   $('.newsList ul').eq(x).addClass('show').siblings().removeClass('show');
-  $('.popView').hide();
-  $('.popView').html("");
   $('.newsList ul').eq(x).css('display','flex').siblings().css('display','none');
 });

@@ -164,11 +164,16 @@ day3:下雨
     .ad{
         margin:10px;
         height: 65px;
-        background: url(../img/ad1.jpg)no-repeat center center; 
+        background: url(../img/ad2.jpg)no-repeat center center; 
         background-size: cover;
         padding: 0%;
-        margin-left: 4%;
-        margin-right: 4%;
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+    .ad a{
+        width:100%;
+        height:50px;
+        display:block;
     }
 @media screen and (max-width:480px){
     /* 側邊攔 */
@@ -369,11 +374,16 @@ day3:下雨
     .ad{
         margin:10px;
         height: 65px;
-         background: url(../img/ad1.jpg)no-repeat center center; 
+         background: url(../img/ad2.jpg)no-repeat center center; 
         background-size: cover;
         padding: 0%;
-        margin-left: 4%;
-        margin-right: 4%;
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+    .ad a{
+        width:100%;
+        height:50px;
+        display:block;
     }
 }
 @media screen and (max-width:375px) and (max-height:600px){
@@ -570,11 +580,16 @@ day3:下雨
     .ad{
         margin:10px;
         height: 50px;
-        background: url(../img/ad1.jpg)no-repeat center center; 
+        background: url(../img/ad2.jpg)no-repeat center center; 
         background-size: cover;
         padding: 0%;
-        margin-left: 4%;
-        margin-right: 4%;
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+    .ad a{
+        width:100%;
+        height:50px;
+        display:block;
     }
 }
 

@@ -50,7 +50,7 @@ fetch(uri, {
                                 '<span class="font18">A</span>'+
                                 '<span class="font20">A</span>'+
                             '</div>'+
-                        '</div>'+news.content+'<div class="oriURL"><a target="_self" href="'+news.url+'">查看原始連結></a></div></div>'+
+                        '</div>'+news.content+'<div class="oriURL"><span class="orilink" style="display:none;">'+news.url+'</span><a>查看原始連結></a></div></div>'+
                 '</div>'+
             '</div>';
         
