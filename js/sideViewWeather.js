@@ -113,9 +113,9 @@ function loadData(){
         console.log('錯誤:', err);
     });
 }
-function changeSidepage(){
+function changePlaceweather(){
     // 確認選擇的縣市
-    var choice = $('#indexPlace').val();
+    var choice = $('.fieldInf').val();
     fetch('https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-157944DE-8E78-4585-8F55-6BFD77881E42&format=JSON', {})
     .then((response) => {
         // 可以透過 blob(), json(), text() 轉成可用的資訊
@@ -123,6 +123,7 @@ function changeSidepage(){
     }).then((jsonData) => {
         var data = jsonData.records;
         // 把原本的資料清空
+        $('.chanceNow').html('');
         $('.status').html('');
         $('.weather1').html('');
         $('.weather2').html('');
@@ -194,6 +195,7 @@ function changeSidepage(){
         $('.temp3').append('<span>'+data.location[choice].weatherElement[2].time[2].parameter.parameterName+'°C'+'</span>');
         
         // 顯示未來三天的降雨機率
+        $('.chanceNow').append('<span class="hintTitle">降雨機率</span><span>'+data.location[choice].weatherElement[1].time[0].parameter.parameterName+'%'+'</span>');
         $('.chance1').append('<span>'+ data.location[choice].weatherElement[1].time[0].parameter.parameterName +'%'+'</span>');
         $('.chance2').append('<span>'+ data.location[choice].weatherElement[1].time[1].parameter.parameterName +'%'+'</span>');
         $('.chance3').append('<span>'+ data.location[choice].weatherElement[1].time[2].parameter.parameterName +'%'+'</span>');
@@ -203,48 +205,6 @@ function changeSidepage(){
     });
 }
 
-function changePlaceweather(){
-    var choice = $('.fieldInf').val();
-    fetch('https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-157944DE-8E78-4585-8F55-6BFD77881E42&format=JSON', {})
-    .then((response) => {
-        // 可以透過 blob(), json(), text() 轉成可用的資訊
-        return response.json(); 
-    }).then((jsonData) => {
-        var data = jsonData.records;
-        // 把原本的資料清空
-        $('.weatherNow').html('');
-        $('.temperRange').html('');
-        $('.chanceNow').html('');
-        
-        // 當天天氣
-        if(data.location[choice].weatherElement[0].time[0].parameter.parameterValue < 4){
-            console.log('目前應該是晴天');
-            $('.weatherNow').append('<span class="day1"></span> ');
-        }
-        else if((data.location[choice].weatherElement[0].time[0].parameter.parameterValue >= 4)&&(data.location[5].weatherElement[0].time[0].parameter.parameterValue <= 8)){
-            console.log('目前應該是陰天');
-            $('.weatherNow').append('<span class="day2"></span> ');
-        }
-        else if((data.location[choice].weatherElement[0].time[0].parameter.parameterValue > 8)&&(data.location[5].weatherElement[0].time[0].parameter.parameterValue <= 14)){
-            console.log('目前應該是雨天');
-            $('.weatherNow').append('<span class="day3"></span> ');
-        }
-        else if((data.location[choice].weatherElement[0].time[0].parameter.parameterValue > 14)&&(data.location[5].weatherElement[0].time[0].parameter.parameterValue < 23)){
-            console.log('目前應該是雷雨天');
-            $('.weatherNow').append('<span class="day4"></span> ');
-        }
-
-        // 顯示當天的高低溫
-        $('.temperRange').append(
-            '<span>'+data.location[choice].weatherElement[4].time[0].parameter.parameterName+'°C'+'<i class="fas fa-long-arrow-alt-up"></i>'+'</span>'+
-            '<span>'+data.location[choice].weatherElement[2].time[0].parameter.parameterName+'°C'+'<i class="fas fa-long-arrow-alt-down"></i>'+'</span>');
-        
-        // 顯示降雨機率
-        $('.chanceNow').append('<span class="hintTitle">降雨機率</span><span>'+data.location[choice].weatherElement[1].time[0].parameter.parameterName+'%'+'</span>');
-    }).catch((err) => {
-        console.log('錯誤:', err);
-    });
-}
 
 // 顯示未來三天日期
 function dispTime() {
