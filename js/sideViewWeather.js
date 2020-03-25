@@ -278,6 +278,6 @@ function dispTime() {
     }
 }
 
-$('.hint-board').click(function(){
+$('.touchBoard').click(function(){
     $('.hint-board-view').slideToggle();
 });
