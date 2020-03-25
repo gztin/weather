@@ -207,6 +207,7 @@ day3:下雨
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
+        height: 200px;
     }
     
     #weather{
@@ -324,10 +325,10 @@ day3:下雨
     .day3{background: url(../img/day3a.png)no-repeat;}
     .day4{background: url(../img/day4a.png)no-repeat;}
 
-    .detailDay1,.index-day1{background: url(../img/day1.png)no-repeat;}
-    .detailDay2,.index-day2{background: url(../img/day2.png)no-repeat;}
-    .detailDay3,.index-day3{background: url(../img/day3.png)no-repeat;}
-    .detailDay4,.index-day4{background: url(../img/day4.png)no-repeat;}
+    .detailDay1,.index-day1{background: url(../img/day1a.png)no-repeat;}
+    .detailDay2,.index-day2{background: url(../img/day2a.png)no-repeat;}
+    .detailDay3,.index-day3{background: url(../img/day3a.png)no-repeat;}
+    .detailDay4,.index-day4{background: url(../img/day4a.png)no-repeat;}
     
     .day1,.day2,.day3,.day4{
         width: 55px;

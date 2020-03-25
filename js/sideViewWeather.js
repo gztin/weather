@@ -277,3 +277,7 @@ function dispTime() {
         $('.time'+i).append('<span>星期' + GetDayStr(i-1) + '</span>');
     }
 }
+
+$('.hint-board').click(function(){
+    $('.hint-board-view').slideToggle();
+});
