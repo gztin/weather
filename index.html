@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="./css/style_jonews.css?v=10">
     <link rel="stylesheet" href="./css/weatherInf.css?v=5">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
+    <link rel="stylesheet" href="./css/swip.css">
 </head>
 
 <body>
@@ -26,35 +28,6 @@
         <div class="slogan" v-html="slogan"></div>
     </div> 
     <div class="sideMenu">
-        <!-- <div class="sideBlock">
-            <div class="status"></div>
-            <div class="placeInf">
-                <select id="indexPlace" class="indexPlace" onchange="changeSidepage()"></select>
-            </div>
-        </div>
-        <div class="sideBlock">
-            <div class="dayBlock">
-                <p class="time1"></p>
-                <p class="weather1"></p>
-                <p class="temp1"></p>
-                <p class="chance">降雨機率</p>
-                <p class="chance1"></p>
-            </div>
-            <div class="dayBlock">
-                <p class="time2"></p>
-                <p class="weather2"></p>
-                <p class="temp2"></p>
-                <p class="chance">降雨機率</p>
-                <p class="chance2"></p>
-            </div>
-            <div class="dayBlock">
-                <p class="time3"></p>
-                <p class="weather3"></p>
-                <p class="temp3"></p>
-                <p class="chance">降雨機率</p>
-                <p class="chance3"></p>
-            </div>
-        </div> -->
         <div class="sideBlock">
             <a class="indexLink1" href="thsrTrain.html"><span >高鐵時刻表查詢</span></a>
             <a class="indexLink2" href="tieTrain.html"><span>台鐵時刻查詢</span></a>
@@ -69,7 +42,7 @@
         </div>
         <div class="navbar">
             <div class="menu">
-                <span :class="item.className" v-for="item in newsCategory">{{item.title}}</span>
+                <span :class="item.className" :id="item.idName" v-for="item in newsCategory">{{item.title}}</span>
             </div>
         </div>
         <div class="headerBlock">
@@ -113,8 +86,30 @@
                 </div>
             </div>
         </div>
-        <div class="popView"></div>
-        <div class="newsList">
+        <div class="swiper-container">
+            <div class="swiper-pagination"></div>
+            <div class="popView"></div>
+            <div class="swiper-wrapper">
+                <ul class="swiper-slide list1 show" id="newsGlobal"></ul>
+                <ul class="swiper-slide list2" id="newsLive"></ul>
+                <ul class="swiper-slide list3" id="newsPolitics"></ul>
+                <ul class="swiper-slide list3" id="newsFinance"></ul>
+                <ul class="swiper-slide list3" id="newsPet"></ul>
+                <ul class="swiper-slide list3" id="newsEntertainment"></ul>
+                <ul class="swiper-slide list3" id="newsHouse"></ul>
+                <ul class="swiper-slide list3" id="newsSociety"></ul>
+                <ul class="swiper-slide list3" id="newsSport"></ul>
+            </div>
+            
+            <!-- 如果需要导航按钮 -->
+            <!-- <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div> -->
+            
+            <!-- 如果需要滚动条 -->
+            <!-- <div class="swiper-scrollbar"></div> -->
+        </div>
+
+        <!-- <div class="newsList">
             <ul id="newsGlobal" class="show"></ul>
             <ul id="newsLive" style="display:none;"></ul>
             <ul id="newsPolitics" style="display:none;"></ul>
@@ -124,9 +119,87 @@
             <ul id="newsHouse" style="display:none;"></ul>
             <ul id="newsSociety" style="display:none;"></ul>
             <ul id="newsSport" style="display:none;"></ul>
-        </div>
-        <div class="textFooter"><p>{{copyright}}</p><a class="privacy" v-bind:href="privacy">使用者隱私權條款</a></div>
+        </div> -->
     </div>
+
+    <script>
+        window.onload = function() {
+            var mySwiper = new Swiper ('.swiper-container', {
+                direction: 'horizontal', // 垂直切换选项
+                loop: false, // 循环模式选项
+                // 如果需要分页器
+                pagination: {
+                el: '.swiper-pagination',
+                clickable :true,
+                },
+                
+                // 如果需要前进后退按钮
+                // navigation: {
+                // nextEl: '.swiper-button-next',
+                // prevEl: '.swiper-button-prev',
+                // },
+
+                // 如果需要滚动条
+                // scrollbar: {
+                // el: '.swiper-scrollbar',
+                // }
+            });
+            
+            for(i=0;i<mySwiper.pagination.bullets.length;i++){
+                mySwiper.pagination.bullets[i].onmouseover=function(){
+                    this.click();
+                };
+            } 
+
+            $('.menu').on('click','#btn1',function(){
+                mySwiper.slideTo(0, 1000, false);//切换到第1个slide，速度为1秒
+            });
+            
+            $('.menu').on('click','#btn2',function(){
+                mySwiper.slideTo(1, 1000, false);//切换到第2个slide，速度为1秒
+            });
+
+            $('.menu').on('click','#btn3',function(){
+                mySwiper.slideTo(2, 1000, false);//切换到第3个slide，速度为1秒
+            });
+            $('.menu').on('click','#btn4',function(){
+                mySwiper.slideTo(3, 1000, false);//切换到第4个slide，速度为1秒
+            });
+            $('.menu').on('click','#btn5',function(){
+                mySwiper.slideTo(4, 1000, false);//切换到第5个slide，速度为1秒
+            });
+            $('.menu').on('click','#btn6',function(){
+                mySwiper.slideTo(5, 1000, false);//切换到第6个slide，速度为1秒
+            });
+            $('.menu').on('click','#btn7',function(){
+                mySwiper.slideTo(6, 1000, false);//切换到第7个slide，速度为1秒
+            });
+            $('.menu').on('click','#btn8',function(){
+                mySwiper.slideTo(7, 1000, false);//切换到第8个slide，速度为1秒
+            });
+            $('.menu').on('click','#btn9',function(){
+                mySwiper.slideTo(8, 1000, false);//切换到第8个slide，速度为1秒
+            });
+
+            // 隱藏iframe 並切換類別
+            $('.menu span').click(function(){
+                $('.popView').hide();
+                $('.popView').html("");
+                $('.popView').css('margin-top','200px');
+                $("html, body").animate({ scrollTop: 0 }, 100);
+                $('.textSize').css('display','none');
+                var x =$(this).index();
+                // alert('選到第'+x+'個類別');
+                $('.menu span').eq(x).addClass('cur').siblings().removeClass('cur');
+                $('.swiper-wrapper ul').show();
+                $('.swiper-wrapper ul').eq(x).addClass('swiper-slide-active').siblings().removeClass('swiper-slide-active');
+            });
+
+            // Use class to get element by string.
+            
+        }
+        </script>
+
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -135,4 +208,6 @@
 <script src="js/airInf.js"></script>
 <script src="js/goToPage.js"></script>
 <script src="js/sideViewWeather.js"></script>
+<script src="js/swap.js"> </script>  
+<!-- <script src="https://unpkg.com/swiper/js/swiper.min.js"> </script> -->
 </html>

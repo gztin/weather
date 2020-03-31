@@ -7,15 +7,15 @@ let data = {
   copyright:'copyright by POKEJO',
   newsCategory:[
       // {className:'all',title:'綜合'},
-      {className:'global',title:'國際'},
-      {className:'live',title:'生活'},
-      {className:'politics',title:'政治'},
-      {className:'finance',title:'財經'},
-      {className:'pet',title:'寵物'},
-      {className:'entertainment',title:'娛樂'},
-      {className:'finance',title:'房產'},
-      {className:'society',title:'社會'},
-      {className:'sport',title:'運動'}
+      {className:'global',idName:'btn1',title:'國際'},
+      {className:'live',idName:'btn2',title:'生活'},
+      {className:'politics',idName:'btn3',title:'政治'},
+      {className:'finance',idName:'btn4',title:'財經'},
+      {className:'pet',idName:'btn5',title:'寵物'},
+      {className:'entertainment',idName:'btn6',title:'娛樂'},
+      {className:'finance',idName:'btn7',title:'房產'},
+      {className:'society',idName:'btn8',title:'社會'},
+      {className:'sport',idName:'btn9',title:'運動'}
   ], 
 }
 
@@ -32,37 +32,39 @@ let vm = new Vue({
 // 跳頁
 setTimeout(function(){$('.loadingPage').slideToggle();},2500);
 
-$('.newsList').on('click','li',function(){
-  $('.popView').html("");
-  $("html, body").animate({ scrollTop: 0 }, 100);
-  $('.textFooter').css('display','flex');
-  // 點選第幾則新聞
-  var y =$(this).index();
-  // alert('這是第'+y+'則新聞');
-  var getTitle = $('ul.show > li').eq(y).find('h2').text();
-  var getPic = $('ul.show > li').eq(y).find('img').attr("src");
-  var getTime = $('ul.show > li').eq(y).find('p[class="onTime"]').html();
-  var getContent = $('ul.show > li').eq(y).find('div[class="newsContent"]').html();
-  var getLink = $('ul.show > li').eq(y).find('span[class="orilink"]').text();
+$('.swiper-wrapper').on('click','li',function(){
+	
+	// 點選第幾類中的第幾則新聞
+	var ulIndex = $(this).parent().prevAll().length;
+	// alert('目前是在第'+ulIndex+'類');
+	var liIndex =$(this).index();
+	// alert('這是第'+liIndex+'則新聞');
+	
+	$('.popView').html("");
+  	$("html, body").animate({ scrollTop: 0 }, 100);
+	var getTitle = $('.swiper-wrapper > ul').eq(ulIndex ).find("li").eq(liIndex).find('h2').text();
+	var getPic = $('.swiper-wrapper > ul').eq(ulIndex).find("li").eq(liIndex).find('img').attr("src");
+	var getTime = $('.swiper-wrapper > ul').eq(ulIndex).find("li").eq(liIndex).find('p[class="onTime"]').html();
+	var getContent = $('.swiper-wrapper > ul').eq(ulIndex).find("li").eq(liIndex).find('div[class="newsContent"]').html();
+	var getLink = $('.swiper-wrapper > ul').eq(ulIndex).find("li").eq(liIndex).find('span[class="orilink"]').text();
 
-  $('.popView').append(
-    '<div class="created">'+
-    '<h1 class="newsTitle">'+getTitle+'</h1>'+
-    '<div class="newsPic"></div>'+
-    '<div class="newsText">'+
-    getContent+
-    '<div class="oriURL"><span class="orilink" style="display:none;">'+getLink+'</span><a>查看原始連結></a></div>'+
-    '<div class="ad"><a href="https://track.abzcoupon.com/track/clicks/4862/ce2bc2b89c0227d6efcda67f8835ce13286e4ece70fbb9b20a64ba0365?subid_1=&subid_2=&subid_3=&subid_4=&subid_5="></a></div>'+
-    '</div>'+
-    '</div>'+
-    '<div class="textFooter"><p>copyright by @JOJO</p></div>'
-  );
-  $('.oriURL').eq(0).remove();
-  $('.popView').append('<iframe class="resourcePage" style="display:none;" src="'+getLink+'" marginwidth="0" marginheight="0" frameborder="0"></iframe>');
-  $('.newsPic').css('background','url('+getPic+')');
-  $('.popView').css('display','block');
-  $('.newsList ul').hide();
-  setTimeout(function(){$('.popView').css('display','block');},500);
+	$('.popView').append(
+		'<div class="created">'+
+		'<h1 class="newsTitle">'+getTitle+'</h1>'+
+		'<div class="newsPic"></div>'+
+		'<div class="newsText">'+
+		getContent+
+		'<div class="oriURL"><span class="orilink" style="display:none;">'+getLink+'</span><a>查看原始連結></a></div>'+
+		'<div class="ad"><a href="https://track.abzcoupon.com/track/clicks/4862/ce2bc2b89c0227d6efcda67f8835ce13286e4ece70fbb9b20a64ba0365?subid_1=&subid_2=&subid_3=&subid_4=&subid_5="></a></div>'+
+		'</div>'+
+		'</div>'
+	);
+	$('.oriURL').eq(0).remove();
+	$('.popView').append('<iframe class="resourcePage" style="display:none;" src="'+getLink+'" marginwidth="0" marginheight="0" frameborder="0"></iframe>');
+	$('.newsPic').css('background','url('+getPic+')');
+	$('.popView').css('display','block');
+	$('.swiper-wrapper > ul').hide();
+	setTimeout(function(){$('.popView').css('display','block');},500);
 });
 
 
@@ -87,45 +89,25 @@ $('.popView').on('click','.font20',function(){
 });
 
 
+
+
 // 切換新聞類別
 $('.menu span').eq(0).addClass('cur');
 // 叫出側邊欄位
 $('.area-title > span').click(function(){
-  $('.sideMenuBg').show();
-  $('.sideMenu').css('left','0%');
+	$('.sideMenuBg').show();
+	$('.sideMenu').css('left','0%');
 });
 // 隱藏側邊欄位
 $('.sideMenuBg').click(function(){
-  $('.sideMenu').css('left','-70%');
-  $('.sideMenuBg').hide();
+	$('.sideMenu').css('left','-70%');
+	$('.sideMenuBg').hide();
 });
-
 
 // 叫出原始新聞頁面
 $('.popView').on('click','.oriURL',function(){
-  $('.popView').find('.textFooter').remove();
-  $('.popView').css('margin-top','90px');
-  $('.created').slideToggle();
-  $('.resourcePage').slideToggle();
-  // var newsLink = $('.oriURL span').text();
-  // $('ul.show > li').eq(y).find('span[class="bbb"]').html();
-  // console.log('連結是'+newsLink);
-  // $('.popView').html("");
-  // $('.popView').append('<iframe class="ddd" src="'+newsLink+'" marginwidth="0" marginheight="0" frameborder="0"></iframe>');
-  // var dk = $(".ddd").attr("src"); 
-  // alert('iframe 連結是:'+dk); 
-});
-
-
-// 隱藏iframe 並切換類別
-$('.menu span').click(function(){
-  $('.popView').hide();
-  $('.popView').html("");
-  $('.popView').css('margin-top','200px');
-  $("html, body").animate({ scrollTop: 0 }, 100);
-  $('.textSize').css('display','none');
-  var x =$(this).index();
-  $('.menu span').eq(x).addClass('cur').siblings().removeClass('cur');
-  $('.newsList ul').eq(x).addClass('show').siblings().removeClass('show');
-  $('.newsList ul').eq(x).css('display','flex').siblings().css('display','none');
+	$('.popView').find('.textFooter').remove();
+	$('.popView').css('margin-top','90px');
+	$('.created').slideToggle();
+	$('.resourcePage').slideToggle();
 });

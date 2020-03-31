@@ -55,47 +55,47 @@ fetch(uri, {
             '</div>';
         
         if(news.category=='國際'){
-            $('.newsList > ul#newsGlobal').append(
+            $('.swiper-wrapper > ul#newsGlobal').append(
               '<li class="newsContent newsGlobal">'+newsContent+'</li>'
             );
         }
         else if(news.category=='生活'){
-            $('.newsList > ul#newsLive').append(
+            $('.swiper-wrapper > ul#newsLive').append(
                 '<li class="newsContent newsLive">'+newsContent+'</li>'
             );
         }
         else if(news.category=='政治'){
-            $('.newsList > ul#newsPolitics').append(
+            $('.swiper-wrapper > ul#newsPolitics').append(
               '<li class="newsContent newsPolitics">'+newsContent+'</li>'
             );
         }
         else if(news.category=='寵物'){
-            $('.newsList > ul#newsPet').append(
+            $('.swiper-wrapper > ul#newsPet').append(
                 '<li class="newsContent news3C">'+newsContent+'</li>'
             );
         }
         else if(news.category=='娛樂'){
-            $('.newsList > ul#newsEntertainment').append(
+            $('.swiper-wrapper > ul#newsEntertainment').append(
                 '<li class="newsContent newsEntertainment">'+newsContent+'</li>'
             );
         }
         else if(news.category=='房產'){
-            $('.newsList > ul#newsHouse').append(
+            $('.swiper-wrapper > ul#newsHouse').append(
                 '<li class="newsContent newsHouse">'+newsContent+'</li>'
             );
         }
         else if(news.category=='社會'){
-            $('.newsList > ul#newsSociety').append(
+            $('.swiper-wrapper > ul#newsSociety').append(
                 '<li class="newsContent newsSociety">'+newsContent+'</li>'
             );
         }
         else if(news.category=='運動'){
-            $('.newsList > ul#newsSport').append(
+            $('.swiper-wrapper > ul#newsSport').append(
                 '<li class="newsContent newsSport" ">'+newsContent+'</li>'
             );
         }
         else if(news.category=='財經'){
-            $('.newsList > ul#newsFinance').append(
+            $('.swiper-wrapper > ul#newsFinance').append(
                 '<li class="newsContent newsFinance" ">'+newsContent+'</li>'
             );
         }
