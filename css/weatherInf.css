@@ -177,23 +177,61 @@ day3:下雨
     }
 @media screen and (max-width:480px){
     /* 側邊攔 */
-    .sideBlock:nth-child(1){
+    .sideBlock1,
+    .sideBlock2,
+    .sideBlock3{
         display:flex;
         flex-direction: column;
-        height:30%;
-        background: #c3c3c3;
     }
-    .sideBlock:nth-child(2){
+    .sideBlock1{
+        align-items: center;
+        justify-content: space-evenly;
+        height:40%;
+    }
+    .sideBlock2{
         display:flex;
-        height: 30%;
-        background: #e8e8e8;
+        flex-direction: column;
+        align-items: center;
+        height: 25%;
     }
-    .sideBlock:nth-child(3){
+    .sideBlock2 .sideTitle{
+        margin-top:3%;
+    }
+    .sideBlock2 .hotLink{
+        display: flex;
+        flex-direction: column;
+        margin-top:5%;
+        height: 50%;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+    .hotLink a{
+        color: #fff;
+        text-decoration: none;
+        padding: 10px;
+        border: 1px solid #fff;
+        border-radius: 5px;
+        width: 80%;
+        margin-top: 5%;
+        text-align: center;
+    }
+    .sideBlock3{
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        height: 30%;
+        height: 25%;
+    }
+    .sideBlock3 a{
+        color: #fff;
+        text-decoration: none;
+        padding: 10px;
+        border: 1px solid #fff;
+        border-radius: 5px;
+        width: 80%;
+        margin-top: 5%;
+        text-align: center;
     }
     .placeInf{
         display: flex;
@@ -390,23 +428,58 @@ day3:下雨
 @media screen and (max-width:375px) and (max-height:600px){
     
     /* 側邊攔 */
-    .sideBlock:nth-child(1){
+    .sideBlock1,
+    .sideBlock2,
+    .sideBlock3{
         display:flex;
         flex-direction: column;
-        height:30%;
-        background: #c3c3c3;
     }
-    .sideBlock:nth-child(2){
-        display:flex;
-        height: 30%;
-        background: #e8e8e8;
+    .sideBlock1{
+        align-items: center;
+        justify-content: space-evenly;
+        height:40%;
     }
-    .sideBlock:nth-child(3){
+    .sideBlock2{
+        align-items: center;
+        justify-content: space-around;
+        height: 25%;
+    }
+    .sideBlock2 .sideTitle{
+        margin-top:3%;
+    }
+    .sideBlock2 .hotLink{
         display: flex;
         flex-direction: column;
+        margin-top:5%;
+        height: 50%;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+    .hotLink a{
+        color: #fff;
+        text-decoration: none;
+        padding: 10px;
+        border: 1px solid #fff;
+        border-radius: 5px;
+        width: 80%;
+        margin-top: 5%;
+        text-align: center;
+    }
+    .sideBlock3{
         justify-content: center;
         align-items: center;
-        height: 30%;
+        height: 25%;
+    }
+    .sideBlock3 a{
+        color: #fff;
+        text-decoration: none;
+        padding: 10px;
+        border: 1px solid #fff;
+        border-radius: 5px;
+        width: 80%;
+        margin-top: 5%;
+        text-align: center;
     }
     .placeInf{
         display: flex;

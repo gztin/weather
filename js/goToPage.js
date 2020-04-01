@@ -11,9 +11,9 @@ let data = {
       {className:'live',idName:'btn2',title:'生活'},
       {className:'politics',idName:'btn3',title:'政治'},
       {className:'finance',idName:'btn4',title:'財經'},
-      {className:'pet',idName:'btn5',title:'寵物'},
+      {className:'travel',idName:'btn5',title:'旅遊'},
       {className:'entertainment',idName:'btn6',title:'娛樂'},
-      {className:'finance',idName:'btn7',title:'房產'},
+	  {className:'fashion',idName:'btn7',title:'時尚'},
       {className:'society',idName:'btn8',title:'社會'},
       {className:'sport',idName:'btn9',title:'運動'}
   ], 
@@ -31,9 +31,7 @@ let vm = new Vue({
 
 // 跳頁
 setTimeout(function(){$('.loadingPage').slideToggle();},2500);
-
 $('.swiper-wrapper').on('click','li',function(){
-	
 	// 點選第幾類中的第幾則新聞
 	var ulIndex = $(this).parent().prevAll().length;
 	// alert('目前是在第'+ulIndex+'類');

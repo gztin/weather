@@ -208,7 +208,6 @@
             z-index: 999;
             margin-top: 60px;
             position: fixed;
-            display:none;
         }
         .menu{
             display: flex;
@@ -272,7 +271,8 @@
             height: 100vh;
             position: fixed;
             left: -70%;
-            background: #f5f9f8;
+            color:#fff;
+            background: #212121;
             z-index: 1001;
             transition: 0.5s;
             -moz-transition:0.5s; /* Firefox 4 */
@@ -371,6 +371,31 @@
         .resourcePage{
             width: 100% !important;
             height: 100vh!important;
+        }
+
+        .menuSetting{
+            display:flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+        .menuSetting span{
+            width:40%;
+            height:40px;
+            background: #405f75;
+            border-radius: 5px;
+            margin-top:10px;
+            display:flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .siteTitle{
+            padding-top: 5%;
+        }
+        hr{
+            width: 90%;
+            border: 0;
+            height: 1px;
+            background: #7b8996;
         }
         /* 天氣資訊 */
         .headerBlock{
@@ -472,23 +497,10 @@
         .temperRange span i{
             margin-left:10px;
         }
-        .newsList{
-            width: 100%;
-            height: 100%;
-            display: flex;
-            overflow-y: auto;
-            overflow-x: auto;
+        
+        .swiper-pagination{
+            display:none;
         }
-        .newsList > ul{
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            align-items: center;
-            margin-top: 190px;
-            padding-bottom: 60px;
-        }
-
         .classTitle  {
             background: #000;
             color: #fff;

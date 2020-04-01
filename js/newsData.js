@@ -22,7 +22,7 @@ fetch(uri, {
     // }  
 
     $('.loading').css('display', 'none');
-    $('.navbar').css('display', 'block');
+    // $('.navbar').css('display', 'block');
     console.log(result);
     var dataList = result.length;
     var imgSample = './img/sample.png';
@@ -69,9 +69,9 @@ fetch(uri, {
               '<li class="newsContent newsPolitics">'+newsContent+'</li>'
             );
         }
-        else if(news.category=='寵物'){
-            $('.swiper-wrapper > ul#newsPet').append(
-                '<li class="newsContent news3C">'+newsContent+'</li>'
+        else if(news.category=='流行時尚'){
+            $('.swiper-wrapper > ul#newsFashion').append(
+                '<li class="newsContent newsFashion">'+newsContent+'</li>'
             );
         }
         else if(news.category=='娛樂'){
@@ -79,9 +79,9 @@ fetch(uri, {
                 '<li class="newsContent newsEntertainment">'+newsContent+'</li>'
             );
         }
-        else if(news.category=='房產'){
-            $('.swiper-wrapper > ul#newsHouse').append(
-                '<li class="newsContent newsHouse">'+newsContent+'</li>'
+        else if(news.category=='旅遊'){
+            $('.swiper-wrapper > ul#newsTravel').append(
+                '<li class="newsContent newsTravel">'+newsContent+'</li>'
             );
         }
         else if(news.category=='社會'){

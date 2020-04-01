@@ -7,7 +7,7 @@
     <link rel="shortcut icon" href="/favicon.ico"/>
     <link rel="bookmark" href="/favicon.ico"/>
     <link rel="stylesheet" href="./css/style_jonews.css?v=10">
-    <link rel="stylesheet" href="./css/weatherInf.css?v=5">
+    <link rel="stylesheet" href="./css/weatherInf.css?v=6">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">
     <link rel="stylesheet" href="./css/swip.css">
@@ -28,9 +28,32 @@
         <div class="slogan" v-html="slogan"></div>
     </div> 
     <div class="sideMenu">
-        <div class="sideBlock">
-            <a class="indexLink1" href="thsrTrain.html"><span >高鐵時刻表查詢</span></a>
-            <a class="indexLink2" href="tieTrain.html"><span>台鐵時刻查詢</span></a>
+        <div class="sideBlock1">
+            <span class="sideTitle">新聞設定</span>
+            <div class="menuSetting">
+                <span class="btnSetting">國際</span>
+                <span class="btnSetting">生活</span>
+                <span class="btnSetting">政治</span>
+                <span class="btnSetting">財經</span>
+                <span class="btnSetting">娛樂</span>
+                <span class="btnSetting">時尚</span>
+                <span class="btnSetting">社會</span>
+                <span class="btnSetting">運動</span>
+            </div>
+        </div>
+        <hr>
+        <div class="sideBlock2">
+            <span class="sideTitle">熱門話題</span>
+            <div class="hotLink">
+                <a href="">熱門話題1</a>
+                <a href="">熱門話題2</a>
+            </div>
+        </div>
+        <hr>
+        <div class="sideBlock3">
+            <span class="sideTitle">交通查詢</span>
+            <a href="thsrTrain.html">高鐵時刻表查詢</a>
+            <a href="tieTrain.html">台鐵時刻查詢</a>
         </div>
     </div>
     <div class="sideMenuBg"></div>
@@ -93,12 +116,12 @@
                 <ul class="swiper-slide list1 show" id="newsGlobal"></ul>
                 <ul class="swiper-slide list2" id="newsLive"></ul>
                 <ul class="swiper-slide list3" id="newsPolitics"></ul>
-                <ul class="swiper-slide list3" id="newsFinance"></ul>
-                <ul class="swiper-slide list3" id="newsPet"></ul>
-                <ul class="swiper-slide list3" id="newsEntertainment"></ul>
-                <ul class="swiper-slide list3" id="newsHouse"></ul>
-                <ul class="swiper-slide list3" id="newsSociety"></ul>
-                <ul class="swiper-slide list3" id="newsSport"></ul>
+                <ul class="swiper-slide list4" id="newsFinance"></ul>
+                <ul class="swiper-slide list5" id="newsTravel"></ul>
+                <ul class="swiper-slide list6" id="newsEntertainment"></ul>
+                <ul class="swiper-slide list7" id="newsFashion"></ul>
+                <ul class="swiper-slide list8" id="newsSociety"></ul>
+                <ul class="swiper-slide list9" id="newsSport"></ul>
             </div>
             
             <!-- 如果需要导航按钮 -->
@@ -108,18 +131,6 @@
             <!-- 如果需要滚动条 -->
             <!-- <div class="swiper-scrollbar"></div> -->
         </div>
-
-        <!-- <div class="newsList">
-            <ul id="newsGlobal" class="show"></ul>
-            <ul id="newsLive" style="display:none;"></ul>
-            <ul id="newsPolitics" style="display:none;"></ul>
-            <ul id="newsFinance" style="display:none;"></ul>
-            <ul id="newsPet" style="display:none;"></ul>
-            <ul id="newsEntertainment" style="display:none;"></ul>
-            <ul id="newsHouse" style="display:none;"></ul>
-            <ul id="newsSociety" style="display:none;"></ul>
-            <ul id="newsSport" style="display:none;"></ul>
-        </div> -->
     </div>
 
     <script>
@@ -130,19 +141,7 @@
                 // 如果需要分页器
                 pagination: {
                 el: '.swiper-pagination',
-                clickable :true,
                 },
-                
-                // 如果需要前进后退按钮
-                // navigation: {
-                // nextEl: '.swiper-button-next',
-                // prevEl: '.swiper-button-prev',
-                // },
-
-                // 如果需要滚动条
-                // scrollbar: {
-                // el: '.swiper-scrollbar',
-                // }
             });
             
             for(i=0;i<mySwiper.pagination.bullets.length;i++){
