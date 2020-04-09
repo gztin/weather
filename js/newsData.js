@@ -1,5 +1,5 @@
 // 讀取新聞資料
-const uri = "https://taiwan-train-api.herokuapp.com/search/article";
+const uri = "http://128.1.44.106:5900/search/article/";
 fetch(uri, {
     method: 'GET'
 })
