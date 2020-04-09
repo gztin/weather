@@ -1,0 +1,97 @@
+body{
+	font-family: 微軟正黑體,Arial, Helvetica, sans-serif;
+}
+
+h1,
+.logo-lg,
+.box-title{
+	font-family: 微軟正黑體,Arial, Helvetica, sans-serif;
+}
+.main-header{
+	background-color: #383838;
+}
+
+.skin-blue .main-header .navbar,
+.skin-blue .main-header .logo{
+	background-color: transparent;
+}
+.small-box .icon{
+	font-size: 70px;
+}
+
+.small-box,
+.box-success,
+.box-danger{
+	border-radius: 5px;
+	-webkit-box-shadow: 1px 1px 10px #939393;
+	-moz-box-shadow: 1px 1px 10px #939393;
+	-webkit-box-shadow: 1px 1px 10px #939393;
+	box-shadow: 1px 1px 10px #939393;
+}
+
+.skin-blue .wrapper, 
+.skin-blue .main-sidebar, 
+.skin-blue .left-side{
+	background-color: #222d32;
+}
+
+/*icon*/
+.treeview > a >i.fa-users{
+	color:#ffca3a;
+}
+.fa-money{
+	color:#a6d882;
+}
+.fa-bar-chart-o{
+	color:#7adaef;
+}
+.fa-gamepad{
+	color:#efd29b;
+}
+.fa-gear{
+	color:#c4c1bc;
+}
+.fa-buysellads{
+	color:#ff8e2b;
+}
+.fa-creative-commons{
+	color:#ffe4bc;
+}
+.fa-bullhorn{
+	color:#2a9bd3;
+}
+.fa-question-circle{
+	color:#a6f0f4;
+}
+
+i.fa-circle{
+	font-size: 10px;
+	visibility: hidden;
+}
+
+.treeview-menu > li:hover i.fa-circle{
+	visibility: inherit;
+}
+
+/* loginPage */
+.loginInf{
+	display:flex;
+	height:105px;
+	flex-direction: column;
+	justify-content: space-around;
+}
+.forgetPWD,.regBtn{
+	height:45px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.forgetPWD{
+	background: #000;
+}
+.regBtn{
+	background: #fff;
+	border:1px solid #000;
+}
+
+
