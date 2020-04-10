@@ -37,30 +37,27 @@
 <div class="dataForm"></div>
 <div class="cover">
 	<div class="record">
-		<div class="block">
-			<span>消費項目</span>
-			<input class="data-Title" type="text" value="">
-			<span>消費日期</span>
+		<div class="sub-block">
+			<span>紀錄日期</span>
 			<input class="data-day" type="text" value="">
+			<span>帳務項目</span>
+			<input class="data-Title" type="text" value="">
+			<span>帳務類型</span>
+			<select class="data-type" name="" id="">
+				<option value="option1">收入</option>
+				<option value="option2">支出</option>
+			</select>
+		</div>
+		<div class="sub-block">
 			<span>消費金額</span>
 			<input class="data-price" type="text" value="">
-		</div>
-		<div class="block">
-			<span>消費項目</span>
-			<input class="data-Title" type="text" value="">
-			<span>消費日期</span>
-			<input class="data-day" type="text" value="">
-			<span>消費金額</span>
+			<span>備註說明</span>
 			<input class="data-price" type="text" value="">
 		</div>
-		<div class="block">
-			<span>消費項目</span>
-			<input class="data-Title" type="text" value="">
-			<span>消費日期</span>
-			<input class="data-day" type="text" value="">
-			<span>消費金額</span>
-			<input class="data-price" type="text" value="">
-		</div>
+		<!-- <div class="block">
+			<a class="data-saveBtn" href="">儲存</a>
+			<a class="data-closeBtn" href="">關閉</a>
+		</div> -->
 	</div>
 </div>
 <div class="wrapper">
@@ -430,6 +427,7 @@
 			eventClick: function(calEvent, jsEvent, view) {
 				$('.dataForm').css('display','block');
 				$('.cover').css('display','block');
+				alert(prevObject[0].innerText);
 			},
   	});
   	$('.dataForm').click(function(){
@@ -437,7 +435,14 @@
 		$('.cover').css('display','none');		
 	});
 
-	$('.fc-day-grid ')
+	$('.fc-scroller').on('click','td',function(){
+		var x = $(this).parents('.fc-row').index();
+		var y = $(this).index();
+		var dataWhen = $('.fc-row > .fc-bg').eq(x).find("td").eq(y).attr("data-date");
+		$('.fc-row > .fc-content-skeleton').eq(x).find("td").eq(y).find(".fc-event-container").append("aaa");
+		// alert('該天在第'+(x+1)+'週，第'+(y+1)+'天');
+		$('.data-day').val(dataWhen);
+	});
 </script>
 </body>
 </html>

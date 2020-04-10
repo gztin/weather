@@ -13,7 +13,7 @@ let data = {
       {className:'finance',idName:'btn4',title:'財經'},
       {className:'travel',idName:'btn5',title:'旅遊'},
       {className:'entertainment',idName:'btn6',title:'娛樂'},
-	  {className:'fashion',idName:'btn7',title:'時尚'},
+	  	{className:'fashion',idName:'btn7',title:'時尚'},
       {className:'society',idName:'btn8',title:'社會'},
       {className:'sport',idName:'btn9',title:'運動'}
   ], 
@@ -34,12 +34,12 @@ setTimeout(function(){$('.loadingPage').slideToggle();},2500);
 $('.swiper-wrapper').on('click','li',function(){
 	// 點選第幾類中的第幾則新聞
 	var ulIndex = $(this).parent().prevAll().length;
-	// alert('目前是在第'+ulIndex+'類');
+	alert('目前是在第'+ulIndex+'類');
 	var liIndex =$(this).index();
 	// alert('這是第'+liIndex+'則新聞');
 	
 	$('.popView').html("");
-  	$("html, body").animate({ scrollTop: 0 }, 100);
+	$("html, body").animate({ scrollTop: 0 }, 100);
 	var getTitle = $('.swiper-wrapper > ul').eq(ulIndex ).find("li").eq(liIndex).find('h2').text();
 	var getPic = $('.swiper-wrapper > ul').eq(ulIndex).find("li").eq(liIndex).find('img').attr("src");
 	var getTime = $('.swiper-wrapper > ul').eq(ulIndex).find("li").eq(liIndex).find('p[class="onTime"]').html();
