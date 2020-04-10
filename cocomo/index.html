@@ -34,6 +34,35 @@
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
+<div class="dataForm"></div>
+<div class="cover">
+	<div class="record">
+		<div class="block">
+			<span>消費項目</span>
+			<input class="data-Title" type="text" value="">
+			<span>消費日期</span>
+			<input class="data-day" type="text" value="">
+			<span>消費金額</span>
+			<input class="data-price" type="text" value="">
+		</div>
+		<div class="block">
+			<span>消費項目</span>
+			<input class="data-Title" type="text" value="">
+			<span>消費日期</span>
+			<input class="data-day" type="text" value="">
+			<span>消費金額</span>
+			<input class="data-price" type="text" value="">
+		</div>
+		<div class="block">
+			<span>消費項目</span>
+			<input class="data-Title" type="text" value="">
+			<span>消費日期</span>
+			<input class="data-day" type="text" value="">
+			<span>消費金額</span>
+			<input class="data-price" type="text" value="">
+		</div>
+	</div>
+</div>
 <div class="wrapper">
 
   <header class="main-header">
@@ -117,6 +146,7 @@
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
+	
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -138,29 +168,6 @@
           <div class="box box-primary">
             <div class="box-body no-padding">
 			  <!-- THE CALENDAR -->
-				<div class="cover">
-					<div class="record">
-						<div class="block">
-							<span>消費項目</span>
-							<input class="data-Title" type="text" value="">
-							<span>消費日期</span>
-							<input class="data-day" type="text" value="">
-						</div>
-						<div class="block">
-							<span>消費項目</span>
-							<input class="data-Title" type="text" value="">
-							<span>消費日期</span>
-							<input class="data-day" type="text" value="">
-						</div>
-						<div class="block">
-							<span>消費項目</span>
-							<input class="data-Title" type="text" value="">
-							<span>消費日期</span>
-							<input class="data-day" type="text" value="">
-						</div>
-					</div>
-				</div>
-				<div class="dataForm"></div>
               <div id="calendar"></div>
             </div>
             <!-- /.box-body -->
@@ -415,24 +422,23 @@
 			],
 			// 點擊日期，新增消費紀錄
 			dayClick: function(date, event, view) {	
-				$('.cover').css('display','flex');
+				$('.dataForm').css('display','block');
+				$('.cover').css('display','block');
 			},
 			
 			// 點擊事件，以便瀏覽/編輯
 			eventClick: function(calEvent, jsEvent, view) {
-				$('.cover').css('display','flex');
+				$('.dataForm').css('display','block');
+				$('.cover').css('display','block');
 			},
-		// eventClick: function(date, event, view) {
-		// 	console.log('modify event');
-		// 	console.log(date);
-		// 	console.log(event);
-		// 	console.log(view);
-		// }
   	});
-  	$('.cover').click(function(){
-		  alert('ok');
+  	$('.dataForm').click(function(){
+		alert('ok');
+		$('.dataForm').css('display','none');
 		$('.cover').css('display','none');		
 	});
+
+	$('.fc-day-grid ')
 </script>
 </body>
 </html>
