@@ -117,7 +117,7 @@ i.fa-circle{
 }
 .record{
 	width:600px;
-	height:600px;
+	height:auto;
 	display:flex;
 	align-items: center;
 	flex-direction: column;
@@ -129,15 +129,15 @@ i.fa-circle{
 }
 .block{
 	width:90%;
-	flex:1;
 	display:flex;
 	justify-content: center;
 }
 .sub-block{
+	margin-top:5%;
 	width:100%;
 	display:flex;
 	flex-direction:column;
-	justify-content: center;
+	justify-content: start;
 }
 .data-Title,
 .data-day,
@@ -152,19 +152,28 @@ i.fa-circle{
     text-indent: 10px;
 }
 
-.data-saveBtn,.data-closeBtn{
+.data-addBtn,.data-closeBtn{
 	width: 150px;
     height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 5px;
+	border-radius: 5px;
+	cursor: pointer;
 }
 .block:nth-child(2){
 	justify-content:start;
 	flex-direction:row;
 }
-.data-saveBtn{
+.block:nth-child(2) .sub-block{
+	flex-direction:row;
+}
+.block:nth-child(3){
+	margin-top:5%;
+	flex-direction: column;
+	margin-bottom: 20px;
+}
+.data-addBtn{
 	background: #000;
 	color: #fff;
 }
@@ -173,4 +182,20 @@ i.fa-circle{
 	color:#000;
 	border:1px solid #000;
 	margin-left:15px;
+}
+.listContent{
+	display:flex;
+	height: 30px;
+	justify-content: space-around;
+}
+.recordList{
+	overflow-y: auto;
+    max-height: 250px;
+}
+.recordData{
+	list-style: none;
+	display: flex;
+	justify-content: space-around;
+    align-items: center;
+	height: 30px;
 }
