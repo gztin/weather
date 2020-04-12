@@ -41,36 +41,36 @@
 			<div class="sub-block">
 				<span>紀錄日期</span>
 				<input class="data-day" type="text" value="">
-				<span>帳務項目</span>
-				<input class="data-Title" type="text" value="">
+				<span>帳務名稱</span>
+				<input class="data-Title" type="text" value="" placeholder="輸入帳務名稱">
+				
+			</div>
+			<div class="sub-block" style="margin-left: 5%;">
+				<span>金額</span>
+				<input class="data-price" type="text" value="0" placeholder="0">
 				<span>帳務類型</span>
 				<select class="data-type" name="" id="">
 					<option value="收入">收入</option>
 					<option value="支出">支出</option>
 				</select>
 			</div>
-			<div class="sub-block">
-				<span>金額紀錄</span>
-				<input class="data-price" type="text" value="">
-				<span>備註說明</span>
-				<input class="data-price" type="text" value="">
-			</div>
 		</div>
 		
 		<div class="block">
 			<div class="sub-block">
 				<a class="data-addBtn" >新增</a>
-				<a class="data-closeBtn" >儲存並關閉</a>
+				<a class="data-saveBtn" >儲存並關閉</a>
+				<a class="data-cancelBtn" >取消</a>
 			</div>
 		</div>
 		<div class="block saveList">
 			<div class="listContent">
 				<span>帳務類型</span>
-				<span>帳務項目</span>
-				<span>金額紀錄</span>
+				<span>帳務名稱</span>
+				<span>金額</span>
 				<span>紀錄日期</span>
 			</div>
-			<ul class="recordList"></ul>
+			<div class="recordList"></div>
 		</div>
 	</div>
 </div>
@@ -148,7 +148,7 @@
 						</span>
 					</a>
 					<ul class="treeview-menu">
-						<li><a href="pages/data_friendList.html"><i class="fa fa-circle"></i>名單列表</a></li>
+						<li><a href="pages/data_friendsList.html"><i class="fa fa-circle"></i>名單列表</a></li>
 					</ul>
 				</li>
         	</ul> 
@@ -444,7 +444,6 @@
 			},
   	});
   	$('.dataForm').click(function(){
-		  
 		$('.dataForm').css('display','none');
 		$('.cover').css('display','none');
 		$('.recordList').html("");		
@@ -465,15 +464,42 @@
 		var recordTime = $('.data-day').val();
 		var recordPrice = $('.data-price').val();
 
-		$('.recordList').append(
-			'<li class="recordData">'+
+		if($('.data-Title').val()=="" ){
+			alert("帳務名稱不可空白");
+		}
+		else if($('.data-price').val()==""){
+			alert("金額不可空白");
+		}
+		else{
+			$('.recordList').append(
+				'<div class="recordData">'+
 				'<span>'+recordType+'</span>'+
 				'<span>'+recordTitle+'</span>'+
 				'<span>'+recordPrice+'</span>'+
-				'<span>'+recordTime+'</span>'
-		);
+				'<span>'+recordTime+'</span>'+
+				'</div>'
+			);
+		}
 	});
-	$('.data-closeBtn').click(function(){
+	$('.data-saveBtn').click(function(){
+		var recordType = $('.data-type').val();
+		var recordTitle = $('.data-Title').val();
+		var recordTime = $('.data-day').val();
+		var recordPrice = $('.data-price').val();
+
+		if($('.data-Title').val()=="" ){
+			alert("帳務名稱不可空白");
+		}
+		else if($('.data-price').val()==""){
+			alert("金額不可空白");
+		}
+		else{
+			$('.dataForm').css('display','none');
+			$('.cover').css('display','none');
+			$('.recordList').html("");
+		}
+	});
+	$('.data-cancelBtn').click(function(){
 		$('.dataForm').css('display','none');
 		$('.cover').css('display','none');
 		$('.recordList').html("");
