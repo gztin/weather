@@ -216,15 +216,17 @@ i.fa-circle{
 	flex:1;
 	display: flex;
 }
+.infBlock{
+	width:100%;
+	background: #272727;
+}
 .friendsBlock{
-	width:33%;
+	width:31%;
 	margin:1%;
-	height:160px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-between;
-	background: #C60;
 }
 .friendsPic{
 	width:60px;
@@ -242,6 +244,7 @@ i.fa-circle{
 }
 .friendsData{
 	display:flex;
+	flex-wrap: wrap;
 	justify-content: space-around;
 }
 .friends-Name{
@@ -254,21 +257,21 @@ i.fa-circle{
 	display:flex;
 	align-items: center;
 	justify-content: center;
-	position: absolute;
   top: 20%;
 }
 .friends-Inf{
 	width:100%;
 	height:70px;
 	display:flex;
-	padding-top: 5%;
-	background:#fff;
+	margin-top:-12px;
+	background: #464646;
 	align-items:center;
 	justify-content:space-around;
 }
 .detail{
 	display:flex;
 	flex: 1;
+	color:#fff;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
@@ -280,14 +283,15 @@ i.fa-circle{
 .infList{
 	width:100%;
 	height:auto;
-	background:#fff;
+	background: rgb(245, 245, 245);
+	display:none;
 }
 .infList div{
 	height:40px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	border-bottom:1px solid #c7c7c7;
+	border-bottom:1px solid #eaeaea;
 }
 .inf-title{
 	margin-left:5%;
