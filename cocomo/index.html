@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Calendar</title>
+  <title>簡單記帳</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -122,7 +122,7 @@
 							<i class="fa fa-angle-left pull-right"></i>
 						</span>
 					</a>
-					<ul class="treeview-menu">
+					<ul class="treeview-menu bankList">
 					  	<li class="treeview">
 							<a href="#"><i class="fa fa-circle-o"></i>國泰世華
 							<span class="pull-right-container">
@@ -130,8 +130,8 @@
 							</span>
 							</a>
 							<ul class="treeview-menu">
-								<li><a href="#"><i class="fa fa-circle-o"></i>信用卡</a></li>
-								<li class="treeview"><a href="./tables/data_List.html"><i class="fa fa-circle-o"></i>帳務紀錄</a></li>
+								<li><a href="http://www.google.com"><i class="fa fa-circle-o"></i>信用卡</a></li>
+								<li class="treeview"><a href="./pages/tables/data_List.html"><i class="fa fa-circle-o"></i>帳務紀錄</a></li>
 							</ul>
 						</li>
 						<li class="treeview">
@@ -142,10 +142,10 @@
 							</a>
 							<ul class="treeview-menu">
 								<li><a href="#"><i class="fa fa-circle-o"></i>信用卡</a></li>
-								<li class="treeview"><a href="./tables/data_List.html"><i class="fa fa-circle-o"></i>帳務紀錄</a></li>
+								<li class="treeview"><a href="./pages/tables/data_List.html"><i class="fa fa-circle-o"></i>帳務紀錄</a></li>
 							</ul>
 						</li>
-					  	<li><a href="#"><i class="fa fa-plus"></i>新增銀行</a></li>
+						<li ><input class="addBank" type="text" placeholder="請輸入新增的銀行名稱"></li>
 					</ul>
 					<a href="#">
 						<i class="fa fa-share"></i> <span>支出分類</span>
@@ -153,7 +153,7 @@
 							<i class="fa fa-angle-left pull-right"></i>
 						</span>
 					</a>
-					<ul class="treeview-menu">
+					<ul class="treeview-menu typeList">
 							<li class="treeview">
 							<a href="#"><i class="fa fa-circle-o"></i>伙食費
 							<span class="pull-right-container">
@@ -162,7 +162,7 @@
 							</a>
 							<ul class="treeview-menu">
 								<li><a href="../tables/data_List.html"><i class="fa fa-circle-o"></i>帳務紀錄</a></li>
-								<li class="treeview"><a href="./charts/data_chart.html"><i class="fa fa-circle-o"></i>圖表</a></li>
+								<li class="treeview"><a href="#"><i class="fa fa-circle-o"></i>圖表</a></li>
 							</ul>
 						</li>
 						<li class="treeview">
@@ -176,7 +176,7 @@
 								<li class="treeview"><a href="./charts/data_chart.html"><i class="fa fa-circle-o"></i>圖表</a></li>
 							</ul>
 						</li>
-							<li><a href="#"><i class="fa fa-plus"></i>新增分類</a></li>
+						<li ><input class="addType" type="text" placeholder="請輸入新增的分類名稱"></li>
 					</ul>
 				</li>
 				<li class="treeview">
@@ -429,6 +429,7 @@
           <!-- /.form-group -->
 
           <div class="form-group">
+			  
             <label class="control-sidebar-subheading">
               Delete chat history
               <a href="javascript:void(0)" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
@@ -553,6 +554,60 @@
 		$('.dataForm').css('display','none');
 		$('.cover').css('display','none');
 		$('.recordList').html("");
+	});
+	$('.addBank').keypress(function (event) {
+		// 輸入是enter
+		if (event.which === 13)
+		{
+			var newBankName = $('.addBank').val();
+			if($('.addBank').val()!=""){
+				$('.bankList').prepend(
+					'<li class="treeview">'+
+						'<a href="#"><i class="fa fa-circle-o"></i>'+newBankName+
+							'<span class="pull-right-container">'+
+								'<i class="fa fa-angle-left pull-right"></i>'+
+							'</span>'+
+						'</a>'+
+						'<ul class="treeview-menu">'+
+							'<li><a href="#"><i class="fa fa-circle-o"></i>信用卡</a></li>'+
+							'<li class="treeview"><a href="../tables/data_List.html"><i class="fa fa-circle-o"></i>帳務紀錄</a></li>'+
+						'</ul>'+
+					'</li>'
+				);
+				$('.addBank').val("");
+			}else{
+				alert("銀行名稱不能空白");
+			}
+		}else{
+
+		}
+	});
+	$('.addType').keypress(function (event) {
+		// 輸入是enter
+		if (event.which === 13)
+		{
+			var newTypeName = $('.addType').val();
+			if($('.addType').val()!=""){
+				$('.typeList').prepend(
+					'<li class="treeview">'+
+						'<a href="#"><i class="fa fa-circle-o"></i>'+newTypeName+
+							'<span class="pull-right-container">'+
+								'<i class="fa fa-angle-left pull-right"></i>'+
+							'</span>'+
+						'</a>'+
+						'<ul class="treeview-menu">'+
+							'<li><a href="../tables/data_List.html"><i class="fa fa-circle-o"></i>帳務紀錄</a></li>'+
+							'<li class="treeview"><a href="./charts/data_chart.html"><i class="fa fa-circle-o"></i>圖表</a></li>'+
+						'</ul>'+
+					'</li>'
+				);
+				$('.addType').val("");
+			}else{
+				alert("分類名稱不能空白");
+			}
+		}else{
+
+		}
 	});
 </script>
 </body>
