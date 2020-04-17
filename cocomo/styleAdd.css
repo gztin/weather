@@ -299,3 +299,13 @@ i.fa-circle{
 .inf-content{
 	margin-right: 5%;
 }
+.choiceBlock > .container{
+	display:flex;
+	padding-left: 3%;
+	padding-right: 3%;
+	padding-top:2%;
+}
+.yearList,
+.monthList{
+	margin-left:1%;
+}
