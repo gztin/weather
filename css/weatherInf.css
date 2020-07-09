@@ -177,7 +177,7 @@ day3:下雨
     }
 @media screen and (max-width:480px){
     /* 側邊攔 */
-    .sideBlock{
+    .sideBlock1,.sideBlock2{
         display:flex;
         flex-direction: column;
         align-items: center;
@@ -406,7 +406,7 @@ day3:下雨
     
     /* 側邊攔 */
     
-    .sideBlock{
+    .sideBlock1,.sideBlock2{
         display:flex;
         flex-direction: column;
         align-items: center;

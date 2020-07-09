@@ -1,21 +1,21 @@
 // 切換項目
 let data = {
-  index:0,
-  title:'<h1>P<i class="far fa-dot-circle"></i>KEJ<i class="far fa-dot-circle"></i></h1>',
-  slogan:'<h1 class="animated bounceIn">P<i class="far fa-dot-circle"></i>KEJ<i class="far fa-dot-circle"></i></h1><h1 class="animated bounceIn">帶您時事脈動一把抓</h1>',
-  privacy:'/privacy.html',
-  copyright:'copyright by POKEJO',
-  newsCategory:[
-      // {className:'all',title:'綜合'},
-      {className:'global',idName:'btn1',title:'國際'},
-      {className:'live',idName:'btn2',title:'生活'},
-      {className:'politics',idName:'btn3',title:'政治'},
-      {className:'finance',idName:'btn4',title:'財經'},
-      {className:'travel',idName:'btn5',title:'旅遊'},
-      {className:'entertainment',idName:'btn6',title:'娛樂'},
-	  	{className:'fashion',idName:'btn7',title:'時尚'},
-      {className:'society',idName:'btn8',title:'社會'},
-      {className:'sport',idName:'btn9',title:'運動'}
+index:0,
+title:'<h1>P<i class="far fa-dot-circle"></i>KEJ<i class="far fa-dot-circle"></i></h1>',
+slogan:'<h1 class="animated bounceIn">P<i class="far fa-dot-circle"></i>KEJ<i class="far fa-dot-circle"></i></h1><h1 class="animated bounceIn">帶您時事脈動一把抓</h1>',
+privacy:'/privacy.html',
+copyright:'copyright by POKEJO',
+newsCategory:[
+	// {className:'all',title:'綜合'},
+	{className:'global',idName:'btn1',title:'國際'},
+	{className:'live',idName:'btn2',title:'生活'},
+	{className:'politics',idName:'btn3',title:'政治'},
+	{className:'finance',idName:'btn4',title:'財經'},
+	// {className:'travel',idName:'btn5',title:'旅遊'},
+	{className:'entertainment',idName:'btn6',title:'娛樂'},
+	{className:'fashion',idName:'btn7',title:'時尚'},
+	{className:'society',idName:'btn8',title:'社會'},
+	{className:'sport',idName:'btn9',title:'運動'}
   ], 
 }
 
@@ -107,9 +107,13 @@ $('.area-title > span').click(function(){
 // 	$('.trafficLink').css('display','flex');
 // });
 
-$('.sideBlock').click(function(){
+$('.sideBlock1').click(function(){
 	$(this).find(".hotLink").slideToggle();
 	$('.hotLink').css('display','flex');
+});
+$('.sideBlock2').click(function(){
+	$(this).find(".trafficLink").slideToggle();
+	$('.trafficLink').css('display','flex');
 });
 
 // 隱藏側邊欄位
