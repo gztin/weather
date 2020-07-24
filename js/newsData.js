@@ -1,5 +1,5 @@
 // 讀取新聞資料
-const uri = "http://128.1.44.106:5900/search/article/";
+const uri = "http://152.32.245.88:5900/";
 fetch(uri, {
     method: 'GET'
 })

@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" >
+    <title>POKEJO</title>
+    <link rel="shortcut icon" href="/favicon.ico"/>
+    <link rel="bookmark" href="/favicon.ico"/>
+    <link rel="stylesheet" href="../css/viewHint.css?v=10">
+    <link rel="stylesheet" href="../css/style_jonews.css?v=10">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <!-- <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css"> -->
+    <link rel="stylesheet" href="../css/swipe.css">
+</head>
+
+<body>
+    <div class="loading">
+        <p>讀取資料中</p>
+        <p>
+            <i class="fas fa-square"></i>
+            <i class="fas fa-square"></i>
+            <i class="fas fa-square"></i>
+        </p>
+    </div>
+    <div class="hint"><p>請使用行動裝置瀏覽</p></div>
+    <div class="bg" style="display:none;"></div>
+    <div id="loading" class="loadingPage">
+        <div class="slogan" v-html="slogan"></div>
+    </div> 
+    <div class="sideMenu">
+        <div class="sideBlock">
+            <span class="sideTitle">POKEJO-HOT</span>
+            <div class="hotLink">
+                <a href="">動物之森-價格預測</a>
+                <a href="">武漢疫情資訊</a>
+            </div>
+        </div>
+        <div class="sideBlock">
+            <span class="sideTitle">POKEJO-交通</span>
+            <div class="trafficLink">
+                <a class="thsrLink" href="thsrTrain.html">高鐵時刻表查詢</a>
+                <a class="traLink" href="tieTrain.html">台鐵時刻查詢</a>
+            </div>
+        </div>
+    </div>
+    <div class="sideMenuBg"></div>
+    <div id="news" class="news">
+        <div class="area-title">
+            <span><i class="fas fa-bars"></i></span>
+            <p class="title">動森大頭菜計算機</p>
+            <span></span>
+        </div>
+        <div class="priceData">
+            
+
+        </div>
+    </div> 
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.17/vue.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+<script src="../js/goToPage.js"></script>
+
+<!-- <script src="https://unpkg.com/swiper/js/swiper.min.js"> </script> -->
+</html>
