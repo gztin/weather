@@ -97,19 +97,13 @@ $('.area-title > span').click(function(){
 	$('.sideMenu').css('left','0%');
 });
 
-// $('.sideBlock:nth-child(1)').click(function(){
-// 	$('.hotLink').slideToggle();
-// 	$('.hotLink').css('display','flex');
-// });
-
-// $('.sideBlock:nth-child(2)').click(function(){
-// 	$('.trafficLink').slideToggle();
-// 	$('.trafficLink').css('display','flex');
-// });
-
-$('.sideBlock').click(function(){
+$('.sideBlock1').click(function(){
 	$(this).find(".hotLink").slideToggle();
 	$('.hotLink').css('display','flex');
+});
+$('.sideBlock2').click(function(){
+	$(this).find(".trafficLink").slideToggle();
+	$('.trafficLink').css('display','flex');
 });
 
 // 隱藏側邊欄位
