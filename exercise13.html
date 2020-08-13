@@ -22,12 +22,21 @@
 		cursor:pointer;
 		height:8px;
 	}
-	.snoID,.bikeFree{
+	i.fa-sort-desc{
+		height:16px;
+	}
+	.snoID,.bikeFree,.bikeBlock{
 		padding-right:10px;
 	}
 	.itemBar{
 		display: flex;
     	align-items: center;
+	}
+	.table-striped tbody tr:nth-of-type(odd){
+		background:transparent;
+	}
+	tbody:nth-child(odd){
+		background:#f1f1f1;
 	}
   </style>
 
@@ -47,7 +56,7 @@
 
   <div id="app">
     <p>
-      站點名稱搜尋: <input type="text">
+      站點名稱搜尋: <input type="text" v-model="stepName"><button @click="searchName">搜尋</button>
     </p>
 	
     <table class="table table-striped">
@@ -60,18 +69,18 @@
 			  </th>
           	<th>場站名稱</th>
           	<th>場站區域</th>
-          	<th><span class="bikeFree">目前可用車輛</span>
+          	<th class="itemBar"><span class="bikeFree">目前可用車輛</span>
             	<i class="fa fa-sort-asc"  v-on:click="sortSbi" :class="{'hidden':Sbi==1}"></i>
             	<i class="fa fa-sort-desc" v-on:click="sortSbi" :class="{'hidden':Sbi==0}"></i>
           	</th>
-			<th>總停車格
+			<th ><span class="bikeBlock">總停車格</span>
 				<i class="fa fa-sort-asc" v-on:click="sortTot" :class="{'hidden':Tot==1}"></i>
 				<i class="fa fa-sort-desc" v-on:click="sortTot" :class="{'hidden':Tot==0}"></i>
 			</th>
           	<th>資料更新時間</th>
         </tr>
       </thead>
-      <tbody v-for="q of uBikeStops">
+      <tbody v-for="(q,idx) of filteredSales">
 		<!-- 請補完 -->
 		<tr>
 			<td v-model="sortType">{{q.sno}}</td>
@@ -113,7 +122,9 @@
 		  uBikeStops: [],
 		  Sno:1,
 		  Tot:1,
-		  Sbi:1
+		  Sbi:1,
+		  stepName:''
+		  
         }
       },
       created () {
@@ -123,14 +134,18 @@
               	const stops = Object.keys(json.retVal).map(key => json.retVal[key]);
               	this.uBikeStops = stops;
 			});
-		console.log(this.uBikeStops)
+			// console.log(this.uBikeStops);
 	  },
 	  computed:{
-		 
+			
+			filteredSales() {
+				return this.uBikeStops.filter((d) => d.sno < 21);
+			}	
 	  },
 	  methods:{
 		  	// 我們要做一個機制是可以切換升序跟降序的功能
 			// 預設排序圖案是升序，點擊可以切換
+
 			sortSno(){
 				if(this.Sno===0){
 					this.Sno = this.Sno + 1;
@@ -166,6 +181,9 @@
 					return this.uBikeStops.sort((small,big) => big.sbi - small.sbi);
 					console.log(this.Sbi);
 				}
+			},
+			searchName(){
+				return this.uBikeStops.filter(d => d.sna.includes(this.stepName))
 			}
 	  }
     }).mount('#app');
