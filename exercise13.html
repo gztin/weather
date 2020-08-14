@@ -9,11 +9,13 @@
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
     integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
 
   <style>
     body {
-      padding: 1em;
+      	padding: 1em;
+		font-family: 'Noto Sans TC', sans-serif;
     }
 	.hidden{
 		display:none;
@@ -32,12 +34,42 @@
 		display: flex;
     	align-items: center;
 	}
+	.warring{color:#e85617;}
+	.enough{
+		color:#4db36d;
+	}
+	thead{background: #f17439;color: #fff;}
+	.table thead th{border-bottom:0px!important;font-weight: inherit;}
 	.table-striped tbody tr:nth-of-type(odd){
 		background:transparent;
 	}
 	tbody:nth-child(odd){
 		background:#f1f1f1;
 	}
+
+	/* 分頁 */
+	.pageList{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.pager {
+	  display:flex;
+	  align-items:center;
+	  justify-content:center;
+      width: 30px;
+      height: 30px;
+      margin-right: 5px;
+      padding: 5px;
+	  border: 1px solid #aaa;
+	  cursor: pointer;
+    }
+
+    .pager a {
+	  text-decoration: none;
+	  color:#000;
+	}
+	.on{background:#000;color:#fff;}
   </style>
 
   <script src="https://unpkg.com/vue@next"></script>
@@ -56,7 +88,7 @@
 
   <div id="app">
     <p>
-      站點名稱搜尋: <input type="text" v-model="stepName"><button @click="searchName">搜尋</button>
+      站點名稱搜尋: <input type="text" v-model="stepName"><button @click="uBikeStops=searchName()">搜尋</button>
     </p>
 	
     <table class="table table-striped">
@@ -80,18 +112,27 @@
           	<th>資料更新時間</th>
         </tr>
       </thead>
-      <tbody v-for="q of filteredSales">
+      <tbody v-for="(q,idx) of filteredSales">
 		<!-- 請補完 -->
 		<tr>
 			<td v-model="sortType">{{q.sno}}</td>
 			<td>{{q.sna}}</td>
 			<td>{{q.sarea}}</td>
-			<td>{{q.sbi}}</td>
-			<td>{{q.tot}}</td>
+			<td :class="{'warring':q.sbi <= 5}">{{q.sbi}}</td>
+			<td >{{q.tot}}</td>
 			<td>{{q.mday}}</td>
 		</tr>
       </tbody>
-    </table>
+	</table>
+	
+	<ul class="pageList">
+		<li class="pager"><a href="#"> &lt; </a></li>
+		<li class="pager" @click="page(pageIdx)" v-for="(n,pageIdx) of 10">
+		  <!-- n 從 1 開始計算 -->
+		  <a href="#">{{ n }}</a>
+		</li>
+		<li class="pager"><a href="#"> &gt; </a></li>
+	  </ul>
   </div>
 
 
@@ -117,38 +158,45 @@
     // act：全站禁用狀態
 
     const app = Vue.createApp({
-      data () {
-        return {
-		  uBikeStops: [],
-		  year:[],
-		  day:[],
-		  time:[],
-		  Sno:1,
-		  Tot:1,
-		  Sbi:1,
-		  stepName:''
-		  
-        }
-      },
-      created () {
-        fetch('https://tcgbusfs.blob.core.windows.net/blobyoubike/YouBikeTP.gz')
-            .then(res => res.json())
-            .then(json => {
-              	const stops = Object.keys(json.retVal).map(key => json.retVal[key]);
-              	this.uBikeStops = stops;
+		data () {
+			return {
+				// 資料陣列
+				uBikeStops: [],
+
+				// 因應切換搜尋條件，先賦予下面的變數給予初始值1
+				Sno:1,
+				Tot:1,
+				Sbi:1,
+
+				// 捷運站名稱
+				stepName:'',
+
+				// 頁數，起始值0
+				pageN:1,
+				pageNow:0
+			}
+		},
+	  	// computed -> 當觀察的 this.xxx 屬性變更，會自動觸發
+		// methods -> 呼叫時才會觸發
+
+		// 而 array 的 filter 跟 sort 不一樣，sort 會修改原陣列，filter 不會	
+		created () {fetch('https://tcgbusfs.blob.core.windows.net/blobyoubike/YouBikeTP.gz')
+			.then(res => res.json())
+			.then(json => {
+				const stops = Object.keys(json.retVal).map(key => json.retVal[key]);
+				this.uBikeStops = stops;
 			});
 			// console.log(this.uBikeStops);
-	  },
-	  computed:{
+		},
+		computed:{
 			filteredSales() {
-				return this.uBikeStops.filter((d) => d.sno < 21);
+				return this.uBikeStops.filter((d) => d.sno <= 20);
 			}	
-	  },
-	  methods:{
-		  	// 我們要做一個機制是可以切換升序跟降序的功能
+		},
+		methods:{
+			// 我們要做一個機制是可以切換升序跟降序的功能
 			// 預設排序圖案是升序，點擊可以切換
 
-			// 代號排序，預設是由小到大
 			sortSno(){
 				if(this.Sno===0){
 					this.Sno = this.Sno + 1;
@@ -161,39 +209,61 @@
 					// console.log(this.Sno);
 				}
 			},
-
-			// 停車格數量排序，預設是由小到大
 			sortTot(){
 				if(this.Tot===0){
 					this.Tot = this.Tot + 1;
 					return this.uBikeStops.sort((small,big) => small.tot - big.tot);
-					console.log(this.Tot);
+					// console.log(this.Tot);
 				}
 				else{
 					this.Tot = 0;
 					return this.uBikeStops.sort((small,big) => big.tot - small.tot);
-					console.log(this.Tot);
+					// console.log(this.Tot);
 				}
 			},
-
-			// 車輛數量的排序，預設是由小到大
 			sortSbi(){
 				if(this.Sbi===0){
 					this.Sbi = this.Sbi + 1;
 					return this.uBikeStops.sort((small,big) => small.sbi - big.sbi);
-					console.log(this.Sbi);
+					// console.log(this.Sbi);
 				}
 				else{
 					this.Sbi = 0;
 					return this.uBikeStops.sort((small,big) => big.sbi - small.sbi);
-					console.log(this.Sbi);
+					// console.log(this.Sbi);
 				}
 			},
 			searchName(){
-				return this.uBikeStops.filter(d => d.sna.includes(this.stepName))
+				this.uBikeStops = this.uBikeStops.filter(d => d.sna.includes(this.stepName));
+				console.log(this.uBikeStops);
+				if(this.uBikeStops.length===0){
+					alert("無此站資料，請重新搜尋");
+					window.location.reload();
+				}
+				else{
+					return this.uBikeStops;
+				}
+			},
+			page(val){
+				this.pageN = this.pageN+val;
+				console.log('目前點選的是第'+this.pageN+'頁');
+				this.pageN = 1;
+			},
+			prev(val){
+				this.pageN = this.pageN-1;
+				this.pageNow = this.pageN;
+				console.log('目前點選的是第'+this.pageN+'頁');
+				this.pageN = 1;
+
+			},
+			next(val){
+				this.pageN = this.pageN-1;
+				this.pageNow = this.pageN;
+				console.log('目前點選的是第'+this.pageN+'頁');
+				this.pageN = 1;
 			}
-	  }
-    }).mount('#app');
+		}
+		}).mount('#app');
   </script>
 
 </body>
