@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>練習 13： YouBike 臺北市公共自行車即時資訊</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+    integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      	padding: 1em;
+		font-family: 'Noto Sans TC', sans-serif;
+    }
+	.hidden{
+		display:none;
+	}
+	i.fa{
+		cursor:pointer;
+		height:8px;
+	}
+	i.fa-sort-desc{
+		height:16px;
+	}
+	.snoID,.bikeFree,.bikeBlock{
+		padding-right:10px;
+	}
+	.itemBar{
+		display: flex;
+    	align-items: center;
+	}
+	.warring{color:#e85617;}
+	.enough{
+		color:#4db36d;
+	}
+	thead{background: #f17439;color: #fff;}
+	.table thead th{border-bottom:0px!important;font-weight: inherit;}
+	.table-striped tbody tr:nth-of-type(odd){
+		background:transparent;
+	}
+	tbody:nth-child(odd){
+		background:#f1f1f1;
+	}
+
+	/* 分頁 */
+	.pageList{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	.pager {
+	  display:flex;
+	  align-items:center;
+	  justify-content:center;
+      width: 30px;
+      height: 30px;
+      margin-right: 5px;
+      padding: 5px;
+	  border: 1px solid #aaa;
+	  cursor: pointer;
+    }
+
+    .pager a {
+	  text-decoration: none;
+	  color:#000;
+	}
+	.on{background:#000;color:#fff;}
+  </style>
+
+  <script src="https://unpkg.com/vue@next"></script>
+
+</head>
+
+<body>
+  <p>
+    練習 13： YouBike 臺北市公共自行車即時資訊 <br>
+    完成下列表格，並加入:
+    1. 站點名稱搜尋
+    2. 目前可用車輛 / 總停車格 的排序功能
+  </p>
+
+  <hr>
+
+  <div id="app">
+    <p>
+      站點名稱搜尋: <input type="text" v-model="stepName"><button @click="uBikeStops=searchName()">搜尋</button>
+    </p>
+	
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          	<th class="itemBar">
+				<span class="snoID">代號</span>
+				<i class="fa fa-sort-asc" v-on:click="sortSno" :class="{'hidden':Sno==1}"></i>
+            	<i class="fa fa-sort-desc" v-on:click="sortSno" :class="{'hidden':Sno==0}"></i>
+			  </th>
+          	<th>場站名稱</th>
+          	<th>場站區域</th>
+          	<th class="itemBar"><span class="bikeFree">目前可用車輛</span>
+            	<i class="fa fa-sort-asc"  v-on:click="sortSbi" :class="{'hidden':Sbi==1}"></i>
+            	<i class="fa fa-sort-desc" v-on:click="sortSbi" :class="{'hidden':Sbi==0}"></i>
+          	</th>
+			<th ><span class="bikeBlock">總停車格</span>
+				<i class="fa fa-sort-asc" v-on:click="sortTot" :class="{'hidden':Tot==1}"></i>
+				<i class="fa fa-sort-desc" v-on:click="sortTot" :class="{'hidden':Tot==0}"></i>
+			</th>
+          	<th>資料更新時間</th>
+        </tr>
+      </thead>
+      <tbody v-for="(q,idx) of uBikeStops">
+		<!-- 請補完 -->
+		<tr>
+			<td>{{q.sno}}</td>
+			<td>{{q.sna}}</td>
+			<td>{{q.sarea}}</td>
+			<td :class="{'warring':q.sbi <= 5}">{{q.sbi}}</td>
+			<td >{{q.tot}}</td>
+			<td>{{q.mday}}</td>
+		</tr>
+      </tbody>
+	</table>
+	
+	<ul class="pageList">
+		<li class="pager"><a href="#"> &lt; </a></li>
+		<li class="pager" @click="uBikeStops=goToPage(pageIdx)" v-for="(n,pageIdx) of 10">
+		  <!-- n 從 1 開始計算 -->
+		  <a href="#">{{ n }}</a>
+		</li>
+		<li class="pager"><a href="#"> &gt; </a></li>
+	  </ul>
+  </div>
+
+
+  <script>
+
+    // 欄位說明請參照:
+    // http://data.taipei/opendata/datalist/datasetMeta?oid=8ef1626a-892a-4218-8344-f7ac46e1aa48
+    // 半成品參考: https://kuro.tw/vue-ubike-information/
+
+    // sno：站點代號、 
+    // sna：場站名稱(中文)、 
+    // tot：場站總停車格、
+    // sbi：場站目前車輛數量、 
+    // sarea：場站區域(中文)、 
+    // mday：資料更新時間、
+    // lat：緯度、 
+    // lng：經度、 
+    // ar：地(中文)、 
+    // sareaen：場站區域(英文)、
+    // snaen：場站名稱(英文)、 
+    // aren：地址(英文)、 
+    // bemp：空位數量、 
+    // act：全站禁用狀態
+
+    const app = Vue.createApp({
+		data () {
+			return {
+				// 資料陣列
+                uBikeStops: [],
+
+				// 因應切換搜尋條件，先賦予下面的變數給予初始值1
+				Sno:1,
+				Tot:1,
+				Sbi:1,
+
+				// 捷運站名稱
+				stepName:'',
+
+				// 頁數，起始值0
+                dataPage:0,
+                dataList:20,
+				pageNow:0,
+
+				// 目前頁數，一開始在首頁
+				firstPage:true,
+				lastPage:false
+			}
+		},
+	  	// computed -> 當觀察的 this.xxx 屬性變更，會自動觸發
+		// methods -> 呼叫時才會觸發
+
+		// 而 array 的 filter 跟 sort 不一樣，sort 會修改原陣列，filter 不會	
+		created () {fetch('https://tcgbusfs.blob.core.windows.net/blobyoubike/YouBikeTP.gz')
+			.then(res => res.json())
+			.then(json => {
+				const stops = Object.keys(json.retVal).map(key => json.retVal[key]);
+                this.uBikeStops = stops;
+                this.dataPage = Math.ceil(this.uBikeStops.length / this.dataList);
+                console.log("頁數總共有"+ this.dataPage+'頁');
+				return this.uBikeStops.filter((d) => d.sno <= this.dataPage);
+			});
+			// console.log(this.uBikeStops);
+		},
+		computed:{
+			// filteredSales() {
+                // 計算頁數，假設資料有204筆，一頁20筆，那總共應該有21頁
+                // 這邊使用Math.ceil()，取最大整數，相關語法 參考http://www.eion.com.tw/Blogger/?Pid=1173
+            //     this.dataPage = Math.ceil(this.uBikeStops.length / this.dataList);
+            //     console.log("頁數總共有"+ this.dataPage+'頁');
+			// 	return this.uBikeStops.filter((d) => d.sno <= this.dataPage);
+			// }	
+		},
+		methods:{
+			// 代號排序
+			sortSno(){
+				if(this.Sno===0){
+					this.Sno = this.Sno + 1;
+					return this.uBikeStops.sort((small,big) => small.sno - big.sno);
+					// console.log(this.Sno);
+				}
+				else{
+					this.Sno = 0;
+					return this.uBikeStops.sort((small,big) => big.sno - small.sno);
+					// console.log(this.Sno);
+				}
+			},
+
+			// 停車格排序
+			sortTot(){
+				if(this.Tot===0){
+					this.Tot = this.Tot + 1;
+					return this.uBikeStops.sort((small,big) => small.tot - big.tot);
+					// console.log(this.Tot);
+				}
+				else{
+					this.Tot = 0;
+					return this.uBikeStops.sort((small,big) => big.tot - small.tot);
+					// console.log(this.Tot);
+				}
+			},
+
+			// 該站車輛數目排序
+			sortSbi(){
+				if(this.Sbi===0){
+					this.Sbi = this.Sbi + 1;
+					return this.uBikeStops.sort((small,big) => small.sbi - big.sbi);
+					// console.log(this.Sbi);
+				}
+				else{
+					this.Sbi = 0;
+					return this.uBikeStops.sort((small,big) => big.sbi - small.sbi);
+					// console.log(this.Sbi);
+				}
+			},
+
+			// 搜尋功能
+			searchName(){
+				this.uBikeStops = this.uBikeStops.filter(d => d.sna.includes(this.stepName));
+				console.log(this.uBikeStops);
+				if(this.uBikeStops.length===0){
+					alert("無此站資料，請重新搜尋");
+					window.location.reload();
+				}
+				else{
+					return this.uBikeStops;
+				}
+			},
+			goToPage(val){
+				console.log('目前點選的是第'+(val+1)+'頁');
+				// 假設點選第二頁，會是瀏覽第21筆-第40筆資料
+				this.uBikeStops = this.uBikeStops.filter((d) => d.sno > (val*20) && d.sno < ( val*20)+20 );
+                console.log(this.uBikeStops);
+                if(this.uBikeStops.length > 0){
+                    val = (val-1)+val*20;
+                    console.log('val的值為'+val);
+                    return this.uBikeStops;
+                    
+                }
+                else{
+                    alert("已經是資料最後一頁了");
+                }
+				
+			}
+			// prev(val){
+			// 	this.pageN = this.pageNow-1;
+			// 	this.pageNow = this.pageN;
+			// 	console.log('目前點選的是第'+this.pageNow+'頁');
+			// 	this.pageN = 1;
+
+			// },
+			// next(val){
+			// 	this.pageN = this.pageNow+1;
+			// 	this.pageNow = this.pageN;
+			// 	console.log('目前點選的是第'+this.pageNow+'頁');
+			// 	this.pageN = 1;
+			// }
+		}
+		}).mount('#app');
+  </script>
+
+</body>
+
+</html>
