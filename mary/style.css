@@ -107,14 +107,21 @@
 .ban{
     cursor:not-allowed;
 }
-.inf{
-    position: absolute;
-    width: 414px;
-    height: 400px;
+.inf-block{
+   width:500px;
+   margin:0 auto;
+}
+.inf-container{
+    top: 9%;
+    width: 441px;
+    height: 430px;
     background: #fff;
     border: 1px solid #000;
-    left: 22%;
-    top: 13%;
+    margin-left: 28px;
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .putMoney{
     width: 100px;
@@ -123,4 +130,33 @@
     background: #000;
     color: #fff;
     cursor: pointer;
+}
+.block-betInf{
+    padding-bottom: 5px;
+    display:flex;
+    justify-content:space-around;
+}
+.block-betInf:nth-child(1){
+    padding-top:10px;
+}
+.sub-inf{
+    width: 45px;
+    display: flex;
+    height: 115px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #c30;
+    cursor: pointer;
+}
+.betPic{
+    width: 50px;
+    height:50px;
+    background:url('img/bet-bell.png');
+    background-repeat:no-repeat;
+    background-size: contain;
+}
+.money-inf{
+    display:flex;
+    flex-direction: column;
 }

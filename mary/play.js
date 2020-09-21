@@ -6,15 +6,55 @@ var move = 0;
 var sec = 50;
 var money = 0;
 var count = 0;
-
+var bet = [0,0,0,0,0,0,0,0];
+var betCredit = 0;
+var betCount = 0;
+var betTotal = 0;
 $('.putMoney').click(function(){
 	// 計算投錢次數，這邊預設一次投10元
 	count = count+1;
-	console.log("count的值是:"+count);
+	// console.log("count的值是:"+count);
 	money = 10 * count;
-	$('.moneyInf').text(money);
+	$('.inf-credit').text(money);
+});
+$('.btn-bet').click(function(){
+	var credit = parseInt($('.inf-credit').text());
+	if(parseInt($('.inf-credit').text()) <= 0){
+		// 偵測有沒有投錢
+		alert("餘額不足，請先投幣");
+	}else{
+
+		// 取得目前選取的位置
+		var x =$(this).index();
+		
+		// 計算前先清空下注總金額
+		betTotal = 0;
+		
+		// 讀取目前已經下注的金額，並將值回傳至陣列中
+		betCount = bet[x];
+		betCount = betCount + 1;
+		bet[x] = betCount;
+
+		// 計算剩餘金額
+		console.log("目前投幣總金額為:"+credit+"元");
+	
+		// 將各個項目下注的數量顯示在面板上
+		$(".sub-inf").eq(x).find("span.betInf").text(betCount);	
+		
+		for(var i =0 ;i< bet.length;i++){
+			credit = credit - bet[i];
+			$('.inf-credit').text(credit);
+			betTotal = betTotal + bet[i];
+		}
+		console.log(bet);
+		console.log("下注總金額為:"+betTotal+"元");
+		
+	}
+	
 });
 $('.play').click(function(){
+	// 重置投錢次數
+	count = 0;
     // 按下去後就不能再按了
     $(this).attr("disable",true);
     // 控制小瑪莉跑到第幾格，至少讓小瑪莉跑個兩圈
@@ -66,8 +106,8 @@ function playGame(){
 		if(highLight==22){money=money * 1.1}
 		if(highLight==23){money=money * 1.1}
 		if(highLight==24){money=money * 1.1}
-		console.log("money的值是:"+money);
-		$('.moneyInf').text(money);
+		console.log("這場贏了:"+money+"元");
+		$('.inf-bonus').text(money);
 		alert("結束!");
 		// 初始化
 		initial();
