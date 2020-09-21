@@ -1,0 +1,126 @@
+.game{
+    width:100%;
+    height:750px;
+}
+.container{
+    width:600px;
+    height:750px;
+    margin:0 auto;
+    display: flex;
+    flex-direction: column;
+    background:#000;
+}
+.game-view{
+    width: 100%;
+    height:600px;
+    display: flex;
+    flex-flow: row wrap;
+    background: #C80;
+}
+.game-option{
+    width: calc((100% - 100px) / 7);
+    height: 65px;
+    padding-bottom: calc((100% - 570px) / 7);
+    margin: 7px;
+    font-weight: bold;
+    font-family: Arial;
+    line-height: 1;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: inset 1px 3px 4px #0a0a0a;
+    position: relative;
+    cursor: pointer;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.active{
+    background:rgb(255, 10, 1)!important;
+    box-shadow: 1px 1px 10px #c30;
+}
+
+.bet8,
+.bet9,
+.bet10,
+.bet11,
+.bet12{
+    margin-left: calc(71% + 10px);
+}
+
+/* 排列順序 */
+.bet24{order:8;}
+.bet8{order:9;}
+.bet23{order:10;}
+.bet9{order:11;}
+.bet22{order:12;}
+.bet10{order:13;}
+.bet21{order:14;}
+.bet11{order:15;}
+.bet20{order:16;}
+.bet12{order:17;}
+.bet19{order:18;}
+.bet18{order:19;}
+.bet17{order:20;}
+.bet16{order:21;}
+.bet15{order:22;}
+.bet14{order:23;}
+.bet13{order:24;}
+
+.light{
+    width:15px;
+    height:15px;
+    background:#fff;
+    display: block;
+}
+.game-control{
+    height:200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.block-up{
+    display:flex;
+    justify-content: space-around;
+}
+.control-block{
+    padding:8px;
+    display:flex;
+    justify-content: space-between;
+}
+.game-set{
+    display:flex;
+}
+.credit,.size-small{
+    margin-left: 20px;
+}
+.btn-bet{
+    width:60px;
+    height:60px;
+    cursor: pointer;
+    background: #c30;
+}
+.play{
+    background: rgb(24, 132, 255)!important;
+}
+.ban{
+    cursor:not-allowed;
+}
+.inf{
+    position: absolute;
+    width: 414px;
+    height: 400px;
+    background: #fff;
+    border: 1px solid #000;
+    left: 22%;
+    top: 13%;
+}
+.putMoney{
+    width: 100px;
+    padding: 5px;
+    height: 30px;
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+}
