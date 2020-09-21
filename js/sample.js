@@ -1,5 +1,6 @@
 // 讀取新聞資料
-const uri = "https://spreadsheets.google.com/feeds/list/18Nq9zWep1AJsjn0t7cvwqHRpYV0ADs7jC3HhRQ0xjY8/od6/public/values?alt=json";
+const uri = "https://spreadsheets.google.com/feeds/list/18Nq9zWep1AJsjn0t7cvwqHRpYV0ADs7jC3HhRQ0xjY8/1/public/values?alt=json";
+
 fetch(uri, {
     method: 'GET'
 })
@@ -24,87 +25,72 @@ fetch(uri, {
     $('.loading').css('display', 'none');
     // $('.navbar').css('display', 'block');
 	console.log(result);
-	var newsData = result.feed.entry;
+    var newsData = result.feed.entry;
+    var content = result.feed;
     var dataList = newsData.length;
 	var imgSample = './img/sample.png';
 	console.log('dataList總共有'+dataList+'筆');
-	console.log('第一筆新聞的標題是'+newsData[0].gsx$title.$t);
+	console.log('第一筆新聞的標題是'+newsData[0].gsx$articlestitle.$t);
     // 列印所有新聞
     for (var count = 0; count < dataList; count++) {
 		var news = newsData[count];
-        if(news.gsx$img.$t==''){
-          news.gsx$img.$t = imgSample;
+        if(news.gsx$articlesurltoimage.$t==''){
+          news.gsx$articlesurltoimage.$t = imgSample;
         }
         else{
-          news.gsx$img.$t = news.gsx$img.$t;
+          news.gsx$articlesurltoimage.$t = news.gsx$articlesurltoimage.$t;
         }
-        var newsContent = '<div class="listPic">'+'<img src='+news.gsx$img.$t+'>'+'</div>'+
+        var newsContent = '<div class="listPic">'+'<img src='+news.gsx$articlesurltoimage.$t+'>'+'</div>'+
             '<div class="listTitle">'+
-                '<h2>'+news.gsx$title.$t+'</h2>'+
-                '<p class="onTime"><span>'+news.gsx$date.$t+'</span></p>'+
+                '<h2>'+news.gsx$articlestitle.$t+'</h2>'+
+                '<p class="onTime"><span>'+news.gsx$articlespublishedat.$t+'</span></p>'+
                 '<div style="display:none;">'+
-                    '<img src='+news.gsx$img.$t+'>'+
+                    '<img src='+news.gsx$articlesurltoimage.$t+'>'+
                     '<div class="newsContent">'+
                         '<div class="postTime">'+
-                            news.gsx$date.$t+'<span class="changeSize">aA</span>'+
+                            news.gsx$articlespublishedat.$t+'<span class="changeSize">aA</span>'+
                             '<div class="textSize">'+
                                 '<span class="font16">A</span>'+
                                 '<span class="font18">A</span>'+
                                 '<span class="font20">A</span>'+
                             '</div>'+
-						'</div>'+news.gsx$content.$t+
+						'</div>'+news.gsx$articlesdescription.$t+
 						'<div class="oriURL"><span class="orilink" style="display:none;">'+news.gsx$articlesurl.$t+'</span><a>查看原始連結></a></div></div>'+
                 '</div>'+
             '</div>';
 		
 			
-        if(news.gsx$category.$t=='國際'){
+        if(content.title.$t=='business'){
             $('.swiper-wrapper > ul#newsGlobal').append(
               '<li class="newsContent newsGlobal">'+newsContent+'</li>'
 			);
 			
         }
-        else if(news.gsx$category.$t=='生活'){
+        else if(content.title.$t=='entertainment'){
             $('.swiper-wrapper > ul#newsLive').append(
                 '<li class="newsContent newsLive">'+newsContent+'</li>'
             );
         }
-        else if(news.gsx$category.$t=='政治'){
+        else if(content.title.$t=='health'){
             $('.swiper-wrapper > ul#newsPolitics').append(
               '<li class="newsContent newsPolitics">'+newsContent+'</li>'
             );
         }
-        else if(news.gsx$category.$t=='流行時尚'){
+        else if(content.title.$t=='science'){
             $('.swiper-wrapper > ul#newsFashion').append(
                 '<li class="newsContent newsFashion">'+newsContent+'</li>'
             );
         }
-        else if(news.gsx$category.$t=='娛樂'){
+        else if(content.title.$t=='sports'){
             $('.swiper-wrapper > ul#newsEntertainment').append(
                 '<li class="newsContent newsEntertainment">'+newsContent+'</li>'
             );
         }
-        else if(news.gsx$category.$t=='旅遊'){
+        else if(content.title.$t=='technology'){
             $('.swiper-wrapper > ul#newsTravel').append(
                 '<li class="newsContent newsTravel">'+newsContent+'</li>'
             );
-        }
-        else if(news.gsx$category.$t=='社會'){
-            $('.swiper-wrapper > ul#newsSociety').append(
-                '<li class="newsContent newsSociety">'+newsContent+'</li>'
-            );
-        }
-        else if(news.gsx$category.$t=='運動'){
-            $('.swiper-wrapper > ul#newsSport').append(
-                '<li class="newsContent newsSport" ">'+newsContent+'</li>'
-            );
-        }
-        else if(news.gsx$category.$t=='財經'){
-            $('.swiper-wrapper > ul#newsFinance').append(
-                '<li class="newsContent newsFinance" ">'+newsContent+'</li>'
-            );
-        }
-             
+        }      
     }
 }).catch((err) => {
     console.log('訊息:請重新嘗試連線', err);

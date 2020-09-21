@@ -1,5 +1,6 @@
 function loadData(){
-    fetch('https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-157944DE-8E78-4585-8F55-6BFD77881E42&format=JSON', {})
+    // fetch('https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=CWB-157944DE-8E78-4585-8F55-6BFD77881E42&format=JSON', {})
+    fetch('http://tw.rter.info/capi.php', {})
     .then((response) => {
         // 可以透過 blob(), json(), text() 轉成可用的資訊
         return response.json(); 
