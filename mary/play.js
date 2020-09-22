@@ -122,11 +122,11 @@ function playGame(){
 	
 	// 快跑完的時候減速
     else if( move+10 > gameResult){
-		$('.bet'+highLight).find('span').addClass('active').parent().siblings().find('span').removeClass('active');
+		$('.bet'+highLight).find('span.light').addClass('active').parent().siblings().find('span.light').removeClass('active');
         setTimeout(playGame, sec=sec*1.4);
 	}
 	else {
-		$('.bet'+highLight).find('span').addClass('active').parent().siblings().find('span').removeClass('active');
+		$('.bet'+highLight).find('span.light').addClass('active').parent().siblings().find('span.light').removeClass('active');
 		setTimeout(playGame, sec);
 	}
 }
