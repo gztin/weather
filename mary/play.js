@@ -10,9 +10,10 @@ var credit = 0;
 var betCredit = 0;
 var betCount = 0;
 var betTotal = 0;
-
+initial();
 // 投幣
 $('.putMoney').click(function(){
+	startGame();
 	if(betCredit==0){
 		// 尚未押注時的總金額
 		money = money + 10;
@@ -62,14 +63,27 @@ $('.bet-option').click(function(){
 
 
 $('.play').click(function(){
-	// 重置投錢次數
-	count = 0;
-    // 按下去後就不能再按了
-    $(this).attr("disable",true);
-    // 控制小瑪莉跑到第幾格，至少讓小瑪莉跑個兩圈
-	gameResult = Math.floor(Math.random()*24+48);
-	console.log("gameResult的值是:"+gameResult);
-    playGame();
+	if(parseInt($('.inf-credit').text()) <= 0){
+		// 偵測餘額是否足夠下注
+		alert("餘額不足，請先投幣");
+	}else if(parseInt($('.inf-bonus').text()) > 0){
+		// 要繼續玩就先把贏得的錢轉過來
+		betCredit = betCredit + money;
+		credit = betCredit;
+		money = 0;
+		console.log("存入的金額，credit的值是:"+ credit);
+		$('.inf-credit').text(credit);
+		$('.inf-bonus').text(money);
+	}
+	else{
+
+		// 按下去後就不能再按了
+		$(this).attr("disable",true);
+		// 控制小瑪莉跑到第幾格，至少讓小瑪莉跑個兩圈
+		gameResult = Math.floor(Math.random()*24+48);
+		console.log("gameResult的值是:"+gameResult);
+		playGame();
+	}
 });
 
 $('.cash').click(function(){
@@ -123,8 +137,6 @@ function playGame(){
 		console.log("這場贏了:"+money+"元");
 		$('.inf-bonus').text(money);
 		alert("結束!");
-		// 初始化
-		initial();
 	}
 	
 	// 快跑完的時候減速
@@ -143,4 +155,10 @@ function initial(){
 	bet = [0,0,0,0,0,0,0,0];
 	$('.sub-inf').find("span.betInf").text(0);
 	$('.inf-credit').text(0);
+	$('.play:input').attr('disable',true);
+	$('.play:input').css({'cursor':'not-allowed'});
+}
+function startGame(){
+	$('.play:input').removeAttr('disable');
+	$('.play:input').css({'cursor':'pointer'});
 }

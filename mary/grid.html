@@ -25,15 +25,15 @@
 					<div class="board-content">
 						<div class="inf-dashboard">
 							<div class="money-inf">
-								<span class="title">CREDIT</span>
-								<span class="inf-credit">0</span>
-							</div>
-							<div class="money-inf">
 								<span class="title">BONUSWIN</span>
 								<span class="inf-bonus">0</span>
 							</div>
 							<div class="money-inf">
-								<span class="putMoney">投幣</span>
+								<span class="title">CREDIT</span>
+								<span class="inf-credit">0</span>
+							</div>
+							<div class="money-inf putMoney">
+								<span>投幣</span>
 							</div>
 							<div class="money-inf">
 								<div class="title-guess">
@@ -116,15 +116,16 @@
 						<span class="btn-bet cash">重玩</span>
 					</div>
 					<div class="game-set">
-						<span class="btn-bet win"></span>
-						<span class="btn-bet credit"></span>
+						<span class="btn-bet win">WIN</span>
+						<span class="btn-bet credit">CREDIT</span>
 					</div>
 					<div class="game-set">
-						<span class="btn-bet size-big"></span>
-						<span class="btn-bet size-small"></span>
+						<span class="btn-bet size-small">小</span>
+						<span class="btn-bet size-big">大</span>
 					</div>
 					<div class="game-set">
-						<span class="btn-bet play">PLAY</span>
+						<input class="btn-bet play" type="button" value="PLAY">
+						<!-- <span class="btn-bet play">PLAY</span> -->
 					</div>
 				</div>
 				<div class="control-block">
@@ -174,7 +175,7 @@
 	</div>
     
     <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src = "play.js?v=14"></script>
+	<script src = "play.js?v=15"></script>
 	
 </body>
 </html>

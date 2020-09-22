@@ -79,6 +79,7 @@
 .play{
     color:#fff;
     background: rgb(24, 132, 255)!important;
+    cursor: not-allowed;
 }
 .ban{
   cursor:not-allowed;
@@ -120,12 +121,16 @@
     margin-left: 5px;
     margin-right: 5px;
 }
+.money-inf > span.title{
+    color:rgb(255, 196, 67);
+}
 .inf-dashboard:nth-child(1) > .money-inf:last-child{
     align-items: center;
     justify-content: space-around;
     flex-direction: row;
     grid-column: 1 / 4;
 }
+.inf-credit,.inf-bonus{font-size: 25px;}
 .title-guess{
     display: flex;
     flex-direction: column;
@@ -137,7 +142,14 @@
 .guess-result{font-size: 2em;}
 /* 投錢按鈕 */
 .putMoney{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#000;
+    background: #fff;
     cursor: pointer;
+    border:1px solid #000!important;
+    border-radius: 5px;
 }
 
 /* 倍率面板 */
