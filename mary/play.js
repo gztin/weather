@@ -5,23 +5,34 @@ var highLight = 0;
 var move = 0;
 var sec = 50;
 var money = 0;
-var count = 0;
 var bet = [0,0,0,0,0,0,0,0];
 var credit = 0;
 var betCredit = 0;
 var betCount = 0;
 var betTotal = 0;
+
+// 投幣
 $('.putMoney').click(function(){
-	// 計算投錢次數，這邊預設一次投10元
-	count = count+1;
-	// console.log("count的值是:"+count);
-	money = 10 * count;
-	credit =  money
-	$('.inf-credit').text(money);
+	if(betCredit==0){
+		// 尚未押注時的總金額
+		money = money + 10;
+		credit =  money ;
+		$('.inf-credit').text(money);
+		console.log("+10後，投幣金額( money )目前是:"+money+"元");
+	}
+	else{
+		// 已經押注的時候又加錢
+		betCredit = betCredit + 10;
+		credit =  betCredit ;
+		$('.inf-credit').text(credit);
+		console.log("+10後，投幣金額( credit )目前是:"+credit+"元");
+	}
 });
+
+// 下注
 $('.bet-option').click(function(){
 	if(parseInt($('.inf-credit').text()) <= 0){
-		// 偵測有沒有投錢
+		// 偵測餘額是否足夠下注
 		alert("餘額不足，請先投幣");
 	}else{
 		// 取得目前選取的位置
@@ -34,21 +45,18 @@ $('.bet-option').click(function(){
 		betCount = bet[x];
 		betCount = betCount + 1;
 		bet[x] = betCount;
-
-		// 重置為投幣金額
-		betCredit = credit;
-
-		// 將各個項目下注的數量顯示在面板上
 		$(".sub-inf").eq(x).find("span.betInf").text(betCount);	
 		
-		for(var i =0 ;i< bet.length;i++){
+		for(var i=0;i<bet.length;i++){
 			betTotal = betTotal + bet[i];
 		}
+		
 		// 計算剩餘金額
-		betCredit = betCredit - betTotal;
-		console.log("投幣金額剩下:"+betCredit+"元");
-		$('.inf-credit').text(betCredit);
-		console.log("下注總金額為:"+betTotal+"元");
+		credit = credit-1;
+		betCredit = credit;
+		console.log("投幣金額( betCredit )剩下:"+betCredit+"元");
+		$('.inf-credit').text(credit);
+		console.log("下注總金額( betTotal )為:"+betTotal+"元");
 	}
 });
 $('.play').click(function(){
@@ -81,7 +89,7 @@ function playGame(){
 		console.log('highLight的值是'+highLight);
 
 		// 跑分數判定
-		if(highLight==1){money=money * 1.1;	}
+		if(highLight==1){money=money * 1.1;}
 		if(highLight==2){money=money * 1.1}
 		if(highLight==3){money=money * 1.1}
 		if(highLight==4){money=money * 1.1}

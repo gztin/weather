@@ -132,15 +132,17 @@
     cursor: pointer;
 }
 .block-betInf{
-    padding-bottom: 5px;
     display:flex;
     justify-content:space-around;
 }
 .block-betInf:nth-child(1){
     padding-top:10px;
 }
+.block-betInf:nth-child(2){
+    flex-wrap: wrap;
+}
 .sub-inf{
-    width: 45px;
+    width: 100px;
     display: flex;
     height: 115px;
     flex-direction: column;
@@ -148,6 +150,7 @@
     align-items: center;
     background: #c30;
     cursor: pointer;
+    margin-bottom: 5px;
 }
 .betPic{
     width: 50px;
