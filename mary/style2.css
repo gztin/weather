@@ -124,11 +124,14 @@
     height: 60px;
     background-size: 230px!important;
 }
-.bell{background:url('img/fluit.png')no-repeat -125px -129px;}
-.star{background:url('img/fluit.png')no-repeat;}
-.bar{background: url('img/fluit.png')no-repeat;}
+.bell{background:url('img/fluit.png')no-repeat -161px -247px;}
+.star2{background:url('img/fluit.png')no-repeat -80px -247px;}
+.star3{background:url('img/fluit.png')no-repeat -80px -157px;}
+.bar3{background: url('img/fluit.png')no-repeat -3px -325px;}
+.bar2{background: url('img/fluit.png')no-repeat -80px -325px;}
+.bar1{background: url('img/fluit.png')no-repeat -156px -325px;}
 .apple{background: url('img/fluit.png')no-repeat -162px -86px;}
 .watermelon{background: url('img/fluit.png')no-repeat 1px 0px;}
-.seven{background: url('img/fluit.png')no-repeat;}
-.orange{background: url('img/fluit.png')no-repeat -157px -165px;}
+.seven{background: url('img/fluit.png')no-repeat -80px -84px;}
+.orange{background: url('img/fluit.png')no-repeat -160px -160px;}
 .lemon{background: url('img/fluit.png')no-repeat -5px -165px;}
