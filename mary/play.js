@@ -59,6 +59,8 @@ $('.bet-option').click(function(){
 		console.log("下注總金額( betTotal )為:"+betTotal+"元");
 	}
 });
+
+
 $('.play').click(function(){
 	// 重置投錢次數
 	count = 0;
@@ -68,6 +70,11 @@ $('.play').click(function(){
 	gameResult = Math.floor(Math.random()*24+48);
 	console.log("gameResult的值是:"+gameResult);
     playGame();
+});
+
+$('.cash').click(function(){
+	alert("aaa");
+	initial();
 });
 
 function playGame(){
@@ -134,4 +141,6 @@ function initial(){
 	move = 0;
 	sec = 50;
 	bet = [0,0,0,0,0,0,0,0];
+	$('.sub-inf').find("span.betInf").text(0);
+	$('.inf-credit').text(0);
 }

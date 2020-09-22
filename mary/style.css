@@ -3,7 +3,7 @@
   display:grid;
   background:#c30;
   width:600px;
-  height:600px;
+  height:546px;
   grid-template-columns:  1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
   grid-gap:1px;
@@ -30,8 +30,12 @@
 }
 /* 亮燈 */
 .active{
-    background:rgb(255, 10, 1)!important;
-    box-shadow: 1px 1px 10px #c30;
+    background: #fff;
+    border: 1px solid #fa3636;
+    background:rgb(255, 230, 230)!important;
+    box-shadow: 1px 1px 3px rgb(160, 42, 3),
+                1px 1px 6px rgb(192, 48, 0),
+                1px 1px 9px rgb(255, 0, 0);
 }
 
 .game-view{
@@ -58,15 +62,23 @@
   display:flex;
 }
 .btn-bet{
-	width: 60px;
+	width: 66px;
 	height: 60px;
-	margin: 5px;
+	margin-left: 5px;
     cursor: pointer;
     border: 1px solid #000;
     border-radius: 5px;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+.btn-bet:last-child{
+    margin-right:5px;
+}
+
 .play{
-  background: rgb(24, 132, 255)!important;
+    color:#fff;
+    background: rgb(24, 132, 255)!important;
 }
 .ban{
   cursor:not-allowed;
@@ -82,27 +94,49 @@
 	flex-direction: column;
 }
 .inf-dashboard{
-	display:flex;
+	
     justify-content:space-around;
 }
 .inf-dashboard:nth-child(1){
-    padding-top:10px;
+    display:grid;
+    grid-template-columns:  1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    padding-top:2%;
 }
 .inf-dashboard:nth-child(2){
-	flex-wrap: wrap;
-	margin-top: 32%;
+    display:flex;
+    flex-wrap: wrap;
+	margin: 3px;
 }
 .money-inf{
 	display: flex;
     flex-direction: column;
+    background: #000;
+    padding: 5px;
+    border-radius: 5px;
+    color: #fff;
+    height:55px;
+    margin: 3px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
+.inf-dashboard:nth-child(1) > .money-inf:last-child{
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    grid-column: 1 / 4;
+}
+.title-guess{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.guess-range{font-size: 12px;}
+.guess-bet{font-size: 1.5em;}
+.guess-result{font-size: 2em;}
 /* 投錢按鈕 */
 .putMoney{
-    width: 100px;
-    padding: 5px;
-    height: 30px;
-    background: #000;
-    color: #fff;
     cursor: pointer;
 }
 
@@ -120,18 +154,19 @@
     border-radius: 5px;
 }
 .betPic{
-	width: 65px;
-    height: 60px;
+	width: 68px;
+    height: 58px;
     background-size: 230px!important;
 }
-.bell{background:url('img/fluit.png')no-repeat -161px -247px;}
-.star2{background:url('img/fluit.png')no-repeat -80px -247px;}
-.star3{background:url('img/fluit.png')no-repeat -80px -157px;}
-.bar3{background: url('img/fluit.png')no-repeat -3px -325px;}
-.bar2{background: url('img/fluit.png')no-repeat -80px -325px;}
-.bar1{background: url('img/fluit.png')no-repeat -156px -325px;}
-.apple{background: url('img/fluit.png')no-repeat -162px -86px;}
-.watermelon{background: url('img/fluit.png')no-repeat 1px 0px;}
-.seven{background: url('img/fluit.png')no-repeat -80px -84px;}
-.orange{background: url('img/fluit.png')no-repeat -160px -160px;}
-.lemon{background: url('img/fluit.png')no-repeat -5px -165px;}
+.bell{background:url('img/fluit.png')no-repeat -163px -246px;}
+.star2{background:url('img/fluit.png')no-repeat -82px -243px;}
+.star3{background:url('img/fluit.png')no-repeat -80px -156px;}
+.bar3{background: url('img/fluit.png')no-repeat 0px -323px;}
+.bar2{background: url('img/fluit.png')no-repeat -83px -323px;}
+.bar1{background: url('img/fluit.png')no-repeat -166px -321px;}
+.apple{background: url('img/fluit.png')no-repeat -164px -83px;}
+.watermelon{background: url('img/fluit.png')no-repeat 0px 0px;}
+.seven{background: url('img/fluit.png')no-repeat -83px -78px;}
+.orange{background: url('img/fluit.png')no-repeat -157px -158px;}
+.lemon{background: url('img/fluit.png')no-repeat -5px -161px;}
+.lucky{background:url('img/fluit.png')no-repeat -5px -243px;}
