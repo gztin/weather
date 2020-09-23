@@ -10,6 +10,7 @@ var credit = 0;
 var betCredit = 0;
 var betCount = 0;
 var betTotal = 0;
+var betMoney = 0;
 initial();
 // 投幣
 $('.putMoney').click(function(){
@@ -70,13 +71,11 @@ $('.play').click(function(){
 		// 要繼續玩就先把贏得的錢轉過來
 		betCredit = betCredit + money;
 		credit = betCredit;
-		money = 0;
 		console.log("存入的金額，credit的值是:"+ credit);
 		$('.inf-credit').text(credit);
-		$('.inf-bonus').text(money);
+		$('.inf-bonus').text(0);
 	}
 	else{
-
 		// 按下去後就不能再按了
 		$(this).attr("disable",true);
 		// 控制小瑪莉跑到第幾格，至少讓小瑪莉跑個兩圈
@@ -89,9 +88,11 @@ $('.play').click(function(){
 $('.cash').click(function(){
 	alert("aaa");
 	initial();
+	$('.light').css({'animation-iteration-count':'infinite'});
 });
 
 function playGame(){
+	
     // 前往下一個並亮燈
     highLight++;
 
@@ -106,16 +107,36 @@ function playGame(){
 	// 亮燈跑完
     if( move > gameResult){
 		highLight = highLight - 1;
-		console.log('gameResult的值是'+gameResult);
-		console.log('highLight的值是'+highLight);
 
 		// 跑分數判定
-		if(highLight==1){money=money * 1.1;}
-		if(highLight==2){money=money * 1.1}
-		if(highLight==3){money=money * 1.1}
-		if(highLight==4){money=money * 1.1}
-		if(highLight==5){money=money * 1.1}
-		if(highLight==6){money=money * 1.1}
+		if((highLight==1)||(highLight==10)||(highLight==22)){
+			// 跑到橘子，x1
+			betMoney = bet[6];
+			betMoney = Math.floor(betMoney*1);
+		}
+		if((highLight==2)||(highLight==13)||(highLight==20)){
+			// 跑到鈴鐺，x2
+			betMoney = bet[6];
+			betMoney = Math.floor(betMoney*2);
+		}
+		if(highLight==3){
+			// 跑到BAR，x3
+			betMoney = bet[1];
+			betMoney = Math.floor(betMoney*1);
+		}
+		if(highLight==4){
+			// 跑到BAR3，x3
+			betMoney = bet[1];
+			betMoney = Math.floor(betMoney*2);
+		}
+		if(highLight==5){
+			// 跑到BAR2，x3
+			betMoney = bet[1];
+			betMoney = Math.floor(betMoney*3);
+		}
+		if(highLight==6){
+			money=money * 1.1
+		}
 		if(highLight==7){money=money * 1.1}
 		if(highLight==8){money=money * 1.1}
 		if(highLight==9){money=money * 1.1}
@@ -134,8 +155,10 @@ function playGame(){
 		if(highLight==22){money=money * 1.1}
 		if(highLight==23){money=money * 1.1}
 		if(highLight==24){money=money * 1.1}
+		
 		console.log("這場贏了:"+money+"元");
 		$('.inf-bonus').text(money);
+		endGame();
 		alert("結束!");
 	}
 	
@@ -146,9 +169,12 @@ function playGame(){
 	}
 	else {
 		$('.bet'+highLight).find('span.light').addClass('active').parent().siblings().find('span.light').removeClass('active');
-		console.log('highLight的值是:'+highLight);
 		setTimeout(playGame, sec);
 	}
+}
+function endGame(){
+	move = 0;
+	sec = 50;
 }
 function initial(){
 	move = 0;
@@ -162,4 +188,5 @@ function initial(){
 function startGame(){
 	$('.play:input').removeAttr('disable');
 	$('.play:input').css({'cursor':'pointer'});
+	$('.light').css({'animation-iteration-count':'1'});
 }

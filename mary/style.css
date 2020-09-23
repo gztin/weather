@@ -27,7 +27,26 @@
     background:#fff;
 	display: block;
     border: 1px solid #000;
+
+    /* 預設自動撥放，投幣後停止 */
+    animation-name:guess;
+    animation-duration:0.5s;
+    animation-iteration-count:infinite;
+    animation-play-state:running;
 }
+
+@keyframes guess{
+    /* 跑馬燈 */
+    0%{
+        background: #fff;
+    }
+    100%{
+        background: #ff0000;
+        box-shadow: 1px 1px 3px rgb(160, 42, 3),
+                1px 1px 6px rgb(192, 48, 0),
+                1px 1px 9px rgb(255, 0, 0);
+    }
+  }
 /* 亮燈 */
 .active{
     background: #fff;
@@ -46,7 +65,7 @@
 /* 控制介面 */
 .game-control{
 	width:600px;
-	height:200px;
+	height:150px;
 	display: flex;
 	margin:0 auto;
 	flex-direction: column;
@@ -160,16 +179,25 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
 	margin-bottom: 5px;
 	border: 1px solid #c5c5c5;
     border-radius: 5px;
+    background: #258855;
+    color:#fff;
 }
 .betPic{
 	width: 68px;
     height: 58px;
     background-size: 230px!important;
 }
+.betInf{
+    font-size:1.5em;
+}
+
+
+
+
+
 .bell{background:url('img/fluit.png')no-repeat -163px -246px;}
 .star2{background:url('img/fluit.png')no-repeat -82px -243px;}
 .star3{background:url('img/fluit.png')no-repeat -80px -156px;}
