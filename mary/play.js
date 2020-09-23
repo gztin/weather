@@ -1,7 +1,7 @@
-var totalBet = 23;
+var totalBet = 24;
 var runTime = 0;
 var gameResult = 0;
-var highLight = 0;
+var highLight = 1;
 var move = 0;
 var sec = 50;
 var money = 0;
@@ -97,10 +97,10 @@ function playGame(){
 
     // 前進幾格
     move++;
-	console.log('move的值是:'+move);
+	
     // 如果走到第24個，從第一個開始
     if(highLight > totalBet){
-        highLight = 1;
+        highLight = 0;
     }
 
 	// 亮燈跑完
@@ -146,6 +146,7 @@ function playGame(){
 	}
 	else {
 		$('.bet'+highLight).find('span.light').addClass('active').parent().siblings().find('span.light').removeClass('active');
+		console.log('highLight的值是:'+highLight);
 		setTimeout(playGame, sec);
 	}
 }
