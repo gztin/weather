@@ -80,7 +80,15 @@
 .bet19 >span.light{
     position: absolute;
     margin-top:-79px;
-    margin-right: 86px;
+    margin-right: -86px;
+}
+.bet20 >span.light,
+.bet21 >span.light,
+.bet22 >span.light,
+.bet23 >span.light,
+.bet24 >span.light{
+    position: absolute;
+    margin-left:86px;
 }
 
 @keyframes guess{
@@ -94,7 +102,7 @@
                 1px 1px 6px rgb(192, 48, 0),
                 1px 1px 9px rgb(255, 0, 0);
     }
-  }
+}
 /* 亮燈 */
 .active{
     background: #fff;
@@ -131,7 +139,8 @@
 .btn-bet{
 	width: 66px;
 	height: 60px;
-	margin-left: 5px;
+    margin-left: 5px;
+    text-align: center;
     cursor: pointer;
     border: 1px solid #000;
     border-radius: 5px;  
@@ -158,23 +167,25 @@
     grid-row: 2/7;
 }
 .board-content{
+    width:400px;
 	display:flex;
 	flex-direction: column;
 }
 .inf-dashboard{
-	
     justify-content:space-around;
 }
 .inf-dashboard:nth-child(1){
     display:grid;
     grid-template-columns:  1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    padding-top:2%;
 }
 .inf-dashboard:nth-child(2){
-    display:flex;
-    flex-wrap: wrap;
-	margin: 3px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    margin: 1px;
+    grid-gap: 5px;
+    padding: 0px;
 }
 .money-inf{
 	display: flex;
@@ -184,9 +195,7 @@
     border-radius: 5px;
     color: #fff;
     height:55px;
-    margin: 3px;
-    margin-left: 5px;
-    margin-right: 5px;
+    margin: 2px;
 }
 .money-inf > span.title{
     color:rgb(255, 196, 67);
@@ -221,17 +230,32 @@
 
 /* 倍率面板 */
 .sub-inf{
-    width: 100px;
     display: flex;
-    height: 113px;
+    height: 90px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-	margin-bottom: 5px;
-	border: 1px solid #c5c5c5;
+    border: 1px solid #c5c5c5;
     border-radius: 5px;
     background: #258855;
-    color:#fff;
+    color: #fff;
+
+    /* 預設自動撥放，投幣後停止 */
+    animation-name:bet-win;
+    animation-duration:0.5s;
+    animation-iteration-count:0;
+    animation-play-state:running;
+
+}
+
+@keyframes bet-win{
+    /* 跑馬燈 */
+    0%{
+        background: #258855;
+    }
+    100%{
+        background: #ea0000;
+    }
 }
 .betPic{
 	width: 68px;
