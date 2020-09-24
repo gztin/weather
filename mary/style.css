@@ -35,6 +35,54 @@
     animation-play-state:running;
 }
 
+.bet1 > span.light{
+    position: absolute;
+    margin-left: 85px;
+    margin-top: 80px;
+}
+.bet2 >span.light,
+.bet3 >span.light,
+.bet4 >span.light,
+.bet5 >span.light,
+.bet6 >span.light{
+    position: absolute;
+    margin-top: 79px;
+}
+.bet7 >span.light{
+    position: absolute;
+    margin-top: 79px;
+    margin-right:86px;
+}
+
+.bet8 >span.light,
+.bet9 >span.light,
+.bet10 >span.light,
+.bet11 >span.light,
+.bet12 >span.light{
+    position: absolute;
+    margin-right:86px;
+}
+.bet13 >span.light{
+    position: absolute;
+    margin-top:-79px;
+    margin-right: 86px;
+}
+
+.bet14 >span.light,
+.bet15 >span.light,
+.bet16 >span.light,
+.bet17 >span.light,
+.bet18 >span.light{
+    position: absolute;
+    margin-top:-79px;
+}
+
+.bet19 >span.light{
+    position: absolute;
+    margin-top:-79px;
+    margin-right: 86px;
+}
+
 @keyframes guess{
     /* 跑馬燈 */
     0%{
