@@ -1,8 +1,8 @@
-var totalBet = 24;
+var totalBet = 23;
 var runTime = 0;
 var gameResult = 0;
 var highLight = 0;
-var move = 0;
+var move = 1;
 var sec = 50;
 var money = 0;
 var bet = [0,0,0,0,0,0,0,0];
@@ -16,84 +16,90 @@ var betMoney = 0;
 initial();
 // 投幣
 $('.putMoney').click(function(){
-	count = 1;
 	startGame();
-	if(betCredit==0){
-		// 尚未押注時的總金額
-		money = money + 10;
-		credit =  money ;
-		$('.inf-credit').text(money);
-		console.log("+10後，投幣金額( money )目前是:"+money+"元");
-	}
-	else{
-		// 已經押注的時候又加錢
-		betCredit = betCredit + 10;
-		credit =  betCredit ;
-		$('.inf-credit').text(credit);
-		console.log("+10後，投幣金額( credit )目前是:"+credit+"元");
-	}
+	betCredit = betCredit + 10;
+	console.log("+10後，賭金目前是:"+betCredit+"元");
+	$('.inf-credit').text(betCredit);
+
+	// if(betCredit==0){
+	// 	// 尚未押注時的總金額
+	// 	money = money + 10;
+	// 	console.log("+10後，投幣金額( money )目前是:"+money+"元");
+	// 	credit =  money ;
+	// 	$('.inf-credit').text(money);
+	// 	// console.log("+10後，投幣金額( money )目前是:"+money+"元");
+	// }
+	// else{
+	// 	// 已經押注的時候又加錢
+	// 	betTotal = 0;
+	// 	betCredit = betCredit + 10;
+	// 	credit =  betCredit ;
+	// 	$('.inf-credit').text(credit);
+	// 	// console.log("+10後，投幣金額( credit )目前是:"+credit+"元");
+	// }
 });
 
 // 下注
 $('.bet-option').click(function(){
-	if(parseInt($('.inf-credit').text()) <= 0){
+	if(parseInt($('.inf-credit').text()) == 0){
 		// 偵測餘額是否足夠下注
 		alert("餘額不足，請先投幣");
 	}else{
+		betCredit = betCredit - 1;
+		betTotal = betTotal + 1;
+		$('.inf-credit').text(betCredit);
 		// 取得目前選取的位置
 		var x =$(this).index();
-		
-		// 計算前先清空下注總金額
-		betTotal = 0;
-		
 		// 讀取目前已經下注的金額，並將值回傳至陣列中
 		betCount = bet[x];
 		betCount = betCount + 1;
 		bet[x] = betCount;
-		$(".sub-inf").eq(x).find("span.betInf").text(betCount);	
-		
-		for(var i=0;i<bet.length;i++){
-			betTotal = betTotal + bet[i];
-		}
-		
-		// 計算剩餘金額
-		betCredit = credit - betTotal;
-		console.log("投幣金額( betCredit )剩下:"+betCredit+"元");
-		$('.inf-credit').text(betCredit);
-		console.log("下注總金額( betTotal )為:"+betTotal+"元");
+		$(".sub-inf").eq(x).find("span.betInf").text(betCount);
+		console.log("bet陣列:"+bet);
 	}
 });
 
 
 $('.play').click(function(){
-	if((parseInt($('.inf-credit').text())==0) && (betTotal == 0)){
-		// 偵測餘額是否足夠下注
-		alert("餘額不足，請先投幣");
-	}
-	else if(betTotal==0){
-		alert("請先下注");
-	}
-	else if(parseInt($('.inf-bonus').text()) > 0){
-		// 要繼續玩就先把贏得的錢轉過來
-		betCredit = betCredit + betMoney;
-		credit = betCredit;
-		
-		console.log("轉移後，目前credit的值是:"+ credit);
-		$('.inf-credit').text(credit);
-		$('.inf-bonus').text(0);
 
+	if((parseInt($('.inf-bonus').text()) > 0)){
+		// 偵測是否有盈餘，有的話先把錢轉過來
+		
+		betCredit = betCredit + betMoney;
+		$('.inf-credit').text(betCredit);
+		$('.inf-bonus').text(0);
+		console.log("轉移後，目前credit的值是:"+ credit);
+		
 		// 重新押注
 		$('.sub-inf').find("span.betInf").text(0);
 		$('.sub-inf').css({'animation-iteration-count':'0'});
 	}
+	else if((parseInt($('.inf-bonus').text()) == 0)){
+		// 如果沒贏錢，那就繼續遊戲
+		if(betTotal==0){
+			alert("請先下注");
+		}
+		else{
+			$(this).attr("disable",false);
+			// 控制小瑪莉跑到第幾格，至少讓小瑪莉跑個兩圈
+			gameResult = Math.floor(Math.random()*24+48);
+			console.log("gameResult的值是:"+gameResult);
+			playGame();
+		}
+	}
 	else{
-		// 扣除押注的金額
-		credit = credit - betTotal;
-		$(this).attr("disable",true);
-		// 控制小瑪莉跑到第幾格，至少讓小瑪莉跑個兩圈
-		gameResult = Math.floor(Math.random()*24+48);
-		console.log("gameResult的值是:"+gameResult);
-		playGame();
+		// 沒有贏錢，就繼續下注玩遊戲
+		// 偵測是否有下注
+		if(betTotal==0){
+			alert("請先下注");
+		}
+		else{
+			$(this).attr("disable",false);
+			// 控制小瑪莉跑到第幾格，至少讓小瑪莉跑個兩圈
+			gameResult = Math.floor(Math.random()*24+48);
+			console.log("gameResult的值是:"+gameResult);
+			playGame();
+		}
 	}
 });
 
@@ -105,38 +111,38 @@ $('.cash').click(function(){
 
 
 $('.win').click(function(){
-	if(ending == true){
-		// 將本金轉移到押注的金額
-		if(credit >= 0){
-			betMoney = betMoney + 1;
-			credit = credit - 1;
-			console.log("credit的值是:"+credit);
-			console.log("betMoney的值是:"+betMoney);
-		}
-		else{
-			credit = 0;
-			console.log("credit的值是已經是:"+credit+"，無法繼續");
-		}
-	}else{
-		console.log("遊戲尚未開始");
-	}
+	// if(ending == true){
+	// 	// 將本金轉移到押注的金額
+	// 	if(credit >= 0){
+	// 		betMoney = betMoney + 1;
+	// 		credit = credit - 1;
+	// 		console.log("credit的值是:"+credit);
+	// 		console.log("betMoney的值是:"+betMoney);
+	// 	}
+	// 	else{
+	// 		credit = 0;
+	// 		console.log("credit的值是已經是:"+credit+"，無法繼續");
+	// 	}
+	// }else{
+	// 	console.log("遊戲尚未開始");
+	// }
 	
 });
 $('.credit').click(function(){
-	if( ending == true){
-		// 將押注的金額轉移到本金
-		if(betMoney >= 0){
-			betMoney = betMoney -1;
-			credit = credit + 1;
-			console.log("credit的值是:"+credit);
-			console.log("betMoney的值是:"+betMoney);
-		}
-		else{
-			betMoney = 0;
-		}
-	}else{
-		console.log("遊戲尚未開始");
-	}
+	// if( ending == true){
+	// 	// 將押注的金額轉移到本金
+	// 	if(betMoney >= 0){
+	// 		betMoney = betMoney -1;
+	// 		credit = credit + 1;
+	// 		console.log("credit的值是:"+credit);
+	// 		console.log("betMoney的值是:"+betMoney);
+	// 	}
+	// 	else{
+	// 		betMoney = 0;
+	// 	}
+	// }else{
+	// 	console.log("遊戲尚未開始");
+	// }
 });
 
 function betMoney(){
@@ -145,21 +151,29 @@ function betMoney(){
 
 function playGame(){
 	// 前往下一個並亮燈
-    highLight++;
-	
     // 前進幾格
-    move++;
-	
-    // 如果走到第24個，從第一個開始
-    if(highLight + 1 > totalBet){
-        highLight = 0;
-    }
+	move++;
+	highLight++;
+	console.log("目前highLight的值是:"+highLight);
 
+    // 如果走到第24個，從第一個開始
+    if(highLight > totalBet){
+		highLight = 0;
+	}
+	
 	// 亮燈跑完
     if( move > gameResult){
 		move = move-1;
-		highLight = highLight -1;
-		
+		if((highLight-1 )==0){
+			highLight = 24;
+		}else if((highLight-1 ) < 0){
+			highLight = 1;
+		}
+		else{
+			highLight = highLight -1;
+		}
+		console.log("最後highLight的值是:"+highLight);
+
 		// 跑分數判定
 		if((highLight==1)||(highLight==10)||(highLight==22)){
 			// 跑到橘子，x1
@@ -228,25 +242,38 @@ function playGame(){
 		}
 		console.log("這場贏了:"+betMoney+"元");
 		$('.inf-bonus').text(betMoney);
-		endGame();
 		alert("結束!");
+		ending = true;
 	}
 	
 	// 快跑完的時候減速
-    else if( move+10 > gameResult){
-		$('.bet'+highLight).find('span.light').addClass('active').parent().siblings().find('span.light').removeClass('active');
-        setTimeout(playGame, sec=sec*1.4);
+    else if( move+12 > gameResult){
+		$('.bet'+(highLight)).find('span.light').addClass('active').parent().siblings().find('span.light').removeClass('active');
+		setTimeout(playGame, sec=sec*1.4);
 	}
 	else {
-		$('.bet'+highLight).find('span.light').addClass('active').parent().siblings().find('span.light').removeClass('active');
+		$('.bet'+(highLight)).find('span.light').addClass('active').parent().siblings().find('span.light').removeClass('active');
 		setTimeout(playGame, sec);
 	}
+	
+}
+function aa(){
+	move = 0;
+	sec = 50;
+	betCount = 0;
+	betTotal = 0;
+	ending = true;
+	bet = [0,0,0,0,0,0,0,0];
+	$('.sub-inf').find("span.betInf").text(0);
 }
 function endGame(){
 	move = 0;
 	sec = 50;
 	ending = true;
+	betTotal = 0;
+	money = betCredit;
 	bet = [0,0,0,0,0,0,0,0];
+	$('.sub-inf').find("span.betInf").text(0);
 }
 function initial(){
 	move = 0;
