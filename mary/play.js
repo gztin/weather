@@ -124,28 +124,29 @@ function betMoney(){
 }
 
 function playGame(){
-	move = move + 1;
-	if(highLight > totalBet){
-		// 檢查是否跑到第24個
-		highLight = 0;
-	}
 	if( move > gameResult){
 		move = move - 1;
-		highLight = highLight -1;
+		// highLight = highLight -1;
 	}
 	else{
+		move = move + 1;
 		if( move+12 > gameResult){
 			$('.bet'+(highLight)).find('span.light').addClass('active').parent().siblings().find('span.light').removeClass('active');
+			console.log("highLight目前跑燈的位置是:"+highLight);
 			setTimeout(playGame, sec=sec*1.4);
 			highLight = highLight + 1;
-			console.log("highLight :"+highLight);
 		}
 		else {
 			$('.bet'+(highLight)).find('span.light').addClass('active').parent().siblings().find('span.light').removeClass('active');
+			console.log("highLight目前跑燈的位置是:"+highLight);
 			setTimeout(playGame, sec);
 			highLight = highLight + 1;
-			console.log("highLight :"+highLight);
+			// console.log("highLight :"+highLight);
 		}
+	}
+	if(highLight > totalBet){
+		// 檢查是否跑到第24個
+		highLight = 0;
 	}	
 }
 function aa(){
