@@ -1,9 +1,9 @@
-var totalBet = 23;
+var totalBet = 24;
 var runTime = 0;
 var gameResult = 0;
-var highLight = 0;
+var highLight = 1;
 var move = 1;
-var sec = 50;
+var sec = 45;
 var money = 0;
 var bet = [0,0,0,0,0,0,0,0];
 var credit = 0;
@@ -124,42 +124,118 @@ function betMoney(){
 }
 
 function playGame(){
-	if( move > gameResult){
+	// console.log("highLight目前的值是:"+highLight);
+	if( move+1 > gameResult){
+		// 因為move會先+1，所以要預防它超過gameREsult
+		// 遊戲結束
 		move = move - 1;
-		// highLight = highLight -1;
+		highLight = highLight - 1;
+		// 跑分數判定
+		if((highLight==1)||(highLight==10)||(highLight==22)){
+			// 跑到橘子，x1
+			console.log("小瑪莉結果是橘子!獎金1倍");
+			betMoney = bet[6];
+			betMoney = Math.floor(betMoney*1);
+			$('.inf-bonus').text(betMoney);
+			$('.sub-inf').eq(6).css({'animation-iteration-count':'infinite'});
+		}
+		else if((highLight==2)||(highLight==13)||(highLight==21)){
+			// 跑到鈴鐺，x2
+			console.log("小瑪莉結果是鈴鐺!獎金2倍");
+			betMoney = bet[4];
+			betMoney = Math.floor(betMoney*2);
+			$('.inf-bonus').text(betMoney);
+			$('.sub-inf').eq(4).css({'animation-iteration-count':'infinite'});
+		}
+		else if((highLight==3)||(highLight==4)||(highLight==5)){
+			// 跑到BAR，x3
+			console.log("小瑪莉結果是Bar!獎金1倍");
+			betMoney = bet[0];
+			betMoney = Math.floor(betMoney*1);
+			$('.inf-bonus').text(betMoney);
+			$('.sub-inf').eq(0).css({'animation-iteration-count':'infinite'});
+		}
+		else if((highLight==6)||(highLight==9)||(highLight==12)||(highLight==14)){
+			// 跑到蘋果，x5
+			console.log("小瑪莉結果是蘋果!獎金5倍");
+			betMoney = bet[7];
+			betMoney = Math.floor(betMoney*5);
+			$('.inf-bonus').text(betMoney);
+			$('.sub-inf').eq(7).css({'animation-iteration-count':'infinite'});
+		}
+		else if((highLight==7)||(highLight==18)||(highLight==19)){
+			// 跑到檸檬，x1
+			console.log("小瑪莉結果是檸檬!獎金1倍");
+			betMoney = bet[5];
+			betMoney = Math.floor(betMoney*1);
+			$('.inf-bonus').text(betMoney);
+			$('.sub-inf').eq(5).css({'animation-iteration-count':'infinite'});
+		}
+		else if((highLight==8)||(highLight==24)){
+			// 跑到西瓜，x1
+			console.log("小瑪莉結果是西瓜!獎金1倍");
+			betMoney = bet[3];
+			betMoney = Math.floor(betMoney*1);
+			$('.inf-bonus').text(betMoney);
+			$('.sub-inf').eq(3).css({'animation-iteration-count':'infinite'});
+		}
+		else if((highLight==11)||(highLight==20)){
+			// 跑到777，x7
+			console.log("小瑪莉結果是777!獎金7倍");
+			betMoney = bet[1];
+			betMoney = Math.floor(betMoney*7);
+			$('.inf-bonus').text(betMoney);
+			$('.sub-inf').eq(1).css({'animation-iteration-count':'infinite'});
+		}
+		else if((highLight==15)||(highLight=23)){
+			// 跑到Lucky，再玩一次，功能開發中
+			// move = 0;
+			// sec = 50;
+			// playGame();
+			// console.log("小瑪莉結果是Lucky!");
+			// betMoney = bet[3];
+			// betMoney = Math.floor(betMoney*1);
+		}
+		else if((highLight==16)||(highLight==17)){
+			// 跑到星星，x10
+			console.log("小瑪莉結果是星星!獎金10倍");
+			betMoney = bet[2];
+			betMoney = Math.floor(betMoney*10);
+			$('.inf-bonus').text(betMoney);
+			$('.sub-inf').eq(2).css({'animation-iteration-count':'infinite'});
+		}else{
+			// 如果都不是，就是沒中獎
+			$('.inf-bonus').text(betMoney);
+			console.log("沒中獎");
+		}
+
+		ending = true;
+		console.log("遊戲結束!");
 	}
 	else{
-		move = move + 1;
 		if( move+12 > gameResult){
 			$('.bet'+(highLight)).find('span.light').addClass('active').parent().siblings().find('span.light').removeClass('active');
-			console.log("highLight目前跑燈的位置是:"+highLight);
+			// console.log("highLight目前跑燈的位置是:"+highLight);
 			setTimeout(playGame, sec=sec*1.4);
 			highLight = highLight + 1;
 		}
 		else {
 			$('.bet'+(highLight)).find('span.light').addClass('active').parent().siblings().find('span.light').removeClass('active');
-			console.log("highLight目前跑燈的位置是:"+highLight);
+			// console.log("highLight目前跑燈的位置是:"+highLight);
 			setTimeout(playGame, sec);
 			highLight = highLight + 1;
 			// console.log("highLight :"+highLight);
 		}
+		move = move + 1;
 	}
 	if(highLight > totalBet){
 		// 檢查是否跑到第24個
-		highLight = 0;
-	}	
+		highLight = 1;
+	}
 }
-function aa(){
-	move = 0;
-	sec = 50;
-	betCount = 0;
-	betTotal = 0;
-	
-	bet = [0,0,0,0,0,0,0,0];
-	$('.sub-inf').find("span.betInf").text(0);
-}
+
 function endGame(){
-	move = 0;
+	move = highLight;
 	sec = 50;
 	betTotal = 0;
 	money = betCredit;
