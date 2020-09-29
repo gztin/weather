@@ -148,7 +148,6 @@ $('.credit').click(function(){
 		}else{
 			// 進入結束模式
 			ending = true;
-
 			// 將押注的金額轉移到本金
 			if(betMoney > 0){
 				betMoney = betMoney -1;
@@ -165,8 +164,8 @@ $('.credit').click(function(){
 		}
 	}
 });
-
 function betMoneyGame(){
+	// 玩比大小
 	$('.betLight-left').css({'animation-duration':'1s'});
 	$('.betLight-right').css({'animation-duration':'1s'});
 	betResult = Math.floor(Math.random()*13);
