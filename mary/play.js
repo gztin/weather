@@ -280,12 +280,10 @@ function playGame(){
 		}
 		else if((highLight===15)||(highLight===23)){
 			// 跑到Lucky，再玩一次，功能開發中
-			// move = 0;
-			// sec = 50;
-			// playGame();
-			// console.log("小瑪莉結果是Lucky!");
-			// betMoney = bet[3];
-			// betMoney = Math.floor(betMoney*1);
+			console.log("小瑪莉結果是Lucky!");
+			gameResult = Math.floor(Math.random()*24+48);
+			endGame();
+			playGame();
 		}
 		else if((highLight===16)||(highLight===17)){
 			// 跑到星星，x10
