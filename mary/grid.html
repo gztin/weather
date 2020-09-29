@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" >
 <title>Grid</title>
-<link  rel="stylesheet" href="style.css?v=2">
+<link  rel="stylesheet" href="style.css?v=3">
 <script src="https://unpkg.com/vue@next"></script>
 </head>
 
@@ -12,14 +12,14 @@
 	<div id="app" class="game-grid">
 		<div class="game-view">
 			<div class="container">
-				<div class="item bet1"><span class="betPic orange"></span><span class="light"></span></div>
+				<div class="item bet1"><span class="betPic orange"></span><span class="light betLight-left"></span></div>
 				<div class="item bet2"><span class="betPic bell"></span><span class="light"></span></div>
 				<div class="item bet3"><span class="betPic bar1"></span><span class="light"></div>
 				<div class="item bet4"><span class="betPic bar3"></span><span class="light"></div>
 				<div class="item bet5"><span class="betPic bar2"></span><span class="light"></div>
 				<div class="item bet6"><span class="betPic apple"></span><span class="light"></div>
-				<div class="item bet7"><span class="betPic lemon"></span><span class="light"></div>
-				<div class="item bet24"><span class="betPic watermelon"></span><span class="light"></span></div>
+				<div class="item bet7"><span class="betPic lemon"></span><span class="light betLight-right"></div>
+				<div class="item bet24"><span class="betPic watermelon"></span><span class="light betLight-left"></span></div>
 				<div class="item dashboard">
 					<div class="board-content">
 						<div class="inf-dashboard">
@@ -35,12 +35,12 @@
 								<span>投幣</span>
 							</div>
 							<div class="money-inf">
-								<div class="title-guess">
+								<div class="title-guess small">
 									<span class="guess-range">0-6</span>
 									<span class="guess-bet">小</span>
 								</div>
 								<div class="guess-result">0</div>
-								<div class="title-guess">
+								<div class="title-guess big">
 									<span class="guess-range">8-13</span>
 									<span class="guess-bet">大</span>
 								</div>
@@ -90,22 +90,22 @@
 						</div>
 					</div>
 				</div>
-				<div class="item bet8"><span class="betPic watermelon"></span><span class="light"></div>
-				<div class="item bet23"><span class="betPic lucky"></span><span class="light"></div>
-				<div class="item bet9"><span class="betPic apple"></span><span class="light"></div>
-				<div class="item bet22"><span class="betPic orange"></span><span class="light"></div>
-				<div class="item bet10"><span class="betPic orange"></span><span class="light"></div>
-				<div class="item bet21"><span class="betPic bell"></span><span class="light"></div>
-				<div class="item bet11"><span class="betPic seven"></span><span class="light"></div>
-				<div class="item bet20"><span class="betPic seven"></span><span class="light"></div>
-				<div class="item bet12"><span class="betPic apple"></span><span class="light"></div>
-				<div class="item bet19"><span class="betPic lemon"></span><span class="light"></div>
+				<div class="item bet8"><span class="betPic watermelon"></span><span class="light betLight-right"></div>
+				<div class="item bet23"><span class="betPic lucky"></span><span class="light betLight-left"></div>
+				<div class="item bet9"><span class="betPic apple"></span><span class="light betLight-right"></div>
+				<div class="item bet22"><span class="betPic orange"></span><span class="light betLight-left"></div>
+				<div class="item bet10"><span class="betPic orange"></span><span class="light betLight-right"></div>
+				<div class="item bet21 "><span class="betPic bell"></span><span class="light betLight-left"></div>
+				<div class="item bet11"><span class="betPic seven"></span><span class="light betLight-right"></div>
+				<div class="item bet20"><span class="betPic seven"></span><span class="light betLight-left"></div>
+				<div class="item bet12"><span class="betPic apple"></span><span class="light betLight-right"></div>
+				<div class="item bet19"><span class="betPic lemon"></span><span class="light betLight-left"></div>
 				<div class="item bet18"><span class="betPic lemon"></span><span class="light"></div>
 				<div class="item bet17"><span class="betPic star2"></span><span class="light"></div>
 				<div class="item bet16"><span class="betPic star3"></span><span class="light"></div>
 				<div class="item bet15"><span class="betPic lucky"></span><span class="light"></div>
 				<div class="item bet14"><span class="betPic apple"></span><span class="light"></div>
-				<div class="item bet13"><span class="betPic bell"></span><span class="light"></div>
+				<div class="item bet13"><span class="betPic bell"></span><span class="light betLight-right"></div>
 			</div>
 			<div class="game-control">
 				<div class="control-block">
@@ -172,7 +172,7 @@
 	</div>
     
     <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src = "play.js?v=39"></script>
+	<script src = "play.js?v=40"></script>
 	
 </body>
 </html>

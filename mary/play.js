@@ -9,11 +9,15 @@ var bet = [0,0,0,0,0,0,0,0];
 var credit = 0;
 var count = 0;
 var ending = false;
+var betResult = 0;
 var betCredit = 0;
 var betCount = 0;
 var betTotal = 0;
 var betMoney = 0;
+var isBig = false;
+var isSmall = false;
 initial();
+
 // 投幣
 $('.putMoney').click(function(){
 	startGame();
@@ -22,8 +26,31 @@ $('.putMoney').click(function(){
 	$('.inf-credit').text(betCredit);
 });
 
-// 下注
+// 比大小
+$('.size-small').click(function(){
+	if(ending==false){
+		console.log("目前無法押注");
+	}else{
+		isSmall = true;
+		endGame();
+		openLight();
+		setTimeout(betMoneyGame, 4000);
+	}
+	
+});
+$('.size-big').click(function(){
+	if(ending==false){
+		console.log("目前無法押注");
+	}else{
+		isbig = true;
+		endGame();
+		openLight();
+		setTimeout(betMoneyGame, 4000);
+	}
+});
+
 $('.bet-option').click(function(){
+	// 下注
 	if(ending==true){
 		console.log("目前無法下注");
 	}else{
@@ -84,55 +111,94 @@ $('.cash').click(function(){
 
 
 $('.win').click(function(){
-	if((betCredit==0)&&(betMoney==0)){
-		console.log("目前無任何餘額");
+	// 控制押金
+	if(ending===false){
+		console.log("目前還不能比大小");
 	}else{
-		// 進入結束模式
-		ending = true;
-		
-		// 將本金轉移到押注的金額
-		if(betCredit > 0){
-			betMoney = betMoney + 1;
-			betCredit = betCredit - 1;
-			$('.inf-bonus').text(betMoney);
-			$('.inf-credit').text(betCredit);
+		if((betCredit==0)&&(betMoney==0)){
+			console.log("目前無任何餘額");
+		}else{
+			// 進入結束模式
+			ending = true;
 			
-			console.log("betCredit的值是:"+betCredit);
-			console.log("betMoney的值是:"+betMoney);
-		}
-		else{
-			betCredit = 0;
-			console.log("betCredit的值是已經是:"+betCredit+"，無法繼續");
+			// 將本金轉移到押注的金額
+			if(betCredit > 0){
+				betMoney = betMoney + 1;
+				betCredit = betCredit - 1;
+				$('.inf-bonus').text(betMoney);
+				$('.inf-credit').text(betCredit);
+				
+				console.log("betCredit的值是:"+betCredit);
+				console.log("betMoney的值是:"+betMoney);
+			}
+			else{
+				betCredit = 0;
+				console.log("betCredit的值是已經是:"+betCredit+"，無法繼續");
+			}
 		}
 	}
-	
-	
 });
 $('.credit').click(function(){
-	if((betCredit==0)&&(betMoney==0)){
-		console.log("目前無任何餘額");
+	if(ending===false){
+		console.log("目前還不能比大小");
 	}else{
-		// 進入結束模式
-		ending = true;
+		// 控制本金
+		if((betCredit==0)&&(betMoney==0)){
+			console.log("目前無任何餘額");
+		}else{
+			// 進入結束模式
+			ending = true;
 
-		// 將押注的金額轉移到本金
-		if(betMoney > 0){
-			betMoney = betMoney -1;
-			betCredit = betCredit + 1;
-			$('.inf-bonus').text(betMoney);
-			$('.inf-credit').text(betCredit);
-			console.log("betCredit的值是:"+betCredit);
-			console.log("betMoney的值是:"+betMoney);
-		}
-		else{
-			betMoney = 0;
-			console.log("betMoney的值是已經是:"+betMoney+"，無法繼續");
+			// 將押注的金額轉移到本金
+			if(betMoney > 0){
+				betMoney = betMoney -1;
+				betCredit = betCredit + 1;
+				$('.inf-bonus').text(betMoney);
+				$('.inf-credit').text(betCredit);
+				console.log("betCredit的值是:"+betCredit);
+				console.log("betMoney的值是:"+betMoney);
+			}
+			else{
+				betMoney = 0;
+				console.log("betMoney的值是已經是:"+betMoney+"，無法繼續");
+			}
 		}
 	}
 });
 
-function betMoney(){
+function betMoneyGame(){
+	$('.betLight-left').css({'animation-duration':'1s'});
+	$('.betLight-right').css({'animation-duration':'1s'});
+	betResult = Math.floor(Math.random()*13);
 	
+	if((betResult< 7)&&(isSmall===true)){
+		// 下注小，贏了
+		$('.guess-result').text(betResult);
+		$('.small').css({'animation-iteration-count':'infinite'});
+		betMoney = betMoney * 2;
+		$('.inf-bonus').text(betMoney);
+		console.log("開獎!點數是"+betResult+"，結果是小!贏得了"+betMoney+"元!");
+		isSmall = false;
+	}else if((betResult > 7)&&(isBig===true)){
+		// 下注大，贏了
+		$('.guess-result').text(betResult);
+		$('.big').css({'animation-iteration-count':'infinite'});
+		betMoney = betMoney * 2;
+		$('.inf-bonus').text(betMoney);
+		console.log("開獎!點數是"+betResult+"，結果是大!贏得了"+betMoney+"元!");
+		isBig = false;
+	}else{
+		// 輸了
+		isBig = false;
+		isSmall = false;
+		betMoney = 0;
+		$('.guess-result').text(betResult);
+		$('.inf-bonus').text(betMoney);
+		$('.betLight-left').css({'animation-iteration-count':'1'});
+		$('.betLight-right').css({'animation-iteration-count':'1'});
+		$('.guess-result').css({'animation-iteration-count':'infinite'});
+		console.log("沒贏!獎金被吃囉!");
+	}
 }
 
 function playGame(){
@@ -263,6 +329,13 @@ function playGame(){
 	}
 }
 
+function openLight(){
+	// 右側
+	$('.betLight-right').css({'animation-iteration-count':'infinite'});
+	// 左側
+	$('.betLight-left').css({'animation-iteration-count':'infinite'});
+}
+
 function endGame(){
 	move = highLight;
 	sec = 50;
@@ -271,6 +344,9 @@ function endGame(){
 	bet = [0,0,0,0,0,0,0,0];
 	$('.sub-inf').find("span.betInf").text(0);
 	$('.sub-inf').css({'animation-iteration-count':'0'});
+	$('.big').css({'animation-iteration-count':'1'});
+	$('.small').css({'animation-iteration-count':'1'});
+	$('.guess-result').css({'animation-iteration-count':'1'});
 }
 function initial(){
 	move = 0;
