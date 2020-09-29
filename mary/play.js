@@ -28,7 +28,7 @@ $('.putMoney').click(function(){
 
 // 比大小
 $('.size-small').click(function(){
-	if(ending==false){
+	if((ending==false)||(betMoney===0)){
 		console.log("目前無法押注");
 	}else{
 		isSmall = true;
@@ -39,7 +39,7 @@ $('.size-small').click(function(){
 	
 });
 $('.size-big').click(function(){
-	if(ending==false){
+	if((ending==false)||(betMoney===0)){
 		console.log("目前無法押注");
 	}else{
 		isbig = true;

@@ -254,7 +254,7 @@
 .guess-result{
     font-size: 2em;
     animation-name:betGame;
-    animation-duration:1s;
+    animation-duration:0.5s;
     animation-iteration-count: 0;
 }
 /* 投錢按鈕 */
