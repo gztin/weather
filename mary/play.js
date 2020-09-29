@@ -104,7 +104,6 @@ $('.play').click(function(){
 });
 
 $('.cash').click(function(){
-	alert("aaa");
 	initial();
 	$('.light').css({'animation-iteration-count':'infinite'});
 });
@@ -210,7 +209,8 @@ function playGame(){
 		// 跑分數判定
 		if((highLight===1)||(highLight===10)||(highLight===22)){
 			// 跑到橘子，x1
-			console.log("小瑪莉結果是橘子!獎金1倍");
+			// console.log("小瑪莉結果是橘子!獎金1倍");
+			$('.inf-bonus').text("橘子!獎金1倍");
 			betMoney = bet[6];
 			betMoney = Math.floor(betMoney*1);
 			$('.inf-bonus').text(betMoney);
@@ -221,6 +221,7 @@ function playGame(){
 		else if((highLight===2)||(highLight===13)||(highLight===21)){
 			// 跑到鈴鐺，x2
 			console.log("小瑪莉結果是鈴鐺!獎金2倍");
+			$('.inf-bonus').text("鈴鐺!獎金2倍");
 			betMoney = bet[4];
 			betMoney = Math.floor(betMoney*2);
 			$('.inf-bonus').text(betMoney);
@@ -228,11 +229,34 @@ function playGame(){
 			ending = true;
 			console.log("遊戲結束!");
 		}
-		else if((highLight===3)||(highLight===4)||(highLight===5)){
+		else if(highLight===3){
 			// 跑到BAR，x3
 			console.log("小瑪莉結果是Bar!獎金1倍");
+			$('.inf-bonus').text("Bar!獎金2倍");
 			betMoney = bet[0];
 			betMoney = Math.floor(betMoney*1);
+			$('.inf-bonus').text(betMoney);
+			$('.sub-inf').eq(0).css({'animation-iteration-count':'infinite'});
+			ending = true;
+			console.log("遊戲結束!");
+		}
+		else if(highLight===4){
+			// 跑到BAR，x3
+			console.log("小瑪莉結果是3Bar!獎金30倍");
+			$('.inf-bonus').text("3Bar!獎金30倍");
+			betMoney = bet[0];
+			betMoney = Math.floor(betMoney*30);
+			$('.inf-bonus').text(betMoney);
+			$('.sub-inf').eq(0).css({'animation-iteration-count':'infinite'});
+			ending = true;
+			console.log("遊戲結束!");
+		}
+		else if(highLight===5){
+			// 跑到BAR，x3
+			console.log("小瑪莉結果是2Bar!獎金8倍");
+			$('.inf-bonus').text("2Bar!獎金8倍");
+			betMoney = bet[0];
+			betMoney = Math.floor(betMoney*8);
 			$('.inf-bonus').text(betMoney);
 			$('.sub-inf').eq(0).css({'animation-iteration-count':'infinite'});
 			ending = true;
@@ -302,7 +326,6 @@ function playGame(){
 			ending = true;
 			console.log("遊戲結束!");
 		}
-		
 	}
 	else{
 		if( move+12 > gameResult){
@@ -344,14 +367,20 @@ function endGame(){
 	$('.big').css({'animation-iteration-count':'1'});
 	$('.small').css({'animation-iteration-count':'1'});
 	$('.guess-result').css({'animation-iteration-count':'1'});
+	$('.betLight-left').css({'animation-iteration-count':'1'});
+	$('.betLight-right').css({'animation-iteration-count':'1'});
 }
 function initial(){
 	move = 0;
 	sec = 50;
 	bet = [0,0,0,0,0,0,0,0];
 	ending = false;
+	betCredit=0;
+	betMoney = 0;
 	$('.sub-inf').find("span.betInf").text(0);
+	$('.sub-inf').css({'animation-iteration-count':'0'});
 	$('.inf-credit').text(0);
+	$('.inf-bonus').text(0);
 	$('.play:input').attr('disable',true);
 	$('.play:input').css({'cursor':'not-allowed'});
 
