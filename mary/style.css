@@ -1,3 +1,4 @@
+body{font-family: Apple LiGothic Medium,微軟正黑體,Adobe 繁黑體 Std B,Arial, Helvetica, sans-serif;}
 /* 版面 */
 .container{
   display:grid;
@@ -160,7 +161,7 @@
     margin-left: 5px;
     text-align: center;
     cursor: pointer;
-    border: 1px solid #000;
+    border: 1px solid #bdbdbd;
     border-radius: 5px;  
     display: flex;
     justify-content: center;
@@ -374,16 +375,25 @@
     /* 圖案 */
     .apple {background: url(img/fluit.png)no-repeat -139px -59px;}
     .watermelon {background: url(img/fluit.png)no-repeat 0px 9px;}
-    .orange {background: url(img/fluit.png)no-repeat -132px -123px;}
+    .orange {background: url(img/fluit.png)no-repeat -135px -125px;}
     .bell {background: url(img/fluit.png)no-repeat -137px -195px;}
-    .lemon {background: url(img/fluit.png)no-repeat 4px -121px;}
+    .lemon {background: url(img/fluit.png)no-repeat 0px -125px;}
     .lucky {background: url(img/fluit.png)no-repeat -5px -193px;}
     .star2 {background: url(img/fluit.png)no-repeat -72px -192px;}
     .star3 {background: url(img/fluit.png)no-repeat -72px -118px;}
     .bar1 {background: url(img/fluit.png)no-repeat -145px -264px;}
-    .bar2 {background: url(img/fluit.png)no-repeat -74px -264px;}
-    .bar3 {background: url(img/fluit.png)no-repeat 16px -264px;}
+    .bar2 {background: url(img/fluit.png)no-repeat -71px -264px;}
+    .bar3 {background: url(img/fluit.png)no-repeat -1px -264px;}
     .seven {background: url(img/fluit.png)no-repeat -66px -54px;}
+
+    .sub-inf > span.apple {background: url(img/fluit.png)no-repeat -134px -66px;}
+    .sub-inf > span.watermelon {background: url(img/fluit.png)no-repeat 2px 7px;}
+    .sub-inf > span.orange {background: url(img/fluit.png)no-repeat -130px -130px;}
+    .sub-inf > span.bell {background: url(img/fluit.png)no-repeat -131px -203px;}
+    .sub-inf > span.lemon {background: url(img/fluit.png)no-repeat 6px -132px;}
+    .sub-inf > span.star2 {background: url(img/fluit.png)no-repeat -64px -200px;}
+    .sub-inf > span.bar3 {background: url(img/fluit.png)no-repeat 3px -270px;}
+    .sub-inf > span.seven {background: url(img/fluit.png)no-repeat -66px -60px;}
 
     .betSetting > .btn-bet > span.betPic{
         background-size: 240px!important;
@@ -458,6 +468,18 @@
     .betSetting > .betBar{
         grid-column: 1 / 5;
         grid-row: 1/2;
+        background: #2d2d2d;
+        color: #fff;
+    }
+    span.btn-bet.win,span.btn-bet.credit{background: #ffcb39;}
+    span.btn-bet.size-small,span.btn-bet.size-big {
+        font-size: 2em;
+        background: #fd3e13;
+        color: #fff;
+    }
+    span.btn-bet.cash {
+        background: #273a63;
+        color: #fff;
     }
 }
 @media screen and (max-width:376px){
@@ -472,5 +494,50 @@
     }
     .sub-inf{
         height:77px;
+    }
+    .betPic{background-size: 170px!important;}
+    .sub-inf > .betPic{background-size: 150px!important;}
+    /* 圖案 */
+    .apple {background: url(img/fluit.png)no-repeat -120px -50px;}
+    .watermelon {background: url(img/fluit.png)no-repeat -2px 15px;}
+    .orange {background: url(img/fluit.png)no-repeat -116px -106px;}
+    .bell {background: url(img/fluit.png)no-repeat -117px -173px;}
+    .lemon {background: url(img/fluit.png)no-repeat 3px -107px;}
+    .lucky {background: url(img/fluit.png)no-repeat 2px -167px;}
+    .star2 {background: url(img/fluit.png)no-repeat -59px -169px;}
+    .star3 {background: url(img/fluit.png)no-repeat -59px -105px;}
+    .bar1 {background: url(img/fluit.png)no-repeat -123px -230px;}
+    .bar2 {background: url(img/fluit.png)no-repeat -61px -230px;}
+    .bar3 {background: url(img/fluit.png)no-repeat 0px -230px;}
+    .seven {background: url(img/fluit.png)no-repeat -61px -48px;}
+
+    .sub-inf > span.apple {background: url(img/fluit.png)no-repeat -98px -50px;}
+    .sub-inf > span.watermelon {background: url(img/fluit.png)no-repeat 7px 7px;}
+    .sub-inf > span.orange {background: url(img/fluit.png)no-repeat -95px -98px;}
+    .sub-inf > span.bell {background: url(img/fluit.png)no-repeat -95px -156px;}
+    .sub-inf > span.lemon {background: url(img/fluit.png)no-repeat 10px -99px;}
+    .sub-inf > span.star2 {background: url(img/fluit.png)no-repeat -45px -154px;}
+    .sub-inf > span.bar3 {background: url(img/fluit.png)no-repeat 8px -207px;}
+    .sub-inf > span.seven {background: url(img/fluit.png)no-repeat -45px -48px;}
+    /* 燈號 */
+    span.light{position: absolute;width:10px;height:10px;}
+    .bet1 > span.light { margin-left: 50px;margin-top: 64px;}
+    .bet7 >span.light{margin-top: 64px;margin-right: 50px;}
+    .bet13 >span.light {margin-top: -64px;margin-right: 50px;}
+    .bet19 >span.light { margin-top: -64px;margin-right: -50px;}
+    .bet2 >span.light, .bet3 >span.light, .bet4 >span.light, .bet5 >span.light, .bet6 >span.light {
+        margin-top: 64px;
+    }
+    .bet8 >span.light, .bet9 >span.light, .bet10 >span.light, .bet11 >span.light, .bet12 >span.light{
+        margin-right: 50px;
+    }
+    .bet14 >span.light, .bet15 >span.light, .bet16 >span.light, .bet17 >span.light, .bet18 >span.light{
+        margin-top: -64px;
+    }
+    .bet20 >span.light, .bet21 >span.light, .bet22 >span.light, .bet23 >span.light, .bet24 >span.light{
+        margin-left: 50px;
+    }
+    .board-content{
+        width:100%;
     }
 }
