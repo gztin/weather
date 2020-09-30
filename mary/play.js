@@ -164,7 +164,7 @@ $('.credit').click(function(){
 			}
 			else{
 				betMoney = 0;
-				console.log("betMoney的值是已經是:"+betMoney+"，無法繼續");
+				// console.log("betMoney的值是已經是:"+betMoney+"，無法繼續");
 			}
 		}
 	}
@@ -183,7 +183,7 @@ function betMoneyGame(){
 		betMoney = betMoney * 2;
 		$('.inf-bonus').text(betMoney);
 		winMusic();
-		console.log("開獎!點數是"+betResult+"，結果是小!贏得了"+betMoney+"元!");
+		// console.log("開獎!點數是"+betResult+"，結果是小!贏得了"+betMoney+"元!");
 		isSmall = false;
 	}else if((betResult > 7)&&(isBig===true)){
 		// 下注大，贏了
@@ -192,7 +192,7 @@ function betMoneyGame(){
 		betMoney = betMoney * 2;
 		$('.inf-bonus').text(betMoney);
 		winMusic();
-		console.log("開獎!點數是"+betResult+"，結果是大!贏得了"+betMoney+"元!");
+		// console.log("開獎!點數是"+betResult+"，結果是大!贏得了"+betMoney+"元!");
 		isBig = false;
 	}else{
 		// 輸了
@@ -205,7 +205,7 @@ function betMoneyGame(){
 		$('.betLight-right').css({'animation-iteration-count':'1'});
 		$('.guess-result').css({'animation-iteration-count':'infinite'});
 		failMusic();
-		console.log("沒贏!獎金被吃囉!");
+		// console.log("沒贏!獎金被吃囉!");
 	}
 }
 
@@ -231,7 +231,7 @@ function playGame(){
 		}
 		else if((highLight===2)||(highLight===13)||(highLight===21)){
 			// 跑到鈴鐺，x2
-			console.log("小瑪莉結果是鈴鐺!獎金2倍");
+			// console.log("小瑪莉結果是鈴鐺!獎金2倍");
 			$('.inf-bonus').text("鈴鐺!獎金2倍");
 			winMusic();
 			betMoney = bet[4];
@@ -243,7 +243,7 @@ function playGame(){
 		}
 		else if(highLight===3){
 			// 跑到BAR，x3
-			console.log("小瑪莉結果是Bar!獎金1倍");
+			// console.log("小瑪莉結果是Bar!獎金1倍");
 			$('.inf-bonus').text("Bar!獎金2倍");
 			winMusic();
 			betMoney = bet[0];
@@ -255,7 +255,7 @@ function playGame(){
 		}
 		else if(highLight===4){
 			// 跑到BAR，x3
-			console.log("小瑪莉結果是3Bar!獎金30倍");
+			// console.log("小瑪莉結果是3Bar!獎金30倍");
 			$('.inf-bonus').text("3Bar!獎金30倍");
 			winMusic();
 			betMoney = bet[0];
@@ -267,7 +267,7 @@ function playGame(){
 		}
 		else if(highLight===5){
 			// 跑到BAR，x3
-			console.log("小瑪莉結果是2Bar!獎金8倍");
+			// console.log("小瑪莉結果是2Bar!獎金8倍");
 			$('.inf-bonus').text("2Bar!獎金8倍");
 			winMusic();
 			betMoney = bet[0];
@@ -279,7 +279,7 @@ function playGame(){
 		}
 		else if((highLight===6)||(highLight===9)||(highLight===12)||(highLight===14)){
 			// 跑到蘋果，x5
-			console.log("小瑪莉結果是蘋果!獎金5倍");
+			// console.log("小瑪莉結果是蘋果!獎金5倍");
 			$('.inf-bonus').text("蘋果!獎金5倍");
 			winMusic();
 			betMoney = bet[7];
@@ -291,7 +291,7 @@ function playGame(){
 		}
 		else if((highLight===7)||(highLight===18)||(highLight===19)){
 			// 跑到檸檬，x1
-			console.log("小瑪莉結果是檸檬!獎金1倍");
+			// console.log("小瑪莉結果是檸檬!獎金1倍");
 			$('.inf-bonus').text("檸檬!獎金1倍");
 			winMusic();
 			betMoney = bet[5];
@@ -303,7 +303,7 @@ function playGame(){
 		}
 		else if((highLight===0)||(highLight===8)||(highLight===24)){
 			// 跑到西瓜，x1
-			console.log("小瑪莉結果是西瓜!獎金1倍");
+			// console.log("小瑪莉結果是西瓜!獎金1倍");
 			$('.inf-bonus').text("西瓜!獎金1倍");
 			winMusic();
 			betMoney = bet[3];
@@ -315,7 +315,7 @@ function playGame(){
 		}
 		else if((highLight===11)||(highLight===20)){
 			// 跑到777，x7
-			console.log("小瑪莉結果是777!獎金7倍");
+			// console.log("小瑪莉結果是777!獎金7倍");
 			$('.inf-bonus').text("西瓜!獎金1倍");
 			winMusic();
 			betMoney = bet[1];
@@ -336,7 +336,7 @@ function playGame(){
 		}
 		else if((highLight===16)||(highLight===17)){
 			// 跑到星星，x10
-			console.log("小瑪莉結果是星星!獎金10倍");
+			// console.log("小瑪莉結果是星星!獎金10倍");
 			$('.inf-bonus').text("星星!獎金10倍!");
 			winMusic();
 			betMoney = bet[2];
