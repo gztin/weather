@@ -76,6 +76,19 @@ $('.bet-option').click(function(){
 	}
 });
 
+
+$('.betPlay').click(function(){
+	// 手機板控制下注-選擇下注項目
+	$('.bet:nth-child(1)').css({'display':'none'});
+	$('.betSetting').css({'display':'grid'});
+});
+
+$('.betBar').click(function(){
+	// 手機板控制下注-返回遊戲畫面
+	$('.bet:nth-child(1)').css({'display':'grid'});
+	$('.betSetting').css({'display':'none'});
+});
+
 $('.play').click(function(){
 	// 下注
 	clickMusic();

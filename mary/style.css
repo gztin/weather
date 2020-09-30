@@ -238,6 +238,9 @@
     animation-iteration-count:0;
     animation-play-state:running;
 }
+.bet {
+    background: #fff;
+}
 @keyframes betResult{
     /* 跑馬燈 */
     0%{
@@ -311,7 +314,7 @@
 .betInf{
     font-size:1.5em;
 }
-.betPic{width: 100%;background-size: 196px!important;}
+
 .bell{background:url('img/fluit.png')no-repeat -163px -246px;}
 .star2{background:url('img/fluit.png')no-repeat -82px -243px;}
 .star3{background:url('img/fluit.png')no-repeat -80px -156px;}
@@ -325,55 +328,98 @@
 .lemon{background: url('img/fluit.png')no-repeat -5px -161px;}
 .lucky{background:url('img/fluit.png')no-repeat -5px -243px;}
 .control-cellphone{display:none;}
-@media screen and (max-width:400px){
+
+@media screen and (max-width:414px){
     .container{
         width:100%;
-        height:490px;
+        height:515px;
         padding: 1px;
     }
     .game-control{
         width:100%;
+        height: 200px;
         border: 1px solid #000;
     }
     .btn-bet{
         width:100%;
+        height:auto;
     }
-
+    .betPic{
+        width: 100%;
+        height:100%;
+        background-size: 196px!important;
+    }
     /* 燈號 */
-    span.light{position: absolute;}
-    .bet1 > span.light { margin-left: 50px;margin-top: 70px;}
-    .bet7 >span.light{margin-top: 70px;margin-right: 50px;}
-    .bet13 >span.light {margin-top: -70px;margin-right: 50px;}
-    .bet19 >span.light { margin-top: -70px;margin-right: -50px;}
+    span.light{position: absolute;width:10px;height:10px;}
+    .bet1 > span.light { margin-left: 56px;margin-top: 76px;}
+    .bet7 >span.light{margin-top: 76px;margin-right: 56px;}
+    .bet13 >span.light {margin-top: -76px;margin-right: 56px;}
+    .bet19 >span.light { margin-top: -76px;margin-right: -56px;}
     .bet2 >span.light, .bet3 >span.light, .bet4 >span.light, .bet5 >span.light, .bet6 >span.light {
-        margin-top: 70px;
+        margin-top: 76px;
     }
     .bet8 >span.light, .bet9 >span.light, .bet10 >span.light, .bet11 >span.light, .bet12 >span.light{
-        margin-right: 50px;
+        margin-right: 56px;
     }
     .bet14 >span.light, .bet15 >span.light, .bet16 >span.light, .bet17 >span.light, .bet18 >span.light{
-        margin-top: -70px;
+        margin-top: -76px;
     }
     .bet20 >span.light, .bet21 >span.light, .bet22 >span.light, .bet23 >span.light, .bet24 >span.light{
-        margin-left: 50px;
+        margin-left: 56px;
     }
     .board-content{
         width:100%;
     }
 
     /* 圖案 */
-    .apple {background: url(img/fluit.png)no-repeat -142px -68px;}
-    .watermelon {background: url(img/fluit.png)no-repeat 0px 0px;}
-    .orange {background: url(img/fluit.png)no-repeat -138px -132px;}
-    .bell {background: url(img/fluit.png)no-repeat -137px -204px;}
-    .lemon {background: url(img/fluit.png)no-repeat -2px -130px;}
-    .lucky {background: url(img/fluit.png)no-repeat -5px -202px;}
-    .star2 {background: url(img/fluit.png)no-repeat -72px -201px;}
-    .star3 {background: url(img/fluit.png)no-repeat -72px -127px;}
-    .bar1 {background: url(img/fluit.png)no-repeat -145px -273px;}
-    .bar2 {background: url(img/fluit.png)no-repeat -74px -273px;}
-    .bar3 {background: url(img/fluit.png)no-repeat -5px -273px;}
+    .apple {background: url(img/fluit.png)no-repeat -139px -59px;}
+    .watermelon {background: url(img/fluit.png)no-repeat 0px 9px;}
+    .orange {background: url(img/fluit.png)no-repeat -132px -123px;}
+    .bell {background: url(img/fluit.png)no-repeat -137px -195px;}
+    .lemon {background: url(img/fluit.png)no-repeat 4px -121px;}
+    .lucky {background: url(img/fluit.png)no-repeat -5px -193px;}
+    .star2 {background: url(img/fluit.png)no-repeat -72px -192px;}
+    .star3 {background: url(img/fluit.png)no-repeat -72px -118px;}
+    .bar1 {background: url(img/fluit.png)no-repeat -145px -264px;}
+    .bar2 {background: url(img/fluit.png)no-repeat -74px -264px;}
+    .bar3 {background: url(img/fluit.png)no-repeat 16px -264px;}
+    .seven {background: url(img/fluit.png)no-repeat -66px -54px;}
 
+    .betSetting > .btn-bet > span.betPic{
+        background-size: 240px!important;
+    }
+    .betSetting > .btn-bet > span.bar3{
+        background-position-x: 10px;
+        background-position-y: -335px;
+    }
+    .betSetting > .btn-bet > span.seven{
+        background-position-x: -74px;
+        background-position-y: -77px;
+    }
+    .betSetting > .btn-bet > span.star2{
+        background-position-x: -73px;
+        background-position-y: -250px;
+    }
+    .betSetting > .btn-bet > span.watermelon{
+        background-position-x: -73px;
+        background-position-y: -250px;
+    }
+    .betSetting > .btn-bet > span.bell{
+        background-position-x: -155px;
+        background-position-y: -252px;
+    }
+    .betSetting > .btn-bet > span.lemon{
+        background-position-x: 11px;
+        background-position-y: -164px;
+    }
+    .betSetting > .btn-bet > span.orange{
+        background-position-x: -154px;
+        background-position-y: -162px;
+    }
+    .betSetting > .btn-bet > span.apple{
+        background-position-x: -160px;
+        background-position-y: -83px;
+    }
     /* 按鈕文字 */
     .money-inf > span.title{font-size:12px;}
     /* control */
@@ -383,14 +429,48 @@
         flex-direction: column;
     }
     .bet:nth-child(1){
-        display:grid;
+        display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 1fr;
+        grid-template-rows: 36% 36% 22%;
+        grid-gap: 1px;
+        grid-column-gap: 7px;
+        grid-row-gap: 5px;
+        padding: 5px;
+        height: 190px;
+        transition: 0.5s ease;
     }
-    .bet:nth-child(2){
-        display:grid;
+    .betSetting{
         grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-template-rows: 1fr;
+        grid-template-rows: 20% 38% 38%;
+        padding: 1px;
+        margin: 5px;
+        grid-column-gap: 7px;
+        grid-row-gap: 5px;
+        height: 185px;
+        display: none;
+        transition: 0.5s ease;
     }
     .btn-bet{margin-left: 0px;}
+    .betPlay{
+        grid-column: 1 / 4;
+        grid-row: 3/3;
+    }
+    .betSetting > .betBar{
+        grid-column: 1 / 5;
+        grid-row: 1/2;
+    }
+}
+@media screen and (max-width:376px){
+    .container{
+        height:450px;
+    }
+    .inf-dashboard:nth-child(2){
+        grid-gap: 2px;
+    }
+    .board-content{
+        width:94%;
+    }
+    .sub-inf{
+        height:77px;
+    }
 }
