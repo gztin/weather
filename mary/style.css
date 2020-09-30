@@ -420,8 +420,8 @@ body{font-family: Apple LiGothic Medium,微軟正黑體,Adobe 繁黑體 Std B,Ar
         background-position-y: -250px;
     }
     .betSetting > .btn-bet > span.watermelon{
-        background-position-x: -73px;
-        background-position-y: -250px;
+        background-position-x: 3px;
+        background-position-y: 0px;
     }
     .betSetting > .btn-bet > span.bell{
         background-position-x: -155px;
