@@ -70,6 +70,8 @@ $('.bet-option').click(function(){
 			$('.inf-credit').text(betCredit);
 			// 取得目前選取的位置
 			var x =$(this).index();
+			console.log("這是第"+x+"個");
+			// alert("這是第"+x+"個");
 			// 讀取目前已經下注的金額，並將值回傳至陣列中
 			betCount = bet[x];
 			betCount = betCount + 1;
@@ -83,14 +85,14 @@ $('.bet-option').click(function(){
 
 $('.betPlay').click(function(){
 	// 手機板控制下注-選擇下注項目
-	$('.bet:nth-child(1)').css({'display':'none'});
-	$('.betSetting').css({'display':'grid'});
+	$('.bet-1').css({'display':'none'});
+	$('.bet-2').css({'display':'flex'});
 });
 
 $('.betBar').click(function(){
 	// 手機板控制下注-返回遊戲畫面
-	$('.bet:nth-child(1)').css({'display':'grid'});
-	$('.betSetting').css({'display':'none'});
+	$('.bet-1').css({'display':'grid'});
+	$('.bet-2').css({'display':'none'});
 });
 
 $('.play').click(function(){
@@ -117,7 +119,7 @@ $('.play').click(function(){
 		betCredit = betCredit + betMoney;
 		$('.inf-credit').text(betCredit);
 		$('.inf-bonus').text(0);
-		console.log("轉移後，目前credit的值是:"+ credit);
+		// console.log("轉移後，目前credit的值是:"+ credit);
 		// 重置遊戲
 		endGame();
 		ending = false;

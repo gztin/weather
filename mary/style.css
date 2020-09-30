@@ -404,6 +404,9 @@ body{font-family: Apple LiGothic Medium,微軟正黑體,Adobe 繁黑體 Std B,Ar
     .sub-inf > span.bar3 {background: url(img/fluit.png)no-repeat 3px -270px;}
     .sub-inf > span.seven {background: url(img/fluit.png)no-repeat -66px -60px;}
 
+    .betSetting > .btn-bet{
+        width:80px;
+    }
     .betSetting > .btn-bet > span.betPic{
         background-size: 240px!important;
     }
@@ -447,7 +450,7 @@ body{font-family: Apple LiGothic Medium,微軟正黑體,Adobe 繁黑體 Std B,Ar
         display: flex;
         flex-direction: column;
     }
-    .bet:nth-child(1){
+    .bet-1{
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: 36% 36% 22%;
@@ -458,16 +461,37 @@ body{font-family: Apple LiGothic Medium,微軟正黑體,Adobe 繁黑體 Std B,Ar
         height: 190px;
         transition: 0.5s ease;
     }
-    .betSetting{
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-template-rows: 20% 38% 38%;
-        padding: 1px;
-        margin: 5px;
-        grid-column-gap: 7px;
-        grid-row-gap: 5px;
-        height: 185px;
+    .bet-2{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         display: none;
+    }
+    .backToGame{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .betSetting{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        margin-left: 4px;
+        margin-top: 5px;
+        grid-row-gap: 5px;
+        height: 140px;
         transition: 0.5s ease;
+    }
+    .betBar{
+        border: 1px solid #bdbdbd;
+        border-radius: 5px;
+        width: 96%;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #323232;
+        color: #fff;
     }
     .btn-bet{margin-left: 0px;}
     .betPlay{
@@ -479,6 +503,12 @@ body{font-family: Apple LiGothic Medium,微軟正黑體,Adobe 繁黑體 Std B,Ar
         grid-row: 1/2;
         background: #2d2d2d;
         color: #fff;
+        width:100%;
+        height:auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px;
     }
     span.btn-bet.win,span.btn-bet.credit{background: #ffcb39;}
     span.btn-bet.size-small,span.btn-bet.size-big {
