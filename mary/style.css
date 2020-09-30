@@ -132,6 +132,8 @@ body{font-family: Apple LiGothic Medium,微軟正黑體,Adobe 繁黑體 Std B,Ar
                 1px 1px 9px rgb(255, 0, 0);
 }
 
+.sub-active{}
+
 .game-view{
   	display: flex;
   	flex-direction: column;
@@ -351,7 +353,13 @@ body{font-family: Apple LiGothic Medium,微軟正黑體,Adobe 繁黑體 Std B,Ar
         background-size: 196px!important;
     }
     /* 燈號 */
-    /* .light{display:none;} */
+    .sub-active{
+        background: rgb(38 129 173)!important;
+    }
+    .guess-result{
+        font-size:1.3em;
+    }
+    .light{display:none;}
     span.light{position: absolute;width:10px;height:10px;}
     .bet1 > span.light { margin-left: 56px;margin-top: 76px;}
     .bet7 >span.light{margin-top: 76px;margin-right: 56px;}
@@ -496,6 +504,9 @@ body{font-family: Apple LiGothic Medium,微軟正黑體,Adobe 繁黑體 Std B,Ar
     .sub-inf{
         height:77px;
     }
+    .guess-result{
+        font-size:1.3em;
+    }
     .betPic{background-size: 170px!important;}
     .sub-inf > .betPic{background-size: 150px!important;}
     /* 圖案 */
@@ -521,6 +532,10 @@ body{font-family: Apple LiGothic Medium,微軟正黑體,Adobe 繁黑體 Std B,Ar
     .sub-inf > span.bar3 {background: url(img/fluit.png)no-repeat 8px -207px;}
     .sub-inf > span.seven {background: url(img/fluit.png)no-repeat -45px -48px;}
     /* 燈號 */
+    .sub-active{
+        background: rgb(38 129 173)!important;
+    }
+    .light{display: none;}
     span.light{position: absolute;width:10px;height:10px;}
     .bet1 > span.light { margin-left: 50px;margin-top: 64px;}
     .bet7 >span.light{margin-top: 64px;margin-right: 50px;}

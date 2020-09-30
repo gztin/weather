@@ -237,7 +237,7 @@ function playGame(){
 		if((highLight===1)||(highLight===10)||(highLight===22)){
 			// 跑到橘子，x1
 			// console.log("小瑪莉結果是橘子!獎金1倍");
-			$('.inf-bonus').text("橘子!獎金1倍");
+			$('.guess-result').text("橘子!獎金1倍");
 			winMusic();
 			betMoney = bet[6];
 			betMoney = Math.floor(betMoney*1);
@@ -249,7 +249,7 @@ function playGame(){
 		else if((highLight===2)||(highLight===13)||(highLight===21)){
 			// 跑到鈴鐺，x2
 			// console.log("小瑪莉結果是鈴鐺!獎金2倍");
-			$('.inf-bonus').text("鈴鐺!獎金2倍");
+			$('.guess-result').text("鈴鐺!獎金2倍");
 			winMusic();
 			betMoney = bet[4];
 			betMoney = Math.floor(betMoney*2);
@@ -261,7 +261,7 @@ function playGame(){
 		else if(highLight===3){
 			// 跑到BAR，x3
 			// console.log("小瑪莉結果是Bar!獎金1倍");
-			$('.inf-bonus').text("Bar!獎金2倍");
+			$('.guess-result').text("Bar!獎金2倍");
 			winMusic();
 			betMoney = bet[0];
 			betMoney = Math.floor(betMoney*1);
@@ -273,7 +273,7 @@ function playGame(){
 		else if(highLight===4){
 			// 跑到BAR，x3
 			// console.log("小瑪莉結果是3Bar!獎金30倍");
-			$('.inf-bonus').text("3Bar!獎金30倍");
+			$('.guess-result').text("3Bar!獎金30倍");
 			winMusic();
 			betMoney = bet[0];
 			betMoney = Math.floor(betMoney*30);
@@ -285,7 +285,7 @@ function playGame(){
 		else if(highLight===5){
 			// 跑到BAR，x3
 			// console.log("小瑪莉結果是2Bar!獎金8倍");
-			$('.inf-bonus').text("2Bar!獎金8倍");
+			$('.guess-result').text("2Bar!獎金8倍");
 			winMusic();
 			betMoney = bet[0];
 			betMoney = Math.floor(betMoney*8);
@@ -297,7 +297,7 @@ function playGame(){
 		else if((highLight===6)||(highLight===9)||(highLight===12)||(highLight===14)){
 			// 跑到蘋果，x5
 			// console.log("小瑪莉結果是蘋果!獎金5倍");
-			$('.inf-bonus').text("蘋果!獎金5倍");
+			$('.guess-result').text("蘋果!獎金5倍");
 			winMusic();
 			betMoney = bet[7];
 			betMoney = Math.floor(betMoney*5);
@@ -309,7 +309,7 @@ function playGame(){
 		else if((highLight===7)||(highLight===18)||(highLight===19)){
 			// 跑到檸檬，x1
 			// console.log("小瑪莉結果是檸檬!獎金1倍");
-			$('.inf-bonus').text("檸檬!獎金1倍");
+			$('.guess-result').text("檸檬!獎金1倍");
 			winMusic();
 			betMoney = bet[5];
 			betMoney = Math.floor(betMoney*1);
@@ -321,7 +321,7 @@ function playGame(){
 		else if((highLight===0)||(highLight===8)||(highLight===24)){
 			// 跑到西瓜，x1
 			// console.log("小瑪莉結果是西瓜!獎金1倍");
-			$('.inf-bonus').text("西瓜!獎金1倍");
+			$('.guess-result').text("西瓜!獎金1倍");
 			winMusic();
 			betMoney = bet[3];
 			betMoney = Math.floor(betMoney*1);
@@ -333,7 +333,7 @@ function playGame(){
 		else if((highLight===11)||(highLight===20)){
 			// 跑到777，x7
 			// console.log("小瑪莉結果是777!獎金7倍");
-			$('.inf-bonus').text("西瓜!獎金1倍");
+			$('.guess-result').text("西瓜!獎金1倍");
 			winMusic();
 			betMoney = bet[1];
 			betMoney = Math.floor(betMoney*7);
@@ -345,7 +345,7 @@ function playGame(){
 		else if((highLight===15)||(highLight===23)){
 			// 跑到Lucky，再玩一次，功能開發中
 			console.log("小瑪莉結果是Lucky!");
-			$('.inf-bonus').text("Lucky!可以免費再玩一次");
+			$('.guess-result').text("Lucky!可以免費再玩一次");
 			winMusic();
 			gameResult = Math.floor(Math.random()*24+48);
 			endGame();
@@ -354,7 +354,7 @@ function playGame(){
 		else if((highLight===16)||(highLight===17)){
 			// 跑到星星，x10
 			// console.log("小瑪莉結果是星星!獎金10倍");
-			$('.inf-bonus').text("星星!獎金10倍!");
+			$('.guess-result').text("星星!獎金10倍!");
 			winMusic();
 			betMoney = bet[2];
 			betMoney = Math.floor(betMoney*10);
@@ -366,6 +366,7 @@ function playGame(){
 		else{
 			// 如果都不是，就是沒中獎
 			$('.inf-bonus').text(betMoney);
+			$('.guess-result').text("沒中獎!");
 			console.log("沒中獎");
 			failMusic();
 			ending = true;
@@ -375,6 +376,7 @@ function playGame(){
 	else{
 		if( move+12 > gameResult){
 			$('.bet'+(highLight)).find('span.light').addClass('active').parent().siblings().find('span.light').removeClass('active');
+			$('.bet'+(highLight)).addClass('sub-active').siblings().removeClass('sub-active');
 			// console.log("highLight目前跑燈的位置是:"+highLight);
 			setTimeout(playGame, sec=sec*1.4);
 			highLight = highLight + 1;
@@ -382,6 +384,7 @@ function playGame(){
 		}
 		else {
 			$('.bet'+(highLight)).find('span.light').addClass('active').parent().siblings().find('span.light').removeClass('active');
+			$('.bet'+(highLight)).addClass('sub-active').siblings().removeClass('sub-active');
 			// console.log("highLight目前跑燈的位置是:"+highLight);
 			setTimeout(playGame, sec);
 			highLight = highLight + 1;
