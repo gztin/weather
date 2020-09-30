@@ -330,7 +330,7 @@ body{font-family: Apple LiGothic Medium,微軟正黑體,Adobe 繁黑體 Std B,Ar
 .lucky{background:url('img/fluit.png')no-repeat -5px -243px;}
 .control-cellphone{display:none;}
 
-@media screen and (max-width:414px){
+@media screen and (max-width:415px){
     .container{
         width:100%;
         height:515px;

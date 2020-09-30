@@ -16,6 +16,10 @@ var betTotal = 0;
 var betMoney = 0;
 var isBig = false;
 var isSmall = false;
+
+var w = $(window).width();
+var h = $(window).height();
+alert("螢幕尺寸是"+w+"x"+h);
 initial();
 
 // 投幣
