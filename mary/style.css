@@ -28,14 +28,12 @@ body{font-family: Apple LiGothic Medium,微軟正黑體,Adobe 繁黑體 Std B,Ar
     animation-name:guess;
 }
 
-.item > span:nth-child(1).betPic:after{
+.light{
     width:15px;
     height:15px;
-    content: '';
     background:#fff;
 	display: block;
     border: 1px solid #000;
-    position: absolute;
 
     /* 預設自動撥放，投幣後停止 */
     animation-name:guess;
@@ -46,56 +44,60 @@ body{font-family: Apple LiGothic Medium,微軟正黑體,Adobe 繁黑體 Std B,Ar
 
 
 
-.bet1 > span:nth-child(1).betPic:after{
+.bet1 > span.light{
+    position: absolute;
     margin-left: 85px;
     margin-top: 80px;
 }
-.bet2 >span:nth-child(1).betPic:after,
-.bet3 >span:nth-child(1).betPic:after,
-.bet4 >span:nth-child(1).betPic:after,
-.bet5 >span:nth-child(1).betPic:after,
-.bet6 >span:nth-child(1).betPic:after{
-    margin-top: 59px;
-    margin-left: 27px;
+.bet2 >span.light,
+.bet3 >span.light,
+.bet4 >span.light,
+.bet5 >span.light,
+.bet6 >span.light{
+    position: absolute;
+    margin-top: 79px;
 }
-.bet7 >span:nth-child(1).betPic:after{
+.bet7 >span.light{
+    position: absolute;
     margin-top: 79px;
     margin-right:86px;
 }
 
-.bet8 >span:nth-child(1).betPic:after,
-.bet9 >span:nth-child(1).betPic:after,
-.bet10 >span:nth-child(1).betPic:after,
-.bet11 >span:nth-child(1).betPic:after,
-.bet12 >span:nth-child(1).betPic:after{
-    margin-left: -17px;
-    margin-top: 20px;
+.bet8 >span.light,
+.bet9 >span.light,
+.bet10 >span.light,
+.bet11 >span.light,
+.bet12 >span.light{
+    position: absolute;
+    margin-right:86px;
 }
-.bet13 >span:nth-child(1).betPic:after{
+.bet13 >span.light{
+    position: absolute;
     margin-top:-79px;
     margin-right: 86px;
 }
 
-.bet14 >span:nth-child(1).betPic:after,
-.bet15 >span:nth-child(1).betPic:after,
-.bet16 >span:nth-child(1).betPic:after,
-.bet17 >span:nth-child(1).betPic:after,
-.bet18 >span:nth-child(1).betPic:after{
-    margin-top: -19px;
-    margin-left: 25px;
+.bet14 >span.light,
+.bet15 >span.light,
+.bet16 >span.light,
+.bet17 >span.light,
+.bet18 >span.light{
+    position: absolute;
+    margin-top:-79px;
 }
 
-.bet19 >span:nth-child(1).betPic:after{
+.bet19 >span.light{
+    position: absolute;
     margin-top:-79px;
     margin-right: -86px;
 }
-.bet20 >span:nth-child(1).betPic:after,
-.bet21 >span:nth-child(1).betPic:after,
-.bet22 >span:nth-child(1).betPic:after,
-.bet23 >span:nth-child(1).betPic:after,
-.bet24 >span:nth-child(1).betPic:after{
-    margin-left: 68px;
-    margin-top: 20px;
+.bet20 >span.light,
+.bet21 >span.light,
+.bet22 >span.light,
+.bet23 >span.light,
+.bet24 >span.light{
+    position: absolute;
+    margin-left:86px;
 }
 
 @keyframes guess{
@@ -349,17 +351,7 @@ body{font-family: Apple LiGothic Medium,微軟正黑體,Adobe 繁黑體 Std B,Ar
         background-size: 196px!important;
     }
     /* 燈號 */
-    span.betPic.lemon:after {
-        width: 13px;
-        height: 13px;
-        content: '';
-        background: #c30;
-        display: block;
-        position: absolute;
-        margin-top: 57px;
-        margin-left: -7px;
-    }
-    .light{display:none;}
+    /* .light{display:none;} */
     span.light{position: absolute;width:10px;height:10px;}
     .bet1 > span.light { margin-left: 56px;margin-top: 76px;}
     .bet7 >span.light{margin-top: 76px;margin-right: 56px;}
@@ -529,17 +521,6 @@ body{font-family: Apple LiGothic Medium,微軟正黑體,Adobe 繁黑體 Std B,Ar
     .sub-inf > span.bar3 {background: url(img/fluit.png)no-repeat 8px -207px;}
     .sub-inf > span.seven {background: url(img/fluit.png)no-repeat -45px -48px;}
     /* 燈號 */
-    /* span.betPic:after {
-        width: 13px;
-        height: 13px;
-        content: '';
-        background: #c30;
-        display: block;
-        position: absolute;
-        margin-top: 57px;
-        margin-left: -7px;
-    } */
-    /* .light{display:none;} */
     span.light{position: absolute;width:10px;height:10px;}
     .bet1 > span.light { margin-left: 50px;margin-top: 64px;}
     .bet7 >span.light{margin-top: 64px;margin-right: 50px;}
