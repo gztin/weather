@@ -351,6 +351,17 @@ body{font-family: Apple LiGothic Medium,微軟正黑體,Adobe 繁黑體 Std B,Ar
         background-size: 196px!important;
     }
     /* 燈號 */
+    span.betPic.lemon:after {
+        width: 13px;
+        height: 13px;
+        content: '';
+        background: #c30;
+        display: block;
+        position: absolute;
+        margin-top: 57px;
+        margin-left: -7px;
+    }
+    .light{display:none;}
     span.light{position: absolute;width:10px;height:10px;}
     .bet1 > span.light { margin-left: 56px;margin-top: 76px;}
     .bet7 >span.light{margin-top: 76px;margin-right: 56px;}
@@ -520,6 +531,17 @@ body{font-family: Apple LiGothic Medium,微軟正黑體,Adobe 繁黑體 Std B,Ar
     .sub-inf > span.bar3 {background: url(img/fluit.png)no-repeat 8px -207px;}
     .sub-inf > span.seven {background: url(img/fluit.png)no-repeat -45px -48px;}
     /* 燈號 */
+    span.betPic.lemon:after {
+        width: 13px;
+        height: 13px;
+        content: '';
+        background: #c30;
+        display: block;
+        position: absolute;
+        margin-top: 57px;
+        margin-left: -7px;
+    }
+    .light{display:none;}
     span.light{position: absolute;width:10px;height:10px;}
     .bet1 > span.light { margin-left: 50px;margin-top: 64px;}
     .bet7 >span.light{margin-top: 64px;margin-right: 50px;}
