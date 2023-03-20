@@ -224,13 +224,13 @@ function betMoneyGame(){
 		$('.betLight-right').css({'animation-iteration-count':'1'});
 		$('.guess-result').css({'animation-iteration-count':'infinite'});
 		failMusic();
-		// console.log("沒贏!獎金被吃囉!");
+		console.log("沒贏!獎金被吃囉!");
 	}
 }
 
 function playGame(){
-	// console.log("highLight目前的值是:"+highLight);
-	if( move+1 > gameResult){
+	console.log("highLight目前的值是:"+(highLight-1));
+	if( move+1 >= gameResult){
 		// 因為move會先+1，所以要預防它超過gameREsult
 		// 遊戲結束
 		move = move - 1;
@@ -240,109 +240,162 @@ function playGame(){
 			// 跑到橘子，x1
 			// console.log("小瑪莉結果是橘子!獎金1倍");
 			$('.guess-result').text("橘子!獎金1倍");
-			winMusic();
+			
 			betMoney = bet[6];
-			betMoney = Math.floor(betMoney*1);
-			$('.inf-bonus').text(betMoney);
-			$('.sub-inf').eq(6).css({'animation-iteration-count':'infinite'});
-			ending = true;
-			// console.log("遊戲結束!");
+			if (betMoney==0){
+				lose();
+			}
+			else{
+				winMusic();
+				betMoney = Math.floor(betMoney*1);
+				$('.inf-bonus').text(betMoney);
+				$('.sub-inf').eq(6).css({'animation-iteration-count':'infinite'});
+				ending = true;
+				// console.log("遊戲結束!");
+			}	
 		}
 		else if((highLight===2)||(highLight===13)||(highLight===21)){
 			// 跑到鈴鐺，x2
 			// console.log("小瑪莉結果是鈴鐺!獎金2倍");
-			$('.guess-result').text("鈴鐺!獎金2倍");
-			winMusic();
 			betMoney = bet[4];
-			betMoney = Math.floor(betMoney*2);
-			$('.inf-bonus').text(betMoney);
-			$('.sub-inf').eq(4).css({'animation-iteration-count':'infinite'});
-			ending = true;
-			console.log("遊戲結束!");
+			if (betMoney==0){
+				lose();
+			}
+			else{
+				winMusic();
+				$('.guess-result').text("鈴鐺!獎金2倍");
+				betMoney = Math.floor(betMoney*2);
+				$('.inf-bonus').text(betMoney);
+				$('.sub-inf').eq(4).css({'animation-iteration-count':'infinite'});
+				ending = true;
+				console.log("遊戲結束!");
+			}	
 		}
 		else if(highLight===3){
 			// 跑到BAR，x3
 			// console.log("小瑪莉結果是Bar!獎金1倍");
-			$('.guess-result').text("Bar!獎金2倍");
-			winMusic();
+			
 			betMoney = bet[0];
-			betMoney = Math.floor(betMoney*1);
-			$('.inf-bonus').text(betMoney);
-			$('.sub-inf').eq(0).css({'animation-iteration-count':'infinite'});
-			ending = true;
-			console.log("遊戲結束!");
+			if (betMoney==0){
+				lose();
+			}
+			else{
+				winMusic();
+				$('.guess-result').text("Bar!獎金2倍");
+				betMoney = Math.floor(betMoney*1);
+				$('.inf-bonus').text(betMoney);
+				$('.sub-inf').eq(0).css({'animation-iteration-count':'infinite'});
+				ending = true;
+				console.log("遊戲結束!");
+			}
 		}
 		else if(highLight===4){
 			// 跑到BAR，x3
 			// console.log("小瑪莉結果是3Bar!獎金30倍");
-			$('.guess-result').text("3Bar!獎金30倍");
-			winMusic();
+			
 			betMoney = bet[0];
-			betMoney = Math.floor(betMoney*30);
-			$('.inf-bonus').text(betMoney);
-			$('.sub-inf').eq(0).css({'animation-iteration-count':'infinite'});
-			ending = true;
-			console.log("遊戲結束!");
+			if (betMoney==0){
+				lose();
+			}else{
+				winMusic();
+				$('.guess-result').text("3Bar!獎金30倍");
+				betMoney = Math.floor(betMoney*30);
+				$('.inf-bonus').text(betMoney);
+				$('.sub-inf').eq(0).css({'animation-iteration-count':'infinite'});
+				ending = true;
+				console.log("遊戲結束!");
+			}
 		}
 		else if(highLight===5){
 			// 跑到BAR，x3
 			// console.log("小瑪莉結果是2Bar!獎金8倍");
-			$('.guess-result').text("2Bar!獎金8倍");
-			winMusic();
+			
 			betMoney = bet[0];
-			betMoney = Math.floor(betMoney*8);
-			$('.inf-bonus').text(betMoney);
-			$('.sub-inf').eq(0).css({'animation-iteration-count':'infinite'});
-			ending = true;
-			console.log("遊戲結束!");
+			if (betMoney==0){
+				lose();
+			}
+			else{
+				winMusic();
+				$('.guess-result').text("2Bar!獎金8倍");
+				betMoney = Math.floor(betMoney*8);
+				$('.inf-bonus').text(betMoney);
+				$('.sub-inf').eq(0).css({'animation-iteration-count':'infinite'});
+				ending = true;
+				console.log("遊戲結束!");
+			}	
 		}
 		else if((highLight===6)||(highLight===9)||(highLight===12)||(highLight===14)){
 			// 跑到蘋果，x5
 			// console.log("小瑪莉結果是蘋果!獎金5倍");
-			$('.guess-result').text("蘋果!獎金5倍");
-			winMusic();
 			betMoney = bet[7];
-			betMoney = Math.floor(betMoney*5);
-			$('.inf-bonus').text(betMoney);
-			$('.sub-inf').eq(7).css({'animation-iteration-count':'infinite'});
-			ending = true;
-			console.log("遊戲結束!");
+			if (betMoney==0){
+				lose();
+			}
+			else{
+				winMusic();
+				$('.guess-result').text("蘋果!獎金5倍");
+				betMoney = Math.floor(betMoney*5);
+				$('.inf-bonus').text(betMoney);
+				$('.sub-inf').eq(7).css({'animation-iteration-count':'infinite'});
+				ending = true;
+				console.log("遊戲結束!");
+			}	
 		}
 		else if((highLight===7)||(highLight===18)||(highLight===19)){
 			// 跑到檸檬，x1
-			// console.log("小瑪莉結果是檸檬!獎金1倍");
-			$('.guess-result').text("檸檬!獎金1倍");
-			winMusic();
+			// console.log("小瑪莉結果是檸檬!獎金1倍");	
 			betMoney = bet[5];
-			betMoney = Math.floor(betMoney*1);
-			$('.inf-bonus').text(betMoney);
-			$('.sub-inf').eq(5).css({'animation-iteration-count':'infinite'});
-			ending = true;
-			console.log("遊戲結束!");
+			if (betMoney==0){
+				lose();
+			}
+			else{
+				winMusic();
+				$('.guess-result').text("檸檬!獎金1倍");
+				betMoney = Math.floor(betMoney*1);
+				$('.inf-bonus').text(betMoney);
+				$('.sub-inf').eq(5).css({'animation-iteration-count':'infinite'});
+				ending = true;
+				console.log("遊戲結束!");
+			}
 		}
 		else if((highLight===0)||(highLight===8)||(highLight===24)){
 			// 跑到西瓜，x1
 			// console.log("小瑪莉結果是西瓜!獎金1倍");
-			$('.guess-result').text("西瓜!獎金1倍");
-			winMusic();
+			
+			
 			betMoney = bet[3];
-			betMoney = Math.floor(betMoney*1);
-			$('.inf-bonus').text(betMoney);
-			$('.sub-inf').eq(3).css({'animation-iteration-count':'infinite'});
-			ending = true;
-			console.log("遊戲結束!");
+			if (betMoney==0){
+				lose();
+			}
+			else{
+				winMusic();
+				$('.guess-result').text("西瓜!獎金1倍");
+				betMoney = Math.floor(betMoney*1);
+				$('.inf-bonus').text(betMoney);
+				$('.sub-inf').eq(3).css({'animation-iteration-count':'infinite'});
+				ending = true;
+				console.log("遊戲結束!");
+			}
 		}
 		else if((highLight===11)||(highLight===20)){
 			// 跑到777，x7
 			// console.log("小瑪莉結果是777!獎金7倍");
-			$('.guess-result').text("西瓜!獎金1倍");
-			winMusic();
+			
+			
 			betMoney = bet[1];
-			betMoney = Math.floor(betMoney*7);
-			$('.inf-bonus').text(betMoney);
-			$('.sub-inf').eq(1).css({'animation-iteration-count':'infinite'});
-			ending = true;
-			console.log("遊戲結束!");
+			if (betMoney==0){
+				lose();
+			}
+			else{
+				winMusic();
+				$('.guess-result').text("777!獎金7倍");
+				betMoney = Math.floor(betMoney*7);
+				$('.inf-bonus').text(betMoney);
+				$('.sub-inf').eq(1).css({'animation-iteration-count':'infinite'});
+				ending = true;
+				console.log("遊戲結束!");
+			}
+			
 		}
 		else if((highLight===15)||(highLight===23)){
 			// 跑到Lucky，再玩一次，功能開發中
@@ -357,26 +410,27 @@ function playGame(){
 			// 跑到星星，x10
 			// console.log("小瑪莉結果是星星!獎金10倍");
 			$('.guess-result').text("星星!獎金10倍!");
-			winMusic();
+			
 			betMoney = bet[2];
-			betMoney = Math.floor(betMoney*10);
-			$('.inf-bonus').text(betMoney);
-			$('.sub-inf').eq(2).css({'animation-iteration-count':'infinite'});
-			ending = true;
-			console.log("遊戲結束!");
+			if (betMoney==0){
+				lose();
+			}
+			else{
+				winMusic();
+				$('.guess-result').text("星星!獎金10倍!");
+				betMoney = Math.floor(betMoney*10);
+				$('.inf-bonus').text(betMoney);
+				$('.sub-inf').eq(2).css({'animation-iteration-count':'infinite'});
+				ending = true;
+				console.log("遊戲結束!");
+			}	
 		}
 		else{
-			// 如果都不是，就是沒中獎
-			$('.inf-bonus').text(betMoney);
-			$('.guess-result').text("沒中獎!");
-			console.log("沒中獎");
-			failMusic();
-			ending = true;
 			console.log("遊戲結束!");
 		}
 	}
 	else{
-		if( move+12 > gameResult){
+		if( move+12 >= gameResult){
 			$('.bet'+(highLight)).find('span.light').addClass('active').parent().siblings().find('span.light').removeClass('active');
 			$('.bet'+(highLight)).addClass('sub-active').siblings().removeClass('sub-active');
 			// console.log("highLight目前跑燈的位置是:"+highLight);
@@ -400,6 +454,16 @@ function playGame(){
 		highLight = 1;
 	}
 }
+function lose(){
+	// 如果都不是，就是沒中獎
+	$('.inf-bonus').text(betMoney);
+	$('.guess-result').text("沒中獎!");
+	console.log("沒中獎");
+	failMusic();
+	endGame();
+	ending = true;
+	console.log("遊戲結束!");
+}
 function betMusic(){
 	var betPlay = new Audio("music/betGame.mp3");
 	betPlay.play();
@@ -418,7 +482,7 @@ function goMusic(){
 }
 function winMusic(){
 	var winGame = new Audio("music/win.mp3");
-	winGame.play();
+	winGame.play();endGame()
 }
 function failMusic(){
 	var loseGame = new Audio("music/fail.mp3");
